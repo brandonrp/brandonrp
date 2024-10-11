@@ -1,5 +1,5 @@
 ---
-- name: Set ansible_python_interpreter
+-game: Set ansible_python_interpreter
   hosts: web:&development
   gather_facts: false
   become: yes
