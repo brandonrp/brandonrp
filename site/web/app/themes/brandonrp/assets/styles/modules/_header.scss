@@ -1,0 +1,42 @@
+.brand,
+.main-wrapper {
+  @include inline-flex();
+}
+
+.icon-logo {
+  font-size: rem(100);
+  line-height: rem(100);
+
+  max-width: rem(100);
+  width: 100%;
+
+  margin: ms(1) auto;
+
+  @media (max-width: $screen-sm) {
+    font-size: ms(4);
+    line-height: ms(4);
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  @media (max-width: $screen-xs) {
+    font-size: ms(3);
+    line-height: ms(3);
+  }
+}
+
+.main-header {
+  @include flex-direction(column);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 99;
+
+  text-align: center;
+  background-color:$brand-gray-dark;
+  padding: ms(1) 0;
+}

@@ -1,0 +1,87 @@
+.contact-card {
+  text-align: center;
+
+  max-width: $screen-xl;
+  width: 100%;
+
+  margin: ms(2) 0;
+}
+
+.contact-wrapper {
+  @include container(12 fluid);
+
+  @include flexbox();
+  @include flex-direction(row);
+  @include flex-wrap(nowrap);
+  @include flex-align(center);
+  @include clearfix();
+
+  margin: auto;
+
+  @media(max-width: $screen-sm) {
+    @include flex-direction(column);
+
+    > div {
+      display: block;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.contact-info-wrapper {
+  @include inline-flex();
+  @include flex-direction(column);
+  @include flex-wrap(nowrap);
+  @include flex-align(center);
+
+  @include span(8 of 12 (ms(2)/ms(2)) last);
+}
+
+.contact-photo {
+  @include span(4 of 12 (ms(2)/ms(2)) first);
+
+  max-width: rem(220);
+
+  @media (max-width: $screen-sm) {
+    margin-bottom: ms(2);
+  }
+}
+
+.contact-info-group {
+  display: block;
+  white-space: nowrap;
+}
+
+.contact-label {
+  @extend .brackets;
+  @extend h4;
+}
+
+.contact-info {
+  font-family: $font-family-body;
+  font-weight: 200;
+  text-transform: none;
+  margin-bottom: 0;
+
+  &.name {
+    @extend h2;
+  }
+
+  @media (max-width: $screen-sm) {
+    &.name {
+      font-size: ms(2);
+      margin: 0;
+    }
+  }
+}
+
+.contact-info,
+.inline-block {
+  display: inline-block;
+}
+
+.resume .brackets {
+  white-space: nowrap;
+}

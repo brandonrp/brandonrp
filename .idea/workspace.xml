@@ -1,0 +1,1699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fda9d989-a289-4e40-97a8-7bc8b5e584ec" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/site/.github/workflows/issues.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/auth.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/config/application.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/config/environments/development.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/config/environments/staging.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/phpcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/advanced-cache.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/cache/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/mu-plugins/bedrock-autoloader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/mu-plugins/disallow-indexing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/mu-plugins/register-theme-directory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/mu-plugins/wp-migrate-db-pro-compatibility.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/plugins/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/smush-webp/smush-webp-test.png.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/.bowerrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/404.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Bebas/BebasNeue Regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Bebas/BebasNeue Regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Bebas/BebasNeue Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Bebas/BebasNeue Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Bebas/BebasNeueRegular-preview.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/brandonrp.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/brandonrp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/brandonrp.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/brandonrp.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/icons-reference.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Bold-preview.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Bold.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Bold.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Bold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Italic-preview.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Italic.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Italic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Light.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Light.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Light.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/OpenSans/OpenSans-preview.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/images/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/images/ui-sfa08ef35be.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/images/ui/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/images/ui/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/mobile-check.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/mobile-nav.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/portfolio-hover.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/preload-images.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/video-wrapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_fonts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_layout.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_sprites.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_type.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/editor-style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/main.scss.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_alerts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_contact-form.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_gallery.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_loading.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_modal.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_nav.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_search.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_social.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/pages/_home.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/pages/_posts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/pages/_resume.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/plugins/_jquery.fancybox.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/base-portfolio.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/base.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/dist/jquery.fancybox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/dist/jquery.fancybox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/dist/jquery.fancybox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/dist/jquery.fancybox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/css/core.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/css/fullscreen.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/css/slideshow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/css/thumbs.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/js/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/js/fullscreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/js/guestures.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/js/hash.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/js/media.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/js/slideshow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/fancybox/src/js/thumbs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery-mousewheel/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery-mousewheel/ChangeLog.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery-mousewheel/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery-mousewheel/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery-mousewheel/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery-mousewheel/jquery.mousewheel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery-mousewheel/jquery.mousewheel.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/MIT-LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/dist/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/dist/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/dist/jquery.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/ajax/jsonp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/ajax/load.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/ajax/parseJSON.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/ajax/parseXML.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/ajax/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/ajax/var/nonce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/ajax/var/rquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/ajax/xhr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/attributes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/attributes/attr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/attributes/classes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/attributes/prop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/attributes/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/attributes/val.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/callbacks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/core/access.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/core/init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/core/parseHTML.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/core/ready.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/core/var/rsingleTag.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/addGetHookIf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/curCSS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/defaultDisplay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/hiddenVisibleSelectors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/swap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/var/cssExpand.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/var/isHidden.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/var/rmargin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/css/var/rnumnonpx.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/data/accepts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/data/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/deferred.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/deprecated.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/dimensions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/effects.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/effects/Tween.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/effects/animatedSelector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/effects/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/event/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/event/alias.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/event/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/exports/amd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/exports/global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/intro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/manipulation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/manipulation/_evalUrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/manipulation/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/manipulation/var/rcheckableType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/offset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/outro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/queue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/queue/delay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/selector-sizzle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/selector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/serialize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/sizzle/dist/sizzle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/sizzle/dist/sizzle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/sizzle/dist/sizzle.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/traversing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/traversing/findFilter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/traversing/var/rneedsContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/class2type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/concat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/deletedIds.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/hasOwn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/indexOf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/pnum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/push.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/rnotwhite.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/slice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/strundefined.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/var/toString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/jquery/src/wrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/a-download.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/audio-audiodata-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/audio-webaudio-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/battery-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/battery-level.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/blob-constructor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/canvas-todataurl-type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/contenteditable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/contentsecuritypolicy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/contextmenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/cookies.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/cors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-backgroundposition-shorthand.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-backgroundposition-xy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-backgroundrepeat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-backgroundsizecover.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-boxsizing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-calc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-cubicbezierrange.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-displayrunin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-displaytable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-filters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-hyphens.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-lastchild.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-mask.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-mediaqueries.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-objectfit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-overflow-scrolling.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-pointerevents.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-positionsticky.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-regions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-remunit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-scrollbars.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-shapes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-subpixelfont.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-supports.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-userselect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-vhunit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-vmaxunit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-vminunit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/css-vwunit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/custom-protocol-handler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/dart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/dataview-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/dom-classlist.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/dom-createElement-attrs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/dom-dataset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/dom-microdata.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/elem-datalist.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/elem-details.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/elem-output.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/elem-progress-meter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/elem-ruby.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/elem-time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/elem-track.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/emoji.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/es5-strictmode.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/event-deviceorientation-motion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/exif-orientation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/file-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/file-filesystem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/forms-fileinput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/forms-formattribute.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/forms-inputnumber-l10n.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/forms-placeholder.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/forms-speechinput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/forms-validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/fullscreen-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/gamepad.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/getusermedia.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/ie8compat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/iframe-sandbox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/iframe-seamless.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/iframe-srcdoc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/img-apng.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/img-webp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/json.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/lists-reversed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/mathml.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/network-connection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/network-eventsource.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/network-xhr2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/performance.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/pointerlock-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/quota-management-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/requestanimationframe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/script-async.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/script-defer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/style-scoped.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/svg-filters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/unicode.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/url-data-uri.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/userdata.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/vibration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/web-intents.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/webgl-extensions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/websockets-binary.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/window-framed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/workers-blobworkers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/workers-dataworkers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/feature-detects/workers-sharedworkers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/grunt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/media/Modernizr 2 Logo.ai" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/media/Modernizr 2 Logo.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/media/Modernizr 2 Logo.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/media/Modernizr 2 Logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/media/Modernizr 2 Logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/modernizr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/basic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/Windsong-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/Windsong-webfont.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/Windsong-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/Windsong-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/Windsong-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/alpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/apng_test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/before-after.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/form_validation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/ga.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/green5x5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/hashchange.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/mathml.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/mathml_ref.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/modernizr-1.7.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/png_alpha_result.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/pushstate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/red30x30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/ruby.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/stroked-text.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/svg-html-blur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/svg-img.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/svg-img.svg.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/svg_blur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/table.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/text-shadow1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/text-shadow2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/windsong_font.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/caniuse_files/xhtml.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/basic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/dumpdata.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/lib/detect-global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/lib/jquery-1.7b2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/lib/jsonselect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/lib/polyfills.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/lib/uaparser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/setup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/unit-caniuse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/js/unit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/qunit/qunit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/qunit/qunit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modernizr/test/qunit/run-qunit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/.ruby-gemset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/Gemfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/changelog.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/license.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/modular-scale.gemspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/sache.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/_modular-scale-tests.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/_modular-scale.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_calc.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_function-list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_function.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_generate-list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_pow.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_ratios.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_respond.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_round-px.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_sort-list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/bower_components/modular-scale/stylesheets/modular-scale/_tests.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/front-page.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/functions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/assets.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/custom.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/extras.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/init.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/post-types.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/.jscsrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/appveyor.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/help/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/help/examples.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/help/images/example1-simple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/help/images/example2-js.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/help/spec.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/help/troubleshooting.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/jsdoc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/lib/Dependency.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/lib/Manifest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/lib/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/lib/buildGlobs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/lib/processManifest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/lib/readManifest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/lib/types.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/asset-builder/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/bin/browser-sync.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/args.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/async-tasks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/async.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/browser-sync.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/cli-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/cli-options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/cli-template.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/cli-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/command.init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/command.reload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/command.start.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/help.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/opts.init.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/opts.reload.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/cli/opts.start.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/connect-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/default-config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/file-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/file-watcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/hooks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/http-protocol.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/internal-events.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/logger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/public/exit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/public/init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/public/notify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/public/pause.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/public/public-utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/public/reload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/public/resume.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/public/socket.io.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/public/stream.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/certs/browsersync.pfx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/certs/gen.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/certs/server.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/certs/server.csr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/certs/server.key" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/proxy-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/snippet-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/static-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/server/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/snippet.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/sockets.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/templates/connector.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/templates/script-tags.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/tunnel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/lib/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/browser-sync/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/del/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/del/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/del/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-autoprefixer/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-autoprefixer/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-autoprefixer/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-autoprefixer/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-changed/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-changed/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-changed/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-changed/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/.jscsrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/lib/callCounter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/lib/compass.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/lib/helpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/lib/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-compass/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-concat/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-concat/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-concat/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-concat/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-flatten/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-flatten/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-flatten/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-flatten/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-flatten/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-flatten/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/img/condition.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/img/exclude.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/img/glob.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/img/ternary.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-if/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-imagemin/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-imagemin/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-imagemin/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-imagemin/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/src/extract.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/src/fileIgnored.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/src/lint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/src/reporters/fail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/src/reporters/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-jshint/src/stream.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-less/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-less/Changelog.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-less/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-less/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-less/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-minify-css/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-minify-css/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-minify-css/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-minify-css/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-minify-css/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-plumber/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-plumber/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-plumber/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-plumber/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-plumber/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/Gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rename/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rev/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rev/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rev/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-rev/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/.eslintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sass/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sourcemaps/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sourcemaps/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sourcemaps/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-sourcemaps/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-uglify/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-uglify/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-uglify/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-uglify/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-uglify/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-uglify/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-uglify/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp-uglify/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/bin/gulp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/completion/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/completion/bash" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/completion/fish" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/completion/powershell" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/completion/zsh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/lib/completion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/lib/taskTree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/gulp/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/imagemin-pngcrush/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/imagemin-pngcrush/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/imagemin-pngcrush/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/jshint-stylish/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/jshint-stylish/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/jshint-stylish/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/jshint-stylish/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/jshint-stylish/stylish.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/lazypipe/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/lazypipe/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/lazypipe/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/lazypipe/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/lazypipe/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/merge-stream/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/merge-stream/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/merge-stream/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/minimist/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/minimist/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/minimist/example/parse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/minimist/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/minimist/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/minimist/readme.markdown" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/run-sequence/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/run-sequence/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/run-sequence/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/run-sequence/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/run-sequence/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/run-sequence/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/examples/json.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/examples/leaves.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/examples/negative.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/examples/scrub.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/examples/stringify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/readme.markdown" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/traverse/testling/leaves.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/wiredep/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/wiredep/lib/default-file-types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/wiredep/lib/detect-dependencies.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/wiredep/lib/helpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/wiredep/lib/inject-dependencies.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/wiredep/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/wiredep/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/wiredep/wiredep-cli.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/node_modules/wiredep/wiredep.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/page-resume.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/client-info.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/contact-card.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/content-page.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/content-single.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/entry-meta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/head.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/modal-contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/page-header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/post-nav.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/related-posts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/searchform.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/teaser-small.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/.bowerrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/.jscsrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/404.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/fonts/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/images/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/scripts/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/common/_global.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/common/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/components/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/components/_comments.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/components/_forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/components/_grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/components/_wp-classes.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/editor-style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/layouts/_footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/layouts/_header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/layouts/_pages.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/layouts/_posts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/layouts/_sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/assets/styles/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/base.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/functions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/lang/sage.pot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/lib/assets.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/lib/conditional-tag-check.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/lib/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/lib/extras.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/lib/init.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/lib/titles.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/lib/utils.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/lib/wrapper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/page.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/ruleset.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/search.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/single.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/template-custom.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/comments.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/content-page.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/content-search.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/content-single.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/content.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/entry-meta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/footer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/head.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/page-header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/searchform.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/themes/sage-master/templates/sidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/uploads/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/w3tc-config/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/app/w3tc-config/master.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/web/wp-config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/site/wp-cli.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/.github/ISSUE_TEMPLATE/bug_report.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/.github/ISSUE_TEMPLATE/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/.github/ISSUE_TEMPLATE/feature_request.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/.github/workflows/issues.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/.trellis/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/137.184.5.215" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/137.184.5.215.pub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/Vagrantfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/ansible.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/bin/deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/bin/xdebug-tunnel.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/deploy-hooks/build-before.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/deploy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/galaxy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/all/helpers.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/all/known_hosts.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/all/logrotate.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/all/mail.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/all/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/all/security.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/all/users.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/all/vault.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/development/mail.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/development/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/development/php.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/development/security.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/development/vault.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/production/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/production/vault.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/production/wordpress_sites.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/staging/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/staging/vault.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/group_vars/staging/wordpress_sites.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/hosts/development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/hosts/production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/hosts/staging" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/lib/trellis/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/lib/trellis/config.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/lib/trellis/plugins/callback/output.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/lib/trellis/plugins/callback/vars.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/lib/trellis/plugins/filter/filters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/lib/trellis/plugins/vars/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/lib/trellis/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/lib/trellis/utils/output.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/lib/trellis/vagrant.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/common/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/common/handlers/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/common/tasks/disable_challenge_sites.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/common/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/common/tasks/reload_nginx.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/common/templates/package_vars_wrong_format_msg.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/common/templates/site_hosts.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/common/templates/validate_ssh_msg.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/common/templates/wordpress_sites.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/connection/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/connection/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/files/tmp_multisite_constants.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/hooks/build-after.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/hooks/example.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/hooks/finalize-after.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/hooks/finalize-before.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/tasks/build.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/tasks/finalize.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/tasks/initialize.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/tasks/prepare.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/tasks/share.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/tasks/update.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/templates/env.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/deploy/vars/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/fail2ban/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/fail2ban/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/fail2ban/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/fail2ban/handlers/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/fail2ban/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/fail2ban/templates/fail2ban.local.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/fail2ban/templates/jail.local.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ferm/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ferm/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ferm/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ferm/handlers/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ferm/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ferm/templates/etc/default/ferm.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ferm/templates/etc/ferm/ferm.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ferm/templates/etc/ferm/filter-input.d/dport_accept.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ferm/templates/etc/ferm/filter-input.d/dport_limit.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/library/test_challenges.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/tasks/certificates.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/tasks/nginx.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/tasks/setup.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/templates/acme-challenge-location.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/templates/nginx-challenge-site.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/letsencrypt/templates/renew-certs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/mariadb/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/mariadb/handlers/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/mariadb/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/mariadb/templates/disable-binary-logging.cnf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/mariadb/templates/my.cnf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/memcached/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/memcached/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/memcached/templates/memcached.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/directive-only/cache-file-descriptors.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/directive-only/cross-domain-insecure.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/directive-only/extra-security.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/directive-only/no-transform.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/directive-only/ssl-stapling.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/directive-only/ssl.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/directive-only/x-ua-compatible.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/location/cache-busting.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/location/cross-domain-fonts.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/location/expires.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/location/protect-system-files.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/h5bp/mime.types" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/nginx/templates/nginx.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/php/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/php/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/php/templates/php-cli.ini.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/php/templates/php-fpm.ini.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/php/vars/7.4.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/php/vars/8.0.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/python_interpreter/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/rollback/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/rollback/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/rollback/tasks/prior-release.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/rollback/tasks/user-release.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/sshd/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/sshd/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/sshd/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/sshd/handlers/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/sshd/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/sshd/templates/ssh_config.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/sshd/templates/sshd_config.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ssmtp/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ssmtp/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ssmtp/templates/revaliases.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/ssmtp/templates/ssmtp.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/users/tasks/connection-warnings.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/users/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/users/templates/sudoers.d.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-install/tasks/composer-authentications.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-install/tasks/directories.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-install/tasks/dotenv.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-install/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-install/templates/env.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/tasks/database.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/tasks/nginx-client-cert.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/tasks/nginx-includes.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/tasks/nginx.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/tasks/self-signed-certificate.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/templates/no-default.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/templates/php-fpm.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/templates/self-signed-openssl-config.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/templates/ssl.no-default.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wordpress-setup/templates/wordpress-site.conf.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wp-cli/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wp-cli/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/wp-cli/templates/wp-cli.pgp.gpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/xdebug-tunnel/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/xdebug-tunnel/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/xdebug/defaults/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/xdebug/tasks/main.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/roles/xdebug/templates/xdebug.ini.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/rollback.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/server.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/vagrant.default.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/variable-check.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trellis/xdebug-tunnel.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <ignored path="build-wp.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/site/composer.json</pharConfigPath>
+    <executablePath>composer</executablePath>
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="FLATTEN" value="false" />
+    <option name="GROUP_BY_TYPE" value="true" />
+    <option name="SORT_CHILDREN" value="false" />
+    <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="build-wp" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="34" column="8" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>button</find>
+      <find>$font-family-body</find>
+      <find>filter-</find>
+      <find>filter</find>
+      <find>cat</find>
+      <find>category</find>
+      <find>contact-card</find>
+      <find>max-width: rem</find>
+      <find>nav-toggle</find>
+      <find>modal</find>
+      <find>modal-wrapper</find>
+      <find>page-header</find>
+      <find>transparent</find>
+      <find>overlay</find>
+      <find>thumbna</find>
+      <find>thumbnail-fx</find>
+      <find>category-list</find>
+      <find>center</find>
+      <find>sketchfab</find>
+      <find>dbx_post_advanced</find>
+      <find>post-header</find>
+      <find>clients-wrapper</find>
+      <find>height</find>
+      <find>33%</find>
+      <find>main-wrapper</find>
+      <find>featured-image</find>
+      <find>main-header</find>
+      <find>featured</find>
+      <find>brandonrp</find>
+      <find>bitbucket</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>$transition-speed</replace>
+      <replace>$thumbnail-fx</replace>
+      <replace>$thumbnail-fx-on</replace>
+      <replace>jQuery</replace>
+      <replace>$count_home</replace>
+      <replace>post-thumbnail-double</replace>
+      <replace>$thumbnai</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/trellis</dir>
+      <dir>$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/</dir>
+      <dir>$PROJECT_DIR$/site/web/app/themes/</dir>
+      <dir>$PROJECT_DIR$/site/web/app/themes/brandonrp/assets</dir>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/site/web/app/themes/brandonrp</dir>
+      <dir>$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles</dir>
+    </dirStrings>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/trellis/group_vars/all/mail.yml" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/preload-images.js" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/video-wrapper.js" />
+        <option value="$PROJECT_DIR$/trellis/group_vars/development/main.yml" />
+        <option value="$PROJECT_DIR$/trellis/Vagrantfile" />
+        <option value="$PROJECT_DIR$/trellis/vagrant.default.yml" />
+        <option value="$PROJECT_DIR$/trellis/group_vars/development/wordpress_sites.yml" />
+        <option value="$PROJECT_DIR$/trellis/group_vars/development/vault.yml" />
+        <option value="$PROJECT_DIR$/site/.env" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/teaser-small.php" />
+        <option value="$PROJECT_DIR$/site/auth.json" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/config.php" />
+        <option value="$PROJECT_DIR$/trellis/dev.yml" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/post-types.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/dist/styles/main.css" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/index.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_sidebar.scss" />
+        <option value="$PROJECT_DIR$/trellis/group_vars/production/vault.yml" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/init.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/mobile-nav.js" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/related-posts.php" />
+        <option value="$PROJECT_DIR$/site/web/wp/wp-admin/setup-config.php" />
+        <option value="$PROJECT_DIR$/site/web/wp-config.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/modal-contact.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/contact-card.php" />
+        <option value="$PROJECT_DIR$/trellis/hosts/production" />
+        <option value="$PROJECT_DIR$/trellis/hosts/development" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/styles.css" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_social.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_type.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_mixins.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_modal.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/functions.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/content-single.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/client-info.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_forms.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_contact-form.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/modal.js" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/pages/_posts.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/_variables.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_nav.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/base.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/main.js" />
+        <option value="$PROJECT_DIR$/site/composer.json" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/front-page.php" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/pages/_home.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_layout.scss" />
+        <option value="$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/teaser-large.php" />
+        <option value="$PROJECT_DIR$/trellis/group_vars/production/wordpress_sites.yml" />
+        <option value="$PROJECT_DIR$/trellis/deploy-hooks/build-before.yml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/site/vendor/roots/wordpress-core-installer" />
+      <path value="$PROJECT_DIR$/site/vendor/roots/wp-password-bcrypt" />
+      <path value="$PROJECT_DIR$/site/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/site/vendor/roots/wp-config" />
+      <path value="$PROJECT_DIR$/site/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/site/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/site/vendor/oscarotero/env" />
+      <path value="$PROJECT_DIR$/site/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/site/vendor/composer" />
+      <path value="$PROJECT_DIR$/site/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/site/vendor/roots/bedrock-autoloader" />
+      <path value="$PROJECT_DIR$/site/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/site/vendor/symfony/polyfill-php80" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="61" />
+    <option name="y" value="28" />
+    <option name="width" value="1664" />
+    <option name="height" value="1410" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="brandonrp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="brandonrp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="brandonrp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="brandonrp" type="462c0819:PsiDirectoryNode" />
+              <item name="trellis" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/brandon/Web/brandonrp/site/config/environments/production.php" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1728687875620" />
+    <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/site/web/app/themes/brandonrp/assets" />
+    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../brandonrp_bak/trellis/server.yml" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/trellis-master" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/site" />
+      <recent name="$PROJECT_DIR$/site/web/app/mu-plugins" />
+      <recent name="$PROJECT_DIR$/site/web/app/plugins/advanced-custom-fields" />
+      <recent name="$PROJECT_DIR$/trellis/group_vars/development" />
+      <recent name="$PROJECT_DIR$/trellis/group_vars/production" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/trellis/group_vars/production" />
+      <recent name="$PROJECT_DIR$/trellis/group_vars/all" />
+      <recent name="$PROJECT_DIR$/trellis/hosts" />
+      <recent name="$PROJECT_DIR$/trellis" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fda9d989-a289-4e40-97a8-7bc8b5e584ec" name="Default" comment="" />
+      <created>1393097634712</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1393097634712</updated>
+      <workItem from="1545597724558" duration="125000" />
+      <workItem from="1545597871991" duration="150000" />
+      <workItem from="1545598042638" duration="5802000" />
+      <workItem from="1545859030204" duration="13297000" />
+      <workItem from="1546198379209" duration="4454000" />
+      <workItem from="1550535033315" duration="5786000" />
+      <workItem from="1550642621597" duration="1145000" />
+      <workItem from="1570934172878" duration="2297000" />
+      <workItem from="1570936644344" duration="7782000" />
+      <workItem from="1570949381068" duration="5967000" />
+      <workItem from="1570990046057" duration="772000" />
+      <workItem from="1570990852082" duration="5908000" />
+      <workItem from="1570999077364" duration="1801000" />
+      <workItem from="1571006566276" duration="4755000" />
+      <workItem from="1575769451871" duration="22068000" />
+      <workItem from="1576125313600" duration="3343000" />
+      <workItem from="1576171888868" duration="317000" />
+      <workItem from="1576470478746" duration="16423000" />
+      <workItem from="1578436521889" duration="465000" />
+      <workItem from="1581652787128" duration="8000" />
+      <workItem from="1589225376369" duration="7000" />
+      <workItem from="1629222851282" duration="15157000" />
+      <workItem from="1629474120611" duration="690000" />
+      <workItem from="1629513143809" duration="7637000" />
+      <workItem from="1629750283970" duration="1353000" />
+      <workItem from="1629911207281" duration="2461000" />
+      <workItem from="1630239462511" duration="6186000" />
+      <workItem from="1630276019549" duration="552000" />
+      <workItem from="1630906999308" duration="2111000" />
+      <workItem from="1630956370717" duration="10819000" />
+      <workItem from="1631636242839" duration="1135000" />
+      <workItem from="1631707372117" duration="7801000" />
+      <workItem from="1632582560038" duration="12030000" />
+      <workItem from="1632744665508" duration="1371000" />
+      <workItem from="1632750961245" duration="3991000" />
+      <workItem from="1632824726055" duration="549000" />
+      <workItem from="1632825506834" duration="2335000" />
+      <workItem from="1632931449796" duration="4722000" />
+      <workItem from="1633002887989" duration="5043000" />
+      <workItem from="1633026607581" duration="488000" />
+      <workItem from="1634270419665" duration="285000" />
+      <workItem from="1634307040137" duration="4766000" />
+      <workItem from="1635691427224" duration="387000" />
+      <workItem from="1635692048550" duration="483000" />
+      <workItem from="1635692670041" duration="1486000" />
+      <workItem from="1635694258155" duration="309000" />
+      <workItem from="1636748732293" duration="1046000" />
+      <workItem from="1638563797627" duration="716000" />
+      <workItem from="1638727450995" duration="24000" />
+      <workItem from="1641057893671" duration="1772000" />
+      <workItem from="1641125351311" duration="12201000" />
+      <workItem from="1641143035666" duration="1055000" />
+      <workItem from="1641238848843" duration="3257000" />
+      <workItem from="1641401219647" duration="1005000" />
+      <workItem from="1641405666508" duration="20058000" />
+      <workItem from="1641664783690" duration="305000" />
+      <workItem from="1646769445785" duration="247000" />
+      <workItem from="1649792049571" duration="1264000" />
+      <workItem from="1728684915171" duration="2696000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="242465000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="61" y="28" width="1664" height="1410" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5952941" visible="true" weight="0.21763255" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32605422" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32981133" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Changes" order="7" weight="0.17981073" />
+      <window_info anchor="bottom" id="Atlassian " order="8" weight="0.32984716" />
+      <window_info anchor="bottom" id="Application Servers" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.329653" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.32938388" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32962668" />
+      <window_info anchor="right" id="Remote Host" order="4" weight="0.3299554" />
+      <window_info anchor="right" id="Terminal" order="5" sideWeight="0.40470588" side_tool="true" visible="true" weight="0.23921084" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Palette" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.rb" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="atlassian-ide-plugin-workspace">
+    <option name="bambooConfiguration">
+      <BambooWorkspaceConfiguration>
+        <option name="view">
+          <BambooViewConfigurationBean />
+        </option>
+      </BambooWorkspaceConfiguration>
+    </option>
+    <option name="defaultCredentials">
+      <UserCfgBean />
+    </option>
+  </component>
+  <component name="atlassian-ide-plugin-workspace-issues">
+    <option name="filtersMap">
+      <map>
+        <entry>
+          <key>
+            <ServerIdImpl>
+              <option name="id" value="8ba1ecec-1cad-4609-a383-0ff3e49807d9" />
+            </ServerIdImpl>
+          </key>
+          <value>
+            <JiraCustomFilterMap />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="view">
+      <JiraViewConfigurationBean>
+        <option name="viewFilterId" value="" />
+      </JiraViewConfigurationBean>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/icons-reference.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="98" column="21" lean-forward="true" selection-start-line="98" selection-start-column="21" selection-end-line="98" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/brandonrp.ttf">
+      <provider selected="true" editor-type-id="fontseditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_social.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/fonts/Icons/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_type.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="333" column="1" lean-forward="true" selection-start-line="333" selection-start-column="1" selection-end-line="333" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/pages/_resume.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="18" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_mixins.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="107" column="41" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/hosts/development">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/hosts/production">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/hosts/staging">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/page-header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/entry-meta.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/extras.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="3" lean-forward="true" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/post-types.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/assets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-86" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/base-portfolio.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/client-info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_modal.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_forms.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/mobile-check.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_contact-form.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/modules/_nav.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-753">
+          <caret line="97" column="11" lean-forward="true" selection-start-line="97" selection-start-column="11" selection-end-line="97" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/src/mobile-nav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/content-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/scripts/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/lib/custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/pages/_posts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="267" column="11" selection-start-line="267" selection-start-column="11" selection-end-line="267" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/group_vars/all/known_hosts.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/teaser-large.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/templates/content-single.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/front-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/base/_layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1235">
+          <caret line="137" column="24" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/config/environments/development.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/config/application.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/group_vars/all/main.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/group_vars/development/main.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/deploy-hooks/build-before.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/group_vars/production/main.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/group_vars/production/wordpress_sites.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trellis/group_vars/development/wordpress_sites.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/site/web/app/themes/brandonrp/assets/styles/pages/_home.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="34" column="8" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

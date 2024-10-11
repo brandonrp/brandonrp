@@ -1,0 +1,11 @@
+@import "main";
+
+body {
+  margin: 12px !important;
+  background-color: #fff;
+}
+
+body,
+h1, h2, h3, h4, h5, h6 {
+  color: $brand-gray-dark;
+}

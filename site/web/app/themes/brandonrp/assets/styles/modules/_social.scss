@@ -1,0 +1,59 @@
+.social-links {
+  position: absolute;
+  bottom: ms(3);
+
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+
+  li {
+    @include square(rem(30));
+    display: inline-block;
+    margin: 0 rem(5);
+
+    a {
+      @include square(100%);
+      @include hide-text();
+
+      text-align: center;
+
+      &:before, &:after {
+        font-size: ms(1.5);
+        line-height: rem(30);
+        color: #fff;
+      }
+
+      &, &:before, &:after {
+        @include transition(color $transition-speed ease-in-out);
+        display: block;
+      }
+
+      &:hover {
+        &:before, &:after {
+          color: $brand-red;
+        }
+      }
+    }
+  }
+
+  .icon-artstation a:before {
+    font-size: ms(1);
+  }
+
+  @media (max-width: $screen-sm) {
+    bottom: ms(1);
+
+    li {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media only screen
+  and (max-device-width : $screen-sm)
+  and (orientation : landscape) {
+    display: none;
+  }
+}

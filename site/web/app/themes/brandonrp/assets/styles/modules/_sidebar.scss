@@ -1,0 +1,55 @@
+.sidebar {
+  @include container(12 (0 0) fluid);
+
+  width: 100%;
+  max-width: $screen-lg;
+  margin: ms(2) auto;
+
+  .widget_search {
+    @include span(12 first last);
+  }
+
+  .widget {
+    @include span(4 of 12);
+    @include inline-flex();
+    @include flex-direction(column);
+    padding: ms(2);
+
+    h3 {
+      display: block;
+    }
+
+    ul {
+      @extend .clean-list;
+    }
+
+    @media (min-width: $screen-sm) {
+      &:nth-child(4n+1):not(.widget_search) {
+        @include span(4 of 12 first);
+      }
+
+      &:nth-child(3n):not(.widget_search) {
+        @include span(4 of 12 last);
+      }
+    }
+
+    @media (max-width: $screen-sm) {
+      padding: ms(0);
+
+      &:nth-child(n) {
+        @include span(12 of 12);
+
+        margin-bottom: ms(2);
+      }
+    }
+  }
+
+  h3 {
+    @extend h4;
+    @extend .brackets;
+
+    &:before, &:after {
+      color: $brand-red;
+    }
+  }
+}

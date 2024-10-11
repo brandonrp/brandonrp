@@ -1,0 +1,117 @@
+// Modular Scale
+// --------------------------------------------------
+
+$ms-base: .813rem;
+$ms-ratio: 1.618;
+
+
+// Susy Grid system
+// --------------------------------------------------
+
+$column-width: 60;
+$gutter-width: 0;
+
+$susy: (
+  global-box-sizing: border-box,
+  use-custom: (rem: true),
+  gutters: $gutter-width/$column-width,
+  column-width: 3.75rem,
+  math: fluid,
+  output: float,
+  gutter-postition: inside,
+);
+
+$grid-large: 12 fluid inside-satic ltr;
+
+// Container sizes
+// --------------------------------------------------
+
+//// Small screen / tablet
+$screen-xxs: rem(321);
+$screen-xs: rem(414);
+$screen-sm: rem(768);
+$screen-md: rem(940);
+$screen-lg: rem(1025);
+$screen-xl: rem(1280);
+$screen-xxl: rem(1440);
+$screen-xxxl: rem(1920);
+
+// colors
+// -------------------------
+
+$brand-red:           #ff4444;
+$brand-red-dark:      #cb4949;
+$brand-orange:        #f87900;
+$brand-yellow:        #ffd500;
+$brand-green:         #9fcd2b;
+$brand-blue:          #0faaf1;
+$brand-gray-dark:     #2c2c2c;
+$brand-gray-mid:      #303231;
+$brand-gray:          #4a4c4b;
+$brand-gray-lighter:  #4a4c4b;
+$brand-gray-light:    #ffffff;
+
+$link-color:          #ffffff;
+$link-hover-color:    $brand-red;
+
+$nav-link-color:      #fff;
+$nav-link-hover-color:$brand-red;
+
+$modal-bg: rgba(0, 0, 0   , 0.51);
+
+$body-bg:             $brand-gray-dark;
+$text-color:          #fff;
+
+$selection-color:     $brand-red;
+$shadow-color:        $brand-gray-dark;
+$text-shadow:         0 0 ms(0) $shadow-color;
+$box-shadow:          0 0 12px rgba(0,0,0,0.3);
+
+// Typography
+// -------------------------
+
+$font-family-header:      'Bebas Neue Regular', Arial, sans-serif;
+$font-family-body:        'Open Sans', Arial, sans-serif;
+$font-family-icons:       "brandonrp" !important;
+$font-family-em:          $font-family-body;
+$font-family-strong:      $font-family-body;
+$font-family-nav:         $font-family-header;
+$font-family-sans-serif:  $font-family-body;
+$font-family-serif:       Georgia, "Times New Roman-", Times, serif;
+$font-family-monospace:   Monaco, Menlo, Consolas, "Courier- New", monospace;
+
+$font-size-h6:            unquote("#{ms(3, $ms-ratio)}rem");
+$font-size-h5:            unquote("#{ms(-2, $ms-ratio)}rem");
+$font-size-h4:            unquote("#{ms(-1, $ms-ratio)}rem");
+$font-size-h3:            unquote("#{ms(0, $ms-ratio)}rem");
+$font-size-h2:            unquote("#{ms(1, $ms-ratio)}rem");
+$font-size-h1:            unquote("#{ms(2, $ms-ratio)}rem");
+
+$font-size-base:          $ms-base;
+$font-size-mobile:        ms(0.5);
+$font-size-large:         unquote("#{ms(5, $ms-ratio)}rem");
+$font-size-small:         unquote("#{ms(0.5, $ms-ratio)}rem");
+
+$line-height-base:        $ms-ratio;
+$line-height-computed:    floor($ms-base * $line-height-base);
+
+$headings-font-family:    $font-family-header;
+$headings-font-weight:    700;
+$headings-line-height:    1;
+
+$transition-speed:        0.1s;
+
+$thumbnail-fx:            unquote("#{grayscale(40%) brightness(30%) blur(1px)}");
+$thumbnail-fx-mobile:     $thumbnail-fx;
+$thumbnail-hover-border:  ms(-2) solid $brand-red;
+$thumbnail-category:      block; // none: off , block: on
+$thumbnail-text-size:     ms(1.5);
+$thumbnail-text-sm:       ms(0.5);
+
+$home-block-width:        33.33%;
+$home-text-size:          ms(2);
+$home-btn-size:           ms(1);
+$home-btn-height:         ms(1);
+
+$menu-width:              33.33%;
+$post-width:              $screen-xxl;

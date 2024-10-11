@@ -1,0 +1,8 @@
+# Documentation: https://roots.io/trellis/docs/vault/
+vault_mail_password: 66aa8c746431a991c4b306fbc2afa445-dbdfb8ff-9b72b68f
+
+# Variables to accompany `wordpress_env_defaults` in `group_vars/all/helpers.yml`
+# Note: These values can be overriden by `vault_wordpress_sites.*.env`
+#
+# vault_wordpress_env_defaults:
+#   my_api_key: 'available to all environments'

@@ -1,0 +1,36 @@
+.search-form {
+  @include flexbox();
+  @include flex-align(center);
+  @include clearfix();
+  @include container(12 fluid);
+
+  margin-top: ms(2);
+  margin-bottom: ms(2);
+
+  label {
+    display: none;
+    text-align: center;
+
+    @media (min-width: $screen-sm) {
+      display: block;
+      @include span(3 of 12 first);
+    }
+  }
+
+  .input-group {
+    width: 100%;
+
+    @media (min-width: $screen-sm) {
+      @include span(9 of 12 last);
+    }
+  }
+
+  .search-field {
+    width: span(9);
+  }
+
+  .search-submit {
+    width: span(2);
+    height: ms(3);
+  }
+}

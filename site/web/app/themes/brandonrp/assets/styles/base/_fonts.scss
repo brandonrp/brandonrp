@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Bebas Neue Regular';
+  src: url('../fonts/BebasNeue Regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/BebasNeue Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/BebasNeue Regular.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/BebasNeue Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/BebasNeue Regular.svg#3166c81ac2dcbbc5ab3c7185cfcd2ecc') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Light.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/OpenSans-Light.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/OpenSans-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/OpenSans-Light.svg#09be4bfe8975a657af6444a6f1d73848') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/OpenSans-Bold.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/OpenSans-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/OpenSans-Bold.svg#72800b665ba60a9a58674e2a6befde3a') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Italic.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/OpenSans-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/OpenSans-Italic.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/OpenSans-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/OpenSans-Italic.svg#94c33cdd8f8847f3444990ab6c6e6a61') format('svg'); /* Legacy iOS */
+
+  font-style:   italic;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/OpenSans-Regular.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/OpenSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/OpenSans-Regular.svg#dc56f0938c09c27a4156bb0f8f5176a2') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: "brandonrp";
+  src:url("../fonts/brandonrp.eot");
+  src:url("../fonts/brandonrp.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/brandonrp.woff") format("woff"),
+  url("../fonts/brandonrp.ttf") format("truetype"),
+  url("../fonts/brandonrp.svg#brandonrp") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "brandonrp" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before,
+[class^="icon-"] a:before,
+[class*=" icon-"] a:before {
+  font-family: "brandonrp" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-indent: 0;
+  visibility: visible;
+}
+
+.icon-logo:before {
+  content: "b";
+}
+.icon-behance a:before {
+  content: "a";
+}
+.icon-deviantart a:before {
+  content: "c";
+}
+.icon-twitter a:before {
+  content: "l";
+}
+.icon-instagram a:before {
+  content: "m";
+}
+.icon-mail a:before {
+  content: "n";
+}
+.icon-pinterest a:before {
+  content: "f";
+}
+.icon-linkedin a:before {
+  content: "d";
+}
+.icon-facebook a:before {
+  content: "e";
+}
+.icon-search a:before {
+  content: "g";
+}
+.icon-triangle-right:before {
+  content: "h";
+}
+.icon-triangle-left:before {
+  content: "i";
+}
+.icon-rss a:before {
+  content: "j";
+}
+.icon-tumblr a:before {
+  content: "k";
+}
+.icon-artstation a:before {
+  content: "o";
+}
+.icon-three-bars:before {
+  content: "p";
+}
+.icon-x:before {
+  content: "q";
+}
+
+@mixin icon() {
+  font-family: "brandonrp" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-indent: 0;
+  visibility: visible;
+}
+
+@keyframes watermark {
+  0%, 100% { @include opacity(0); }
+  50% { @include opacity(.25); }
+}
+
+@mixin watermark() {
+  &:after {
+    $size: 70;
+
+    @include animation(watermark 5s infinite);
+    @include icon();
+    @include square(rem($size));
+    @include opacity(0.1);
+
+    font-size: ms(4);
+
+    content: 'b';
+    display: block;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    margin-top: rem($size/-2);
+    margin-left: rem($size/-2);
+    max-width: none;
+
+    z-index: -1;
+  }
+}

@@ -1,0 +1,84 @@
+input,
+textarea,
+option,
+select {
+  @include transition(all $transition-speed ease-in-out);
+
+  color: #fff;
+  font-family: $font-family-header;
+  font-size: ms(1);
+  letter-spacing: rem(1);
+
+  background-color: $brand-red;
+  border: none;
+  outline: none;
+  padding: 0 ms(1);
+
+  @include placeholder(#fff);
+
+  &:focus {
+    @include box-shadow(0 0 0 em(5) $brand-gray-dark);
+    @include placeholder($brand-gray-light);
+
+    background-color: $brand-gray-dark;
+    color: #fff;
+    outline: none;
+  }
+
+  @include appearance(none);
+  @include placeholder(#ffb0b3);
+  @include border-radius(0);
+
+  @media (max-width: $screen-sm) {
+    font-size: ms(0);
+    padding: ms(0);
+  }
+}
+
+input:not([type='submit']),
+label,
+option,
+select {
+  height: ms(3);
+  width: 100%;
+  line-height: ms(3);
+}
+
+textarea {
+  padding: ms(1);
+
+  @media (max-width: $screen-sm) {
+    height: ms(3);
+  }
+}
+
+label {
+  @extend .brackets;
+  @extend .h3;
+  @include justify-content(flex-end);
+
+  text-align: right;
+
+  &:before, &:after {
+    color: $brand-red;
+  }
+}
+
+input[type="submit"],
+button {
+  @include transition(background-color $transition-speed ease-in-out, color $transition-speed ease-in-out);
+
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  padding: ms(1);
+
+  &:hover {
+    color: #ffffff;
+  }
+
+  &:active, &:focus {
+    @include box-shadow(none);
+    outline: none;
+  }
+}

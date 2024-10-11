@@ -1,0 +1,24 @@
+# Documentation: https://roots.io/trellis/docs/remote-server-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/production/vault.yml
+
+wordpress_sites:
+  brandonrp.com:
+    site_hosts:
+      - canonical: brandonrp.com
+        redirects:
+          - www.brandonrp.com
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    repo: https://github.com/brandonrp/brandonrp # replace with your Git repo URL
+    repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
+    branch: master
+    multisite:
+      enabled: false
+    ssl:
+      enabled: false
+      provider: letsencrypt
+    cache:
+      enabled: false
+    site_title: Brandon Pirruccello | Visual Designer
+    admin_user: brandon
+    admin_email: me@brandonrp.com

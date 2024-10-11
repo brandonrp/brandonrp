@@ -1,0 +1,105 @@
+
+// Icon for submit button
+.btn-submit-wrap {
+  position: relative;
+
+  &:before {
+    font-size: rem(14);
+
+    position: absolute;
+    right: 0;
+    top: rem(15);
+
+    border: rem(3) solid $brand-red;
+  }
+}
+
+.btn-submit,
+.wpcf7-submit {
+  @extend .h3;
+
+  &:hover {
+    color: #fff;
+    background-color: $brand-gray-dark;
+    cursor: pointer;
+  }
+}
+
+// Form overrides
+.wpcf7 {
+  @include container(10 fluid);
+  @include scale(0);
+  width: 100%;
+
+  p {
+    @include clearfix();
+  }
+
+  label {
+    @include span(3 of 10 first);
+    @include suffix(2%);
+    line-height: normal;
+  }
+
+  .wpcf7-form-control-wrap {
+    @include span(7 of 10 last);
+  }
+
+  &.scale {
+    @include transition(all $transition-speed ease-in-out);
+    @include scale(1.0);
+  }
+
+  .screen-reader-response {
+    @include push(3 of 10);
+    @include span(7 of 10);
+
+    margin-bottom: ms(0);
+  }
+
+  .wpcf7-submit {
+    @include span(7 of 10 last);
+    display: block;
+  }
+
+  .wpcf7-response-output,
+  .screen-reader-response {
+    @include span(7 of 10 last);
+    @extend .h3;
+
+    text-align: center;
+  }
+
+  .screen-reader-response {
+    display: none;
+  }
+
+  @media (max-width: $screen-sm) {
+    margin-top: ms(2);
+
+    p {
+      margin: 0 auto ms(1);
+    }
+
+    label,
+    .wpcf7-form-control-wrap,
+    .wpcf7-textarea,
+    .wpcf7-submit,
+    .wpcf7-response-output {
+      float: none;
+      @include span(10 of 10);
+
+      text-align: left;
+    }
+
+    label {
+      height: ms(2);
+    }
+
+    .wpcf7-submit,
+    .wpcf7-response-output {
+      text-align: center;
+    }
+  }
+}
+

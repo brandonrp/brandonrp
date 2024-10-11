@@ -1,0 +1,49 @@
+.modal-wrapper {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+
+  width: 100%;
+  height: 100vh;
+
+  background-color: $modal-bg;
+}
+
+.modal-content {
+  @include flexbox();
+  @include justify-content(center);
+  @include flex-align(center);
+
+  height: 100%;
+  padding: ms(2);
+
+  position: relative;
+  overflow: hidden;
+
+  > div {
+    margin: auto;
+  }
+}
+
+.modal-close {
+  @include icon();
+  color: #fff;
+  font-size: ms(2);
+  font-family: $font-family-icons;
+  vertical-align: top;
+
+  background: none;
+  cursor: pointer;
+
+  position: fixed;
+  top: ms(0);
+  right: ms(0.5);
+  z-index: 99;
+
+  &:hover {
+    color: $brand-red;
+  }
+}
