@@ -1,0 +1,246 @@
+// assets/styles/base/_shims.scss
+// Compass/Bourbon-era shims + icon helpers, conflict-safe (no size() collisions).
+
+@use "sass:meta";
+@use "sass:math";
+
+// ---------- Path vars (override before import if needed) ----------
+$images-path: "../images" !default; // relative to dist/styles/main.css
+$icons-path:  "#{$images-path}/icons" !default;
+
+// ---------- Flexbox shim ----------
+@mixin flexbox($properties...) {
+  display: flex;
+  @if length($properties) > 0 {
+    @each $prop in $properties {
+      @if meta.type-of($prop) == 'map' {
+        @each $k, $v in $prop { #{$k}: $v; }
+      }
+    }
+  }
+}
+
+// ---------- Convenience shims ----------
+@mixin flex($val: 0 1 auto) { flex: $val; }
+@mixin justify-content($val) { justify-content: $val; }
+@mixin align-items($val) { align-items: $val; }
+@mixin align-content($val) { align-content: $val; }
+@mixin flex-direction($val) { flex-direction: $val; }
+@mixin flex-wrap($val) { flex-wrap: $val; }
+@mixin order($val) { order: $val; }
+
+@mixin display-flex { display: flex; }
+@mixin inline-block() { display: inline-block; }
+
+@mixin border-radius($radius) { border-radius: $radius; }
+@mixin box-shadow($values...) { box-shadow: $values; }
+@mixin text-shadow($values...) { text-shadow: $values; }
+@mixin opacity($alpha) { opacity: $alpha; }
+@mixin appearance($value) { appearance: $value; }
+@mixin user-select($value) { user-select: $value; }
+@mixin outline-none() { outline: 0; }
+@mixin background-size($value) { background-size: $value; }
+
+@mixin transform($value) { transform: $value; }
+@mixin transform-origin($value) { transform-origin: $value; }
+@mixin transform-style($value) { transform-style: $value; }
+@mixin perspective($value) { perspective: $value; }
+@mixin perspective-origin($value) { perspective-origin: $value; }
+
+@mixin transition($values...) { transition: $values; }
+@mixin transition-property($values...) { transition-property: $values; }
+@mixin transition-duration($values...) { transition-duration: $values; }
+@mixin transition-delay($delay) { transition-delay: $delay; }
+@mixin transition-timing-function($fn) { transition-timing-function: $fn; }
+
+@mixin animation($values...) { animation: $values; }
+@mixin animation-name($name) { animation-name: $name; }
+@mixin animation-duration($dur) { animation-duration: $dur; }
+@mixin animation-delay($delay) { animation-delay: $delay; }
+@mixin animation-timing-function($fn) { animation-timing-function: $fn; }
+@mixin animation-iteration-count($n) { animation-iteration-count: $n; }
+@mixin animation-direction($dir) { animation-direction: $dir; }
+@mixin animation-fill-mode($mode) { animation-fill-mode: $mode; }
+@mixin keyframes($name) { @keyframes #{$name} { @content; } }
+
+@mixin clearfix() { &::after { content: ""; display: table; clear: both; } }
+
+@mixin linear-gradient($value) { background-image: linear-gradient(#{$value}); }
+@mixin filter($value) { filter: $value; }
+
+// ---------- Icon helpers (no size() calls; no @return in mixins) ----------
+
+// Optional default for zero-arg icon() calls (set BEFORE import if you want one)
+// $icon-default: "logo.svg" !default;
+$icon-default: null !default;
+
+// Build the icon URL or null if no name
+@function _icon-url($name) {
+  @if $name == null { @return null; }
+  @return url("#{$icons-path}/#{$name}");
+}
+
+// Background-image icon (multi-color assets)
+@mixin icon-bg($name: null, $size: 1rem, $contain: true, $repeat: no-repeat) {
+  $real: if($name == null, $icon-default, $name);
+  $u: _icon-url($real);
+
+  @if $u != null {
+    background-image: $u;
+    background-repeat: $repeat;
+
+    @if $contain {
+      background-size: contain;
+      background-position: center;
+    }
+
+    width: $size;
+    height: $size;
+    display: inline-block;
+  }
+}
+
+// Mask icon (monochrome; tint with background-color or currentColor)
+@mixin icon-mask($name: null, $size: 1rem, $color: currentColor, $contain: true, $repeat: no-repeat) {
+  $real: if($name == null, $icon-default, $name);
+  $u: _icon-url($real);
+
+  @if $u != null {
+    -webkit-mask-image: $u;
+    mask-image: $u;
+    -webkit-mask-repeat: $repeat;
+    mask-repeat: $repeat;
+
+    @if $contain {
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-position: center;
+      mask-position: center;
+    }
+
+    background-color: $color;
+    width: $size;
+    height: $size;
+    display: inline-block;
+  }
+}
+
+// Legacy alias
+@mixin icon($name: null, $size: 1rem, $variant: bg) {
+  @if $variant == mask {
+    @include icon-mask($name, $size);
+  } @else {
+    @include icon-bg($name, $size);
+  }
+}
+
+// ============================
+// Watermark helpers (legacy)
+// ============================
+
+// Set a project-wide default image for zero-arg calls BEFORE importing shims if desired:
+//   $watermark-default: "watermark.svg";
+$watermark-default: null !default;
+
+// Build url() from $images-path
+@function _img-url($name) {
+  @if $name == null { @return null; }
+  @return url("#{$images-path}/#{$name}");
+}
+
+/**
+ * watermark()
+ * Adds a centered, non-interactive watermark via ::before overlay.
+ * Zero-arg calls use $watermark-default if set; else no-op.
+ */
+@mixin watermark($image: null, $size: 40vmin, $opacity: 0.06, $repeat: no-repeat, $fit: contain, $pos: center) {
+  $real: if($image == null, $watermark-default, $image);
+  $u: _img-url($real);
+
+  @if $u != null {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: $opacity;
+
+      background-image: $u;
+      background-repeat: $repeat;
+      background-position: $pos;
+      background-size: $fit;
+
+      display: block;
+      margin: auto;
+      width: $size;
+      height: $size;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+/**
+ * watermark-bg()
+ * Paints directly on the element’s background (no pseudo-element).
+ */
+@mixin watermark-bg($image: null, $opacity: 0.06, $repeat: no-repeat, $fit: contain, $pos: center) {
+  $real: if($image == null, $watermark-default, $image);
+  $u: _img-url($real);
+
+  @if $u != null {
+    position: relative;
+    background-image: $u;
+    background-repeat: $repeat;
+    background-position: $pos;
+    background-size: $fit;
+  }
+}
+
+// ============================
+// Brackets helper (legacy)
+// ============================
+//
+// Usage:
+//   .label { @include brackets(); }               // default look
+//   .tag   { @include brackets(0.25em, 2px); }    // custom padding/weight
+//
+@mixin brackets($pad: .15em, $weight: 2px) {
+  position: relative;
+  display: inline-block;
+  padding: 0 $pad;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: $weight;
+    height: 1em;
+    transform: translateY(-50%);
+    background-color: currentColor;
+  }
+  &::before { left: 0; }
+  &::after  { right: 0; }
+}
+
+/* --- Legacy aliases used in theme --- */
+@mixin inline-flex() { display: inline-flex; }
+@mixin flex-align($val) { align-items: $val; }
+@mixin square($size) { width: $size; height: $size; }
+
+// Replace all old-style division with math.div()
+@function div($a, $b) {
+  @return math.div($a, $b);
+}
+
+// Backward-compatible rem() helper
+// Many old codebases used rem($px) with an implicit 16px base.
+// Make base configurable but default to 16px so 1-arg calls still work.
+/* LEGACY rem removed to avoid conflicts:
+@function rem($px, $base: 16px) {
+  @return math.div($px, $base) * 1rem;
+}
+*/
+

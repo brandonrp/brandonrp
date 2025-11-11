@@ -1,0 +1,304 @@
+@use "sass:math";
+@use "sass:list";
+@use "sass:meta";
+
+// ---------- helpers ----------
+@function _flatten-args($args...) {
+  $flat: ();
+  @for $i from 1 through list.length($args) {
+    $item: list.nth($args, $i);
+    @if meta.type-of($item) == 'list' {
+      @for $j from 1 through list.length($item) {
+        $flat: list.append($flat, list.nth($item, $j));
+      }
+    } @else {
+      $flat: list.append($flat, $item);
+    }
+  }
+  @return $flat;
+}
+
+// ---------- Susy-like span shim ----------
+// Function version for width calculations (e.g., width: span(2);)
+@function span($cols: 1, $total: 12) {
+  @return math.div($cols, $total) * 100%;
+}
+
+// Mixin version for layout (e.g., @include span(2 of 12 first);)
+@mixin span($args...) {
+  $args: _flatten-args($args...);
+
+  $cols: null;
+  $total: null;
+  $first: false;
+  $last: false;
+
+  @for $i from 1 through list.length($args) {
+    $item: list.nth($args, $i);
+
+    @if meta.type-of($item) == 'number' {
+      @if $cols == null { $cols: $item; }
+      @else if $total == null { $total: $item; }
+    } @else if $item == first {
+      $first: true;
+    } @else if $item == last {
+      $last: true;
+    } @else if $item == of or $item == "/" {
+      // noop tokens
+    }
+  }
+
+  // Fallback for comma syntax: span(2, 12)
+  @if $cols != null and $total == null and list.length($args) >= 2 {
+    $maybe-total: list.nth($args, 2);
+    @if meta.type-of($maybe-total) == 'number' { $total: $maybe-total; }
+  }
+
+  @if $cols == null or $total == null {
+    @error "span() expects: @include span(<cols> of <total> [first|last]); or span(<cols>, <total>). Got: #{$args}";
+  }
+
+  $width: math.div($cols, $total) * 100%;
+  width: $width;
+  float: left;
+
+  @if $first { clear: left; }
+  @if $last  { float: right; }
+}
+
+// ---------- container shim ----------
+// Accepts: container(fluid), container(10 fluid), container(10 of 12), container(10, 12)
+@mixin container($args...) {
+  $args: _flatten-args($args...);
+
+  $cols   : null;
+  $total  : 12;
+  $fluid  : false;
+
+  // Dart Sass 3-safe global variable checks
+  $has-gutter: meta.global-variable-exists('grid-gutter-width');
+  $has-max   : meta.global-variable-exists('container-max');
+
+  $gutter: if($has-gutter, $grid-gutter-width, 24px);
+  $max   : if($has-max, $container-max, 1200px);
+
+  @for $i from 1 through list.length($args) {
+    $item: list.nth($args, $i);
+
+    @if meta.type-of($item) == 'number' {
+      @if $cols == null { $cols: $item; }
+      @else { $total: $item; }
+    } @else if $item == of or $item == "/" {
+      // noop
+    } @else if $item == fluid {
+      $fluid: true;
+    }
+  }
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+
+  @if $fluid == true and $cols == null {
+    width: 100%;
+    max-width: none;
+  } @else if $cols != null {
+    $w: math.div($cols, $total) * 100%;
+    width: $w;
+    max-width: none;
+  } @else {
+    width: 100%;
+    max-width: $max;
+  }
+}
+
+// Global Layout Rules
+
+* {
+  @include box-sizing(border-box);
+}
+
+*:not(input, textarea) {
+  @include user-select(none);
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  @include clearfix();
+  @include layout($grid-large);
+
+  background-color: $body-bg;
+  font-family: $font-family-body;
+  font-size: $font-size-base;
+  color: $text-color;
+}
+
+section {
+  display: block;
+  width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+img,
+iframe {
+  max-width: 100%;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+
+  iframe {
+    height: auto;
+  }
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
+
+figure {
+  max-width: 100%;
+}
+
+.content {
+  @include clearfix;
+  position: relative;
+}
+
+.alignleft,
+.alignright,
+.aligncenter {
+  @include clearfix;
+
+  margin: $line-height-computed;
+}
+
+.alignleft {
+  margin-left: 0;
+  float: left;
+}
+
+.alignright {
+  margin-right: 0;
+  float: right
+}
+
+.aligncenter {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+}
+
+a[rel=gallery] {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.clearfix {
+  display: inline-block;
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+  *zoom: 1;
+}
+
+.clean-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    margin: 0;
+  }
+}
+
+.shrink {
+  @include transition(all 0.2s ease-in-out);
+
+  &:hover {
+    @include scale(0.9);
+  }
+}
+
+.main-wrapper,
+.main {
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+}
+
+.main-header {
+  @include span(2 of 12 first);
+}
+
+.main-wrapper {
+  @include span(10 of 12 last);
+  @include clearfix();
+
+  min-height: 100%;
+  height: 100vh;
+}
+
+.main {
+  @include flexbox();
+  width: 100%;
+}
+
+.page-header {
+  margin: 0;
+}
+
+.gallery {
+  display: block;
+  margin-bottom: ms(2);
+}
+
+.container {
+  @include flexbox();
+  @include flex-align(center);
+  @include flex-direction(column);
+  @include justify-content(center);
+
+  height: 100%;
+}
+
+.disabled {
+  @include opacity(.5);
+  pointer-events: none;
+  overflow: hidden;
+  position: relative;
+  right: 0;
+}

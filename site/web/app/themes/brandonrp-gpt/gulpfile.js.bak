@@ -1,0 +1,85 @@
+const { src, dest, watch, series, parallel } = require('gulp');
+const gulpIf       = require('gulp-if');
+const gulpSass     = require('gulp-sass')(require('sass')); // no legacy-js-api warning
+const postcss      = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cleanCSS     = require('gulp-clean-css');
+const plumber      = require('gulp-plumber');
+const sourcemaps   = require('gulp-sourcemaps');
+const terser       = require('gulp-terser');
+const rename       = require('gulp-rename');
+
+// Default to development if NODE_ENV is not set
+const env   = process.env.NODE_ENV || 'development';
+const isProd = env === 'production';
+
+// Paths
+const paths = {
+  styles: {
+    src:  'assets/styles/**/*.scss',
+    dest: 'dist/styles'
+  },
+  scripts: {
+    src:  'assets/scripts/**/*.js',
+    dest: 'dist/scripts'
+  }
+};
+
+// Centralized Sass include paths
+const sassPaths = [
+  'assets/styles',
+  'node_modules',
+  'node_modules/modularscale-sass/stylesheets',
+  'node_modules/susy/sass',
+  'node_modules/compass-mixins/lib'
+];
+
+// Compile SCSS → CSS
+function styles() {
+  return src(paths.styles.src)
+    .pipe(plumber())
+    .pipe(gulpIf(!isProd, sourcemaps.init()))
+    .pipe(
+      gulpSass({
+        outputStyle: isProd ? 'compressed' : 'expanded',
+        includePaths: sassPaths,
+        // keep legacy libs quiet while you migrate
+        silenceDeprecations: ['import', 'legacy-js-api'],
+        quietDeps: true
+      }).on('error', gulpSass.logError)
+    )
+    .pipe(postcss([autoprefixer()]))
+    .pipe(gulpIf(isProd, cleanCSS()))
+    .pipe(gulpIf(!isProd, sourcemaps.write('.')))
+    .pipe(dest(paths.styles.dest));
+}
+
+// Minify JS
+function scripts() {
+  return src(paths.scripts.src)
+    .pipe(plumber())
+    .pipe(gulpIf(!isProd, sourcemaps.init()))
+    .pipe(gulpIf(isProd, terser()))
+    .pipe(rename({ suffix: isProd ? '.min' : '' }))
+    .pipe(gulpIf(!isProd, sourcemaps.write('.')))
+    .pipe(dest(paths.scripts.dest));
+}
+
+// Watch files for changes
+function watcher() {
+  watch(paths.styles.src, styles);
+  watch(paths.scripts.src, scripts);
+}
+
+// Copy webfonts to dist
+function fonts() {
+  return src('assets/fonts/**/*.{woff,woff2,ttf,otf}')
+    .pipe(dest('dist/fonts'));
+}
+exports.fonts = fonts;
+
+exports.styles   = styles;
+exports.scripts  = scripts;
+exports.build    = parallel(styles, scripts, fonts);
+exports.watch    = series(exports.build, watcher);
+exports.default  = exports.build;

@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+/* === BrandonRP fonts (merged, path-stable) ================================
+   Dist layout assumed:
+     dist/styles/main.css
+     dist/fonts/*.woff[2]
+   => Use url("../fonts/...") from within CSS.
+   If you do NOT have .woff2 versions, you can delete those lines safely.
+   ======================================================================= */
+
+/* ----------------------- Bebas Neue (Regular 400) ----------------------- */
+/* Keep both family names to avoid breaking older rules that used
+   'Bebas Neue Regular'. New code should use 'Bebas Neue'. */
+@font-face {
+  font-family: "Bebas Neue";
+  src:
+    /* url("../fonts/BebasNeue-Regular.woff2") format("woff2"), */ /* enable if present */
+    url("../fonts/BebasNeue-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bebas Neue Regular"; /* legacy alias */
+  src:
+    /* url("../fonts/BebasNeue-Regular.woff2") format("woff2"), */
+    url("../fonts/BebasNeue-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ----------------------- Open Sans (Light/Regular/Bold/Italic) ---------- */
+@font-face {
+  font-family: "Open Sans";
+  src:
+    /* url("../fonts/OpenSans-Light.woff2") format("woff2"), */
+    url("../fonts/OpenSans-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src:
+    /* url("../fonts/OpenSans-Regular.woff2") format("woff2"), */
+    url("../fonts/OpenSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src:
+    /* url("../fonts/OpenSans-Bold.woff2") format("woff2"), */
+    url("../fonts/OpenSans-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src:
+    /* url("../fonts/OpenSans-Italic.woff2") format("woff2"), */
+    url("../fonts/OpenSans-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ----------------------- BrandonRP icon/text font ----------------------- */
+/* Keep existing lowercase family for back-compat and add a camel-case alias. */
+@font-face {
+  font-family: "brandonrp";
+  src:
+    url("../fonts/brandonrp.svg#brandonrp") format("svg"),
+    url("../fonts/brandonrp.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "BrandonRP"; /* alias */
+  src:
+    url("../fonts/brandonrp.svg#brandonrp") format("svg"),
+    url("../fonts/brandonrp.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ----------------------- Convenience CSS variables ---------------------- */
+:root {
+  --font-display: "Bebas Neue", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-body: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-ui: "BrandonRP", var(--font-display);
+}
+
+/* ----------------------- Icon Font CSS Rules ---------------------- */
+/* Auto-detect icon classes and apply icon font */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "brandonrp" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Specific icon character mappings */
+/* .icon-logo:before { content: "b"; } - Disabled: using SVG instead */
+.icon-behance:before { content: "a"; }
+.icon-deviantart:before { content: "c"; }
+.icon-twitter:before { content: "l"; }
+.icon-instagram:before { content: "m"; }
+.icon-mail:before { content: "n"; }
+.icon-pinterest:before { content: "f"; }
+.icon-linkedin:before { content: "d"; }
+.icon-facebook:before { content: "e"; }
+.icon-search:before { content: "g"; }
+.icon-rss:before { content: "j"; }
+.icon-tumblr:before { content: "k"; }
+.icon-artstation:before { content: "o"; }
+.icon-three-bars:before { content: "p"; }
+.icon-triangle-right:before { content: "h"; }
+.icon-triangle-left:before { content: "i"; }
+.icon-x:before { content: "q"; }

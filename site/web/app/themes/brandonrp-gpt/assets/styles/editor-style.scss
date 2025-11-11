@@ -1,0 +1,9 @@
+@use "sass:math";
+
+// Ensure tokens + mixins exist when editor CSS builds
+@import "variables";
+@import "base/mixins";
+
+// If you mirror base styles in the editor:
+@import "base/_type";
+@import "base/_forms";

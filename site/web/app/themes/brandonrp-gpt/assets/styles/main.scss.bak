@@ -1,0 +1,36 @@
+@use "sass:math";
+@use "sass:string";
+
+@use "assets/styles/legacy-shims" as *;
+
+@import "base/mixins";
+
+/* Vendor libs (need your gulp includePaths) */
+@import "modularscale";
+@import "compass";
+
+/* Your base tools first (defines @mixin layout) */
+@import "base/_mixins";
+
+/* Base partials that use those tools */
+@import "base/_fonts";
+@import "base/_forms";  
+@import "base/_type";
+@import "base/_layout";
+
+/* Plugins / Modules / Pages */
+@import "plugins/_jquery.fancybox";
+@import "modules/_header";
+@import "modules/_nav";
+@import "modules/_contact-form";
+@import "modules/_social";
+@import "modules/_sidebar";
+@import "modules/_search";
+@import "modules/_gallery";
+@import "modules/_modal";
+@import "modules/_alerts";
+@import "modules/_loading";
+
+@import "pages/_home";
+@import "pages/_posts";
+@import "pages/_resume";

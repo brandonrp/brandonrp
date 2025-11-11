@@ -1,0 +1,67 @@
+/* assets/styles/base/_sprites.scss
+   Replacement for Compass sprites.
+   Usage:  .icon-close { @include ui-icon("close", 16px, "svg"); } */
+
+@use "sass:string";
+
+// If you didn’t import _shims.scss first, define fallbacks:
+$images-path: "../images" !default;
+$icons-path:  "#{$images-path}/icons" !default;
+
+// Generic icon-by-file helper (PNG/SVG). Points to dist/images/icons/ui/<name>.<ext>
+@mixin ui-icon($name, $size: 1rem, $ext: "svg", $contain: true, $repeat: no-repeat) {
+  $file: "#{$icons-path}/ui/#{$name}.#{$ext}";
+  background-image: url("#{$file}");
+  background-repeat: $repeat;
+  @if $contain {
+    background-size: contain;
+    background-position: center;
+  }
+  width: $size;
+  height: $size;
+  display: inline-block;
+}
+
+/* Example presets—delete or extend as needed
+.icon-close  { @include ui-icon("close", 16px, "svg"); }
+.icon-search { @include ui-icon("search",18px,"svg"); }
+*/
+
+/* assets/styles/base/_icons.scss */
+
+%icon-three-bars,
+.icon-three-bars {
+  position: relative;
+  display: inline-block;
+  width: 1.5rem;   /* tweak size here */
+  height: 1.1rem;
+}
+
+%icon-three-bars::before,
+%icon-three-bars::after,
+.icon-three-bars::before,
+.icon-three-bars::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: currentColor;
+}
+
+%icon-three-bars::before,
+.icon-three-bars::before { top: 0; }
+
+%icon-three-bars::after,
+.icon-three-bars::after { bottom: 0; }
+
+/* middle bar */
+%icon-three-bars span,
+.icon-three-bars span {
+  position: absolute;
+  left: 0; right: 0;
+  top: calc(50% - 1px);
+  height: 2px;
+  background: currentColor;
+  display: block;
+}
+

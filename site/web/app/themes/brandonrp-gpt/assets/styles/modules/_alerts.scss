@@ -1,0 +1,11 @@
+.error404 {
+  .alert {
+    text-align: center;
+  }
+}
+
+.alert {
+  background-color: $brand-gray-lighter;
+  width: 100%;
+  padding: ms(2);
+}

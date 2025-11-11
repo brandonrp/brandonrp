@@ -1,0 +1,42 @@
+@use "sass:meta";
+@use "sass:math";
+@use "sass:string";
+
+// 0) Setting defaults before shims
+$icon-default: "logo.svg";
+$watermark-default: "watermark.svg";
+
+// Utilities & Plugins
+// @import 'modular-scale';
+// @import "compass";
+// @import "susy";
+@import "plugins/_jquery.fancybox";
+
+// 1) helpers (mixins/functions) + variables first
+@import "base/_mixins";
+@import "base/_shims";
+@import "_variables";
+
+// 2) base (include fonts early so everything can use the families)
+@import "base/_fonts";
+@import "base/_type";
+@import "base/_layout";
+@import "base/_forms";
+@import "base/_sprites";
+
+// 3) modules
+@import "modules/_header";
+@import "modules/_nav";
+@import "modules/_contact-form";
+@import "modules/_social";
+@import "modules/_sidebar";
+@import "modules/_search";
+@import "modules/_gallery";
+@import "modules/_modal";
+@import "modules/_alerts";
+@import "modules/_loading";
+
+// 4) pages
+@import "pages/_home";
+@import "pages/_posts";
+@import "pages/_resume";

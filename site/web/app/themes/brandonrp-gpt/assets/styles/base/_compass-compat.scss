@@ -1,0 +1,46 @@
+// Minimal Compass replacement (Sass-only; Autoprefixer will add vendors)
+@mixin border-radius($radius) { border-radius: $radius; }
+@mixin box-shadow($values...) { box-shadow: $values; }
+@mixin text-shadow($values...) { text-shadow: $values; }
+@mixin opacity($alpha) { opacity: $alpha; }
+@mixin appearance($value) { appearance: $value; }
+@mixin user-select($value) { user-select: $value; }
+@mixin outline-none() { outline: 0; }
+@mixin background-size($value) { background-size: $value; }
+
+@mixin transform($value) { transform: $value; }
+@mixin transform-origin($value) { transform-origin: $value; }
+@mixin transform-style($value) { transform-style: $value; }
+@mixin perspective($value) { perspective: $value; }
+@mixin perspective-origin($value) { perspective-origin: $value; }
+
+@mixin transition($values...) { transition: $values; }
+@mixin transition-property($values...) { transition-property: $values; }
+@mixin transition-duration($values...) { transition-duration: $values; }
+@mixin transition-delay($values...) { transition-delay: $values; }
+@mixin transition-timing-function($values...) { transition-timing-function: $values; }
+
+@mixin animation($values...) { animation: $values; }
+@mixin animation-name($name) { animation-name: $name; }
+@mixin animation-duration($dur) { animation-duration: $dur; }
+@mixin animation-delay($delay) { animation-delay: $delay; }
+@mixin animation-timing-function($fn) { animation-timing-function: $fn; }
+@mixin animation-iteration-count($n) { animation-iteration-count: $n; }
+@mixin animation-direction($dir) { animation-direction: $dir; }
+@mixin animation-fill-mode($mode) { animation-fill-mode: $mode; }
+@mixin keyframes($name) { @keyframes #{$name} { @content; } }
+
+@mixin clearfix() { &::after { content: ""; display: table; clear: both; } }
+@mixin inline-block() { display: inline-block; }
+
+@mixin display-flex { display: flex; }
+@mixin flex-direction($dir) { flex-direction: $dir; }
+@mixin flex-wrap($wrap) { flex-wrap: $wrap; }
+@mixin justify-content($v) { justify-content: $v; }
+@mixin align-items($v) { align-items: $v; }
+@mixin align-content($v) { align-content: $v; }
+@mixin flex($v) { flex: $v; }
+@mixin order($v) { order: $v; }
+
+@mixin linear-gradient($value) { background-image: linear-gradient(#{$value}); }
+@mixin filter($value) { filter: $value; }
