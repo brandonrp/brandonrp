@@ -1,0 +1,427 @@
+//
+// _mixins.scss — Dart Sass–safe helpers + layout + legacy grid shims
+// --------------------------------------------------
+
+@use "sass:math";
+@use "sass:meta";
+@use "sass:string";
+@use "sass:list";
+
+// put these in assets/styles/base/_mixins.scss (before variables)
+@mixin border-radius($r) { border-radius: $r; }
+@mixin box-shadow($v...) { box-shadow: $v; }
+@mixin transition($v...) { transition: $v; }
+@mixin transform($v)     { transform: $v; }
+@mixin opacity($v)       { opacity: $v; }
+@mixin appearance($v)    { appearance: $v; }
+
+// ---------- Modular Scale helper ----------
+// ms($step [, $ratio] [, $base]) -> returns $base * ($ratio ^ $step)
+// Defaults: $base: $ms-base; $ratio: $ms-ratio (defined in _variables.scss)
+@function ms($step, $ratio: null, $base: null) {
+  $r: if(meta.global-variable-exists('ms-ratio'), $ms-ratio, 1.25);
+  $b: if(meta.global-variable-exists('ms-base'), $ms-base, 1rem);
+  @if $ratio != null { $r: $ratio; }
+  @if $base  != null { $b: $base; }
+  @return $b * math.pow($r, $step);
+}
+// ---------- Core helpers ----------
+
+// Force px for numbers; pass non-numbers through unchanged (strings, lists, maps, var()).
+@function to-px($n) {
+  @if meta.type-of($n) == 'number' {
+    @return if(math.is-unitless($n), $n * 1px, $n);
+  }
+  @return $n;
+}
+
+// Strip unit from numbers; pass others unchanged.
+@function strip-unit($n) {
+  @if meta.type-of($n) == 'number' {
+    @return if(math.is-unitless($n), $n, math.div($n, ($n * 0 + 1)));
+  }
+  @return $n;
+}
+
+// Typography math
+@function font-scale($base, $scale, $direction: up) {
+  @if $direction == 'up' {
+    @return math.ceil($base * $scale);
+  } @else {
+    @return math.floor(math.div($base, $scale));
+  }
+}
+
+  // strip-unit helper
+  @function _strip-unit($n) {
+    @if meta.type-of($n) == 'number' {
+      @return if(math.is-unitless($n), $n, math.div($n, ($n * 0 + 1)));
+    }
+    @return $n;
+  }
+
+@function _px($n) {
+  @if meta.type-of($n) != 'number' { @return $n; }
+  @return if(math.is-unitless($n), $n, math.div($n, 1px));
+}
+
+@function em($size, $base: 16px) {
+  @if meta.type-of($size) != 'number' or meta.type-of($base) != 'number' {
+    @error "em() expects numeric $size and $base. Got #{$size} and #{$base}.";
+  }
+  @return math.div(_px($size), _px($base)) * 1em;
+}
+
+@function rem($size, $base: 16px) {
+  @if meta.type-of($size) != 'number' or meta.type-of($base) != 'number' {
+    @error "rem() expects numeric $size and $base. Got #{$size} and #{$base}.";
+  }
+  @return math.div(_px($size), _px($base)) * 1rem;
+}
+
+
+// ---------- Layout ----------
+
+/// Centers content, applies responsive gutters, caps width.
+/// Usage: .wrap { @include layout(1200px, 24px, 32px, 1024px); }
+// Simple, robust container — avoids min() and CSS vars
+// Simple, robust container — avoids min() and CSS vars
+@mixin layout(
+  $max-width: 1200px,
+  $gutter: 24px,
+  $gutter-lg: 32px,
+  $breakpoint-lg: 1024px
+) {
+  max-width: to-px($max-width);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+
+  // Optional wider gutters on large screens
+  @media (min-width: #{to-px($breakpoint-lg)}) {
+    padding-left: $gutter-lg;
+    padding-right: $gutter-lg;
+  }
+}
+
+// ---------- Effects / utilities ----------
+
+@mixin filter($value) { filter: $value; }
+
+@mixin inline-flex() { display: inline-flex; }
+@mixin flexbox($properties...) {
+  display: flex;
+
+  @if length($properties) > 0 {
+    @each $prop in $properties {
+      @if meta.type-of($prop) == 'map' {
+        @each $k, $v in $prop {
+          #{$k}: $v;
+        }
+      }
+    }
+  }
+}
+@mixin flex($values) { flex: $values; }
+@mixin order($val) { order: $val; }
+@mixin flex-align($align) { align-items: $align; }
+@mixin flex-wrap($wrap) { flex-wrap: $wrap; }
+@mixin flex-direction($direction) { flex-direction: $direction; }
+@mixin justify-content($justify) { justify-content: $justify; }
+
+@mixin transparent-bg() {
+  // assumes $brand-gray-dark exists
+  background-color: $brand-gray-dark;
+  background-color: rgba(44, 44, 44, .5);
+}
+
+@mixin text-decoration($line, $color, $style) {
+  // standard order: line style color
+  text-decoration: $line $style $color;
+}
+
+@mixin clearfix() {
+  &::before,
+  &::after { content: " "; display: table; }
+  &::after { clear: both; }
+}
+
+@mixin size($width, $height) { width: $width; height: $height; }
+@mixin square($size) { @include size($size, $size); }
+
+@mixin placeholder($color: $input-color-placeholder) {
+  &::placeholder { color: $color; opacity: 1; }
+}
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Image replacement
+@mixin hide-text() {
+  font: string.unquote("0/0") a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+@mixin text-hide() { @include hide-text; }
+
+// Transforms
+@mixin rotate($degrees) { transform: rotate($degrees); }
+@mixin scale($ratio) { transform: scale($ratio); }
+@mixin translate($x, $y) { transform: translate($x, $y); }
+@mixin skew($x, $y) { transform: skew($x, $y); }
+@mixin translate3d($x, $y, $z) { transform: translate3d($x, $y, $z); }
+
+@mixin backface-visibility($visibility) { backface-visibility: $visibility; }
+@mixin box-sizing($boxmodel) { box-sizing: $boxmodel; }
+@mixin user-select($select) { user-select: $select; }
+
+@mixin resizable($direction) {
+  resize: $direction; // horizontal | vertical | both
+  overflow: auto;
+}
+
+@mixin content-columns($column-count, $column-gap: $grid-gutter-width) {
+  column-count: $column-count;
+  column-gap: $column-gap;
+}
+
+@mixin hyphens($mode: auto) {
+  word-wrap: break-word;
+  hyphens: $mode;
+}
+
+// Simple transition mixin (args passthrough)
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// ---------------- Compass-style shims ----------------
+@mixin appearance($value) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  appearance: $value;
+}
+
+@mixin border-radius($r...) {
+  -webkit-border-radius: $r;
+  border-radius: $r;
+}
+
+@mixin box-shadow($shadows...) {
+  -webkit-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
+
+@function em($size, $base: 16px) {
+  @return math.div($size, $base) * 1em;
+}
+
+@mixin opacity($opacity) { opacity: $opacity; }
+
+// Gradients (modern syntax only)
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent);
+}
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);
+}
+@mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
+  background-image: linear-gradient($deg, $start-color, $end-color);
+}
+@mixin gradient-horizontal-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+  background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
+}
+@mixin gradient-vertical-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+  background-image: linear-gradient(to bottom, $start-color, $mid-color $color-stop, $end-color);
+}
+@mixin gradient-radial($inner-color: #555, $outer-color: #333) {
+  background-image: radial-gradient(circle, $inner-color, $outer-color);
+}
+@mixin gradient-striped($color: #555, $angle: 45deg) {
+  background-image: linear-gradient(
+    $angle,
+    rgba(255,255,255,.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255,255,255,.15) 50%,
+    rgba(255,255,255,.15) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+@mixin reset-filter() { filter: none; }
+
+// Images
+@mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
+  background-image: url("#{$file-1x}");
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+    background-image: url("#{$file-2x}");
+    background-size: $width-1x $height-1x;
+  }
+}
+@mixin img-responsive($display: block) {
+  display: $display;
+  max-width: 100%;
+  height: auto;
+}
+
+// ====================================================================
+// Legacy grid shims (Susy-like): span / container / prefix / suffix / push / pull / alpha / omega
+// These let old calls compile without the Susy dependency.
+// ====================================================================
+
+// helpers
+@function _flatten-args($args...) {
+  $flat: ();
+  @for $i from 1 through list.length($args) {
+    $item: list.nth($args, $i);
+    @if meta.type-of($item) == 'list' {
+      @for $j from 1 through list.length($item) {
+        $flat: list.append($flat, list.nth($item, $j));
+      }
+    } @else {
+      $flat: list.append($flat, $item);
+    }
+  }
+  @return $flat;
+}
+
+// ---------- span ----------
+// Accepts: span(2 of 12 [first|last]) OR span(2, 12 [first|last])
+@mixin span($args...) {
+  $args: _flatten-args($args...);
+
+  $cols: null;
+  $total: null;
+  $first: false;
+  $last: false;
+
+  @for $i from 1 through list.length($args) {
+    $item: list.nth($args, $i);
+
+    @if meta.type-of($item) == 'number' {
+      @if $cols == null { $cols: $item; }
+      @else if $total == null { $total: $item; }
+    } @else if $item == first {
+      $first: true;
+    } @else if $item == last {
+      $last: true;
+    } @else if $item == of or $item == "/" {
+      // noop
+    }
+  }
+
+  // Fallback for comma syntax: span(2, 12)
+  @if $cols != null and $total == null and list.length($args) >= 2 {
+    $maybe-total: list.nth($args, 2);
+    @if meta.type-of($maybe-total) == 'number' { $total: $maybe-total; }
+  }
+
+  @if $cols == null or $total == null {
+    @error "span() expects: @include span(<cols> of <total> [first|last]); or span(<cols>, <total>). Got: #{$args}";
+  }
+
+  $width: math.div($cols, $total) * 100%;
+  width: $width;
+  float: left;
+
+  @if $first { clear: left; }
+  @if $last  { float: right; }
+}
+
+// ---------- container ----------
+// Accepts: container(fluid), container(10 fluid), container(10 of 12), container(10, 12)
+@mixin container($args...) {
+  $args  : _flatten-args($args...);
+  $cols  : null;
+  $total : 12;
+  $fluid : false;
+
+  // Dart Sass 3-safe global variable checks
+  $has-gutter: meta.global-variable-exists('grid-gutter-width');
+  $has-max   : meta.global-variable-exists('container-max');
+
+  $gutter: if($has-gutter, $grid-gutter-width, 24px);
+  $max   : if($has-max, $container-max, 1200px);
+
+  @for $i from 1 through list.length($args) {
+    $item: list.nth($args, $i);
+
+    @if meta.type-of($item) == 'number' {
+      @if $cols == null { $cols: $item; }
+      @else { $total: $item; }
+    } @else if $item == of or $item == "/" {
+      // noop
+    } @else if $item == fluid {
+      $fluid: true;
+    }
+  }
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+
+  @if $fluid == true and $cols == null {
+    width: 100%;
+    max-width: none;
+  } @else if $cols != null {
+    $w: math.div($cols, $total) * 100%;
+    width: $w;
+    max-width: none;
+  } @else {
+    width: 100%;
+    max-width: to-px($max);
+  }
+}
+
+// ---------- prefix / suffix ----------
+// Accepts percentage: prefix(2%)/suffix(2%)
+// Or fraction: prefix(1 of 12)/suffix(2, 12)
+@function _grid-parse-margin($args...) {
+  $args: _flatten-args($args...);
+
+  // 1) direct percentage
+  @if list.length($args) == 1 and meta.type-of(list.nth($args, 1)) == 'number' and math.unit(list.nth($args, 1)) == '%' {
+    @return list.nth($args, 1);
+  }
+
+  // 2) fraction (n of m) or (n, m)
+  $n: null; $m: null;
+  @for $i from 1 through list.length($args) {
+    $item: list.nth($args, $i);
+    @if meta.type-of($item) == 'number' and math.unit($item) == '' {
+      @if $n == null { $n: $item; }
+      @else if $m == null { $m: $item; }
+    }
+  }
+
+  @if $n != null and $m != null {
+    @return math.div($n, $m) * 100%;
+  }
+
+  @error "prefix/suffix expects a percentage (e.g. 2%) or a fraction (e.g. 1 of 12). Got: #{$args}";
+}
+
+@mixin prefix($args...) { margin-left:  _grid-parse-margin($args...); }
+@mixin suffix($args...) { margin-right: _grid-parse-margin($args...); }
+
+// ---------- push / pull / alpha / omega ----------
+
+@mixin push($args...) { margin-left:  _grid-parse-margin($args...); }
+@mixin pull($args...) { margin-left: -_grid-parse-margin($args...); }
+
+@mixin alpha() { clear: left; }
+@mixin omega() { float: right; /* add margin-right:0 here if your grid needs it */ }

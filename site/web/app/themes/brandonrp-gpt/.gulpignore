@@ -1,0 +1,9 @@
+# Ignore these directories from gulp watch to prevent resource exhaustion
+node_modules/
+bower_components/
+.git/
+.sass-cache/
+dist/
+*.log
+.DS_Store
+
