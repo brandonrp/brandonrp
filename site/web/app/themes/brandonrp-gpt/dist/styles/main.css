@@ -1565,11 +1565,12 @@ button:focus {
 
 .main-nav, .project-filters {
   font-family: "Bebas Neue Regular", Arial, sans-serif;
-  font-size: 1.315434rem;
+  font-size: 1.1663380218rem;
   line-height: 2.128372212rem;
-  letter-spacing: 0.125rem;
+  letter-spacing: 0.0625rem;
   pointer-events: auto;
   z-index: 10;
+  padding: 0.625rem 0;
 }
 .main-nav a, .project-filters a {
   color: #fff;
