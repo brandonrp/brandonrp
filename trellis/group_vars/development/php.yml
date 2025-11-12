@@ -1,0 +1,41 @@
+php_error_reporting: 'E_ALL'
+php_display_errors: 'On'
+php_display_startup_errors: 'On'
+php_mysqlnd_collect_memory_statistics: 'On'
+php_opcache_revalidate_freq: 0
+
+# Xdebug can cause memory leaks and performance issues - disable when not actively debugging
+# Enable only when needed: xdebug_mode: 'debug'
+xdebug_mode: 'off'
+xdebug_start_with_request: 'no'
+xdebug_discover_client_host: 0
+
+# More generous pool for dev
+php_fpm_pm: dynamic
+php_fpm_pm_max_children: 30        # was 10; plenty for local dev
+php_fpm_pm_start_servers: 6        # was 2–4
+php_fpm_pm_min_spare_servers: 3
+php_fpm_pm_max_spare_servers: 12
+
+# CRITICAL: Force process recycling to prevent memory leaks
+# Lower value for dev to recycle processes more frequently
+php_fpm_pm_max_requests: 200      # was 500; recycle more often in dev to prevent leaks
+
+# Give PHP some headroom
+php_memory_limit: 512M
+
+# Helpful diagnostics in dev (optional)
+php_fpm_request_terminate_timeout: 60s      # kill runaway requests
+php_fpm_request_slowlog_timeout: 5s         # log stack after 5s
+php_fpm_slowlog: /var/log/php8.3-fpm.slow.log
+
+# Enable emergency restart to recover from stuck/corrupted processes
+# If 10 child processes crash within 1 minute, restart the pool
+php_fpm_set_emergency_restart_threshold: true
+php_fpm_emergency_restart_threshold: 10
+php_fpm_set_emergency_restart_interval: true
+php_fpm_emergency_restart_interval: 1m
+
+# Increase file descriptor limit for PHP-FPM to handle more connections
+php_fpm_set_rlimit_files: true
+php_fpm_rlimit_files: 8192
