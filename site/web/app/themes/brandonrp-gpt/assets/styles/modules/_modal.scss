@@ -19,13 +19,10 @@
 }
 
 .modal-content {
-  display: flex;
-  flex-direction: row;      // or column
-  justify-content: space-between; // or start/center/end
-  align-items: center;      // tweak as needed
-  flex-wrap: nowrap;        // or wrap
-  @include justify-content(center);
+  @include flexbox();
   @include flex-align(center);
+  @include flex-direction(column);
+  @include justify-content(center);
 
   height: 100%;
   padding: ms(2);
@@ -39,21 +36,25 @@
 }
 
 .modal-close {
-  @include icon();
+  @extend .icon-x;
+  @include transition(color $transition-speed ease-in-out,
+    opacity $transition-speed ease-in-out);
   color: #fff;
   font-size: ms(2);
-  font-family: $font-family-icons;
-  vertical-align: top;
-
+  line-height: 1;
   background: none;
   cursor: pointer;
-
   position: fixed;
   top: ms(0);
   right: ms(0.5);
   z-index: 99;
+  display: inline-block;
 
   &:hover {
     color: $brand-red;
+  }
+
+  &:before {
+    content: "q";
   }
 }

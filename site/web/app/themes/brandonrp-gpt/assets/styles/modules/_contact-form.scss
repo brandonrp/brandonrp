@@ -27,22 +27,75 @@
 
 // Form overrides
 .wpcf7 {
-  @include container(10 fluid);
-  @include scale(0);
+  max-width: 37.5rem;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
+  @include scale(0);
 
   p {
     @include clearfix();
+    margin: 0;
   }
 
+  label, .wpcf7-form-control-wrap {
+    @include clearfix();
+    margin-bottom: ms(1);
+  }
+  
   label {
-    @include span(3 of 10 first);
-    @include suffix(2%);
-    line-height: normal;
+    @include span(3 of 12 first);
+    height: ms(3);
+  }
+
+  .contact-field-wrapper {
+    @include clearfix();
+    @include span(12 of 12);
   }
 
   .wpcf7-form-control-wrap {
-    @include span(7 of 10 last);
+    @include span(9 of 12 last);
+    // width: 70%;
+    // float: right;
+    // margin-right: 0;
+  }
+
+  // .wpcf7-form-control {
+
+  // }
+
+  .wpcf7-textarea {
+    width: 100%;
+    max-height: ms(4);
+    // float: right;
+    // margin-right: 0;
+  }
+
+  .wpcf7-submit {
+    @include span(9 of 12 last);
+  }
+
+  .hidden-fields-container {
+    display: none;
+    border: none
+  }
+
+  .wpcf7-response-output,
+  .screen-reader-response {
+    @include span(9 of 12 last);
+    @extend .h3;
+
+    text-align: center;
+    margin: ms(1) auto;
+  }
+
+  .screen-reader-response {
+    display: none;
+  }
+
+  .wpcf7-not-valid-tip {
+    position: absolute;
+    left: rem(160);
   }
 
   &.scale {
@@ -50,36 +103,8 @@
     @include scale(1.0);
   }
 
-  .screen-reader-response {
-    @include span(3 of 10);
-    @include span(7 of 10);
-
-    margin-bottom: ms(0);
-  }
-
-  .wpcf7-submit {
-    @include span(7 of 10 last);
-    display: block;
-  }
-
-  .wpcf7-response-output,
-  .screen-reader-response {
-    @include span(7 of 10 last);
-    @extend .h3;
-
-    text-align: center;
-  }
-
-  .screen-reader-response {
-    display: none;
-  }
-
   @media (max-width: $screen-sm) {
     margin-top: ms(2);
-
-    p {
-      margin: 0 auto ms(1);
-    }
 
     label,
     .wpcf7-form-control-wrap,
@@ -87,18 +112,10 @@
     .wpcf7-submit,
     .wpcf7-response-output {
       float: none;
-      @include span(10 of 10);
-
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
       text-align: left;
-    }
-
-    label {
-      height: ms(2);
-    }
-
-    .wpcf7-submit,
-    .wpcf7-response-output {
-      text-align: center;
     }
   }
 }

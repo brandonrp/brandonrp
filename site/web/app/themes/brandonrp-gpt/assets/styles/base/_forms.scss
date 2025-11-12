@@ -44,6 +44,13 @@ select {
   line-height: ms(3);
 }
 
+// Exclude contact form labels from base width/height
+.wpcf7 label {
+  width: auto;
+  height: auto;
+  line-height: normal;
+}
+
 textarea {
   padding: ms(1);
 
@@ -61,6 +68,16 @@ label {
 
   &:before, &:after {
     color: $brand-red;
+  }
+}
+
+// Exclude contact form labels from bracket styling
+.wpcf7 label {
+  @extend .h3;
+  text-align: left;
+  
+  &:before, &:after {
+    display: none;
   }
 }
 
