@@ -252,13 +252,13 @@
 
   .nav-previous {
     a:after {
-      content: 'h';
+      content: 'i';
     }
   }
 
   .nav-next {
     a:before {
-      content: 'i';
+      content: 'h';
     }
   }
 
@@ -277,13 +277,17 @@
   }
 
   a {
-    @include square(100%);
     display: block;
     padding: ms(1);
 
     &:before,
     &:after {
-      @include icon();
+      font-family: $font-family-icons;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
       font-size: ms(1.5);
 
       display: inline-block;
