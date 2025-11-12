@@ -1,0 +1,17 @@
+# Created by trellis-cli v1.14.1
+# Documentation: https://roots.io/trellis/docs/wordpress-sites/
+
+wordpress_sites:
+  brandonrp.test:
+    site_hosts:
+      - canonical: brandonrp.test
+        redirects: [www.brandonrp.test]
+    local_path: ../site
+    admin_email: me@brandonrp.com
+    multisite:
+      enabled: false
+    ssl:
+      enabled: true
+      provider: self-signed
+    cache:
+      enabled: false

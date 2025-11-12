@@ -1,0 +1,119 @@
+---
+- name: Copy SSL cert
+  copy:
+    src: "{{ item.value.ssl.cert }}"
+    dest: "{{ nginx_ssl_path }}/{{ item.value.ssl.cert | basename }}"
+    mode: '0640'
+  loop: "{{ wordpress_sites | dict2items }}"
+  loop_control:
+    label: "{{ item.key }}"
+  when: ssl_enabled and item.value.ssl.cert is defined
+  notify: reload nginx
+
+- name: Copy SSL key
+  copy:
+    src: "{{ item.value.ssl.key }}"
+    dest: "{{ nginx_ssl_path }}/{{ item.value.ssl.key | basename }}"
+    mode: '0600'
+  loop: "{{ wordpress_sites | dict2items }}"
+  loop_control:
+    label: "{{ item.key }}"
+  when: ssl_enabled and item.value.ssl.key is defined
+  notify: reload nginx
+
+- import_tasks: "{{ playbook_dir }}/roles/common/tasks/disable_challenge_sites.yml"
+
+- name: Create Nginx available sites
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ nginx_path }}/sites-available/{{ item.src | basename | regex_replace('.j2$', '') }}"
+    mode: '0644'
+  loop: "{{ nginx_sites_confs }}"
+  when: item.enabled | default(true)
+  notify: reload nginx
+  tags: nginx-sites
+
+- name: Disable Nginx sites
+  file:
+    path: "{{ nginx_path }}/sites-enabled/{{ item.src | basename | regex_replace('.j2$', '') }}"
+    state: absent
+  when: not(item.enabled | default(true))
+  loop: "{{ nginx_sites_confs }}"
+  notify: reload nginx
+  tags: nginx-sites
+
+- name: Enable Nginx sites
+  file:
+    path: "{{ nginx_path }}/sites-enabled/{{ item.src | basename | regex_replace('.j2$', '') }}"
+    src: "{{ nginx_path }}/sites-available/{{ item.src | basename | regex_replace('.j2$', '') }}"
+    state: link
+    force: yes
+  when: item.enabled | default(true)
+  loop: "{{ nginx_sites_confs }}"
+  notify: reload nginx
+  tags: nginx-sites
+
+- name: Create Nginx conf for challenges location
+  template:
+    src: "{{ playbook_dir }}/roles/letsencrypt/templates/acme-challenge-location.conf.j2"
+    dest: "{{ nginx_path }}/acme-challenge-location.conf"
+    mode: '0644'
+  notify: reload nginx
+
+- name: Ensure nginx sites-available directory exists and is writable
+  file:
+    path: "{{ nginx_path }}/sites-available"
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+    recurse: no
+
+- name: Remove existing WordPress config files if they exist
+  shell: |
+    sudo rm -f {{ nginx_path }}/sites-available/{{ item.key }}.conf
+    sudo chattr -i {{ nginx_path }}/sites-available/{{ item.key }}.conf 2>/dev/null || true
+  loop: "{{ wordpress_sites | dict2items }}"
+  ignore_errors: yes
+  changed_when: false
+
+- name: Render WordPress configuration template to temp file on localhost
+  template:
+    src: "{{ item.value.nginx_wordpress_site_conf | default(nginx_wordpress_site_conf) }}"
+    dest: "/tmp/{{ item.key }}.conf"
+    mode: '0644'
+  loop: "{{ wordpress_sites | dict2items }}"
+  delegate_to: localhost
+  become: no
+  register: rendered_templates
+
+- name: Copy rendered WordPress configuration from localhost to VM temp
+  copy:
+    src: "/tmp/{{ item.item.key }}.conf"
+    dest: "/tmp/{{ item.item.key }}.conf"
+    mode: '0644'
+  loop: "{{ rendered_templates.results }}"
+  loop_control:
+    label: "{{ item.item.key }}"
+
+- name: Copy WordPress configuration from temp to Nginx
+  shell: |
+    sudo cp /tmp/{{ item.item.key }}.conf {{ nginx_path }}/sites-available/{{ item.item.key }}.conf
+    sudo chmod 644 {{ nginx_path }}/sites-available/{{ item.item.key }}.conf
+    sudo chown root:root {{ nginx_path }}/sites-available/{{ item.item.key }}.conf
+  loop: "{{ rendered_templates.results }}"
+  loop_control:
+    label: "{{ item.item.key }}"
+  changed_when: true
+
+- name: Enable WordPress site
+  file:
+    src: "{{ nginx_path }}/sites-available/{{ item.key }}.conf"
+    dest: "{{ nginx_path }}/sites-enabled/{{ item.key }}.conf"
+    owner: root
+    group: root
+    state: link
+  loop: "{{ wordpress_sites | dict2items }}"
+  loop_control:
+    label: "{{ item.key }}"
+  notify: reload nginx

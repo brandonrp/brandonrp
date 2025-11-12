@@ -1,0 +1,19 @@
+# Created by trellis-cli v1.14.1
+# Documentation: https://roots.io/trellis/docs/vault/
+
+vault_mysql_root_password: fYqr7WXH2z6VSZqZdi8HcRvmIKYdI444Ont7lXhQEtcj2fOKVCrAlYuS7p9llbiZ
+vault_wordpress_sites:
+  brandonrp.test:
+    admin_password: IR4pj3yPpCeXdUeivqYnlXPp26h3sZM4pjfaf7rsqTNN5UXaDWJTxkIDJBsEjRjb
+    env:
+      db_name: db_brandonrp
+      db_user: db_user
+      db_password: brandonrpDBpassword
+      auth_key: yDZMG9al2aVfGL3eqhqNEdoK4rOOtedwvcbX9OP1LXbjJBu7dbLFegzWE7HBv9Xm
+      secure_auth_key: pCxEWM0gNzUYdGfGIdlSOK4Lwot6MXMDPjFR5CJ2kbUYaiRdW8Fv1iqoDA0bCZoD
+      logged_in_key: FmCr3Elg6BxRfaj5VaAsVcu5ABrxWlKbg9Mu46hYUAVIfWM9YbitkthyFpCZ3MjG
+      nonce_key: 2t65urcEYaugni70JUJeoOPvUsdB9uhWDVkWM0kBmAfPBKJgqaTn5MLUs0Pt4ag7
+      auth_salt: 8PQcfVRxGbybOZCqDpIxVk0IXBHsjRvqjjiBfG50RaVaJMMGogLrxkTTLMkwEuNz
+      secure_auth_salt: YsS5JS2LpRkc0yAY7zTPbLj4NlLvUeypebD6PcHKQ8tIXdbPAyK0bdSNFlgIw29Q
+      logged_in_salt: FA4je3F0geMjCrPP8RSa2nn0Cn8pDClhELgdoSMEaGlo5UObdeKMJhjYKlWuM7G5
+      nonce_salt: bNptsOtWczIHBKx0ztW11aNxTbG9KwoqgGOyC7FKUmYsfKJumGeSOZNpnhspkGXI
