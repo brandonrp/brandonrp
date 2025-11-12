@@ -46,6 +46,8 @@
   label {
     @include span(3 of 12 first);
     height: ms(3);
+    text-align: right;
+    padding-right: ms(1);
   }
 
   .contact-field-wrapper {

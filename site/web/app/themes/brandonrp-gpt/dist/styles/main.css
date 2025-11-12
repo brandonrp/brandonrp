@@ -1888,6 +1888,8 @@ button:focus {
   float: left;
   clear: left;
   height: 3.443706239rem;
+  text-align: right;
+  padding-right: 1.315434rem;
 }
 .wpcf7 .contact-field-wrapper::after {
   content: "";
