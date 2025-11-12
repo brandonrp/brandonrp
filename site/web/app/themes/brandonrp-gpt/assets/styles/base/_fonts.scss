@@ -99,8 +99,28 @@
 /* ----------------------- Icon Font CSS Rules ---------------------- */
 /* Auto-detect icon classes and apply icon font */
 [class^="icon-"]:before,
-[class*=" icon-"]:before {
+[class*=" icon-"]:before,
+[class^="icon-"] a:before,
+[class*=" icon-"] a:before,
+.nav-toggle:before {
   font-family: "brandonrp" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-indent: 0;
+  visibility: visible;
+  display: inline-block;
+}
+
+/* Data attribute helper (legacy markup support) */
+[data-icon]:before {
+  font-family: "brandonrp" !important;
+  content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -111,21 +131,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Specific icon character mappings */
-/* .icon-logo:before { content: "b"; } - Disabled: using SVG instead */
-.icon-behance:before { content: "a"; }
-.icon-deviantart:before { content: "c"; }
-.icon-twitter:before { content: "l"; }
-.icon-instagram:before { content: "m"; }
-.icon-mail:before { content: "n"; }
-.icon-pinterest:before { content: "f"; }
-.icon-linkedin:before { content: "d"; }
-.icon-facebook:before { content: "e"; }
-.icon-search:before { content: "g"; }
-.icon-rss:before { content: "j"; }
-.icon-tumblr:before { content: "k"; }
-.icon-artstation:before { content: "o"; }
-.icon-three-bars:before { content: "p"; }
+/* Specific icon character mappings (match legacy site output) */
+.icon-logo:before { content: "b"; }
+.icon-behance a:before { content: "a"; }
+.icon-deviantart a:before { content: "c"; }
+.icon-twitter a:before { content: "l"; }
+.icon-instagram a:before { content: "m"; }
+.icon-mail a:before { content: "n"; }
+.icon-pinterest a:before { content: "f"; }
+.icon-linkedin a:before { content: "d"; }
+.icon-facebook a:before { content: "e"; }
+.icon-search a:before { content: "g"; }
+.icon-rss a:before { content: "j"; }
+.icon-tumblr a:before { content: "k"; }
+.icon-artstation a:before { content: "o"; }
+.icon-three-bars:before,
+.nav-toggle:before { content: "p"; }
 .icon-triangle-right:before { content: "h"; }
 .icon-triangle-left:before { content: "i"; }
 .icon-x:before { content: "q"; }

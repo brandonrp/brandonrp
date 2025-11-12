@@ -92,17 +92,67 @@
   $gutter-lg: 32px,
   $breakpoint-lg: 1024px
 ) {
-  max-width: to-px($max-width);
+  $computed-max: $max-width;
+  $computed-gutter: $gutter;
+  $computed-gutter-lg: $gutter-lg;
+  $computed-breakpoint: $breakpoint-lg;
+
+  @if meta.type-of($computed-max) == 'list' {
+    $arg-list: $computed-max;
+    $candidate: null;
+
+    @each $item in $arg-list {
+      @if $candidate == null and meta.type-of($item) == 'number' {
+        $candidate: $item;
+      }
+    }
+
+    $is-fluid: list.index($arg-list, fluid) != null;
+
+    @if $is-fluid {
+      $computed-max: none;
+    } @else if $candidate != null {
+      $computed-max: $candidate;
+      @if math.is-unitless($computed-max) {
+        $computed-max: $computed-max * 1px;
+      }
+    } @else {
+      $computed-max: if(meta.global-variable-exists('container-max'), $container-max, 1200px);
+    }
+  } @else if meta.type-of($computed-max) != 'number' {
+    $computed-max: if(meta.global-variable-exists('container-max'), $container-max, 1200px);
+  } @else if math.is-unitless($computed-max) {
+    $computed-max: $computed-max * 1px;
+  }
+
+  @if meta.type-of($computed-gutter) != 'number' {
+    $computed-gutter: 24px;
+  } @else if math.is-unitless($computed-gutter) {
+    $computed-gutter: $computed-gutter * 1px;
+  }
+
+  @if meta.type-of($computed-gutter-lg) != 'number' {
+    $computed-gutter-lg: $computed-gutter;
+  } @else if math.is-unitless($computed-gutter-lg) {
+    $computed-gutter-lg: $computed-gutter-lg * 1px;
+  }
+
+  @if meta.type-of($computed-breakpoint) != 'number' {
+    $computed-breakpoint: 1024px;
+  } @else if math.is-unitless($computed-breakpoint) {
+    $computed-breakpoint: $computed-breakpoint * 1px;
+  }
+
+  max-width: $computed-max;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $gutter;
-  padding-right: $gutter;
+  padding-left: $computed-gutter;
+  padding-right: $computed-gutter;
 
-  // Optional wider gutters on large screens
-  @media (min-width: #{to-px($breakpoint-lg)}) {
-    padding-left: $gutter-lg;
-    padding-right: $gutter-lg;
+  @media (min-width: #{$computed-breakpoint}) {
+    padding-left: $computed-gutter-lg;
+    padding-right: $computed-gutter-lg;
   }
 }
 
