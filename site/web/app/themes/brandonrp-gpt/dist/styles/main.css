@@ -1212,6 +1212,7 @@ body {
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 0.813rem;
   color: #fff;
+  padding: 0;
 }
 
 section {
@@ -1962,7 +1963,7 @@ button:focus {
   display: block;
 }
 .social-links li a:hover:before, .social-links li a:hover:after {
-  color: #ff4444;
+  color: #2c2c2c;
 }
 .social-links .icon-artstation a:before {
   font-size: 1.315434rem;
