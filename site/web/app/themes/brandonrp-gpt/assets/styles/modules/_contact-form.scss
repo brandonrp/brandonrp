@@ -38,11 +38,18 @@
     margin: 0;
   }
 
-  label, .wpcf7-form-control-wrap {
+  label, 
+  .wpcf7-form-control-wrap {
     @include clearfix();
     margin-bottom: ms(1);
   }
-  
+
+  .wpcf7-text,
+  .wpcf7-textarea {
+    font-size: ms(0);
+    font-family: $font-family-body;
+  }
+
   label {
     @include span(3 of 12 first);
     height: ms(3);
@@ -50,21 +57,21 @@
     padding-right: ms(1);
   }
 
-  .contact-field-wrapper {
+  .wpcf7-header {
+    @include span(9 of 12 last);
+    @include brackets();
+    text-align: center;
+    margin-bottom: ms(1);
+  }
+
+  .wpcf7-field-wrapper {
     @include clearfix();
     @include span(12 of 12);
   }
 
   .wpcf7-form-control-wrap {
     @include span(9 of 12 last);
-    // width: 70%;
-    // float: right;
-    // margin-right: 0;
   }
-
-  // .wpcf7-form-control {
-
-  // }
 
   .wpcf7-textarea {
     width: 100%;
@@ -75,6 +82,7 @@
 
   .wpcf7-submit {
     @include span(9 of 12 last);
+    margin-top: ms(1);
   }
 
   .hidden-fields-container {

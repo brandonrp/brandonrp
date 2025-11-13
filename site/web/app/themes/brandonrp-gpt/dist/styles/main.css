@@ -1875,13 +1875,20 @@ button:focus {
 .wpcf7 p {
   margin: 0;
 }
-.wpcf7 label::after, .wpcf7 .wpcf7-form-control-wrap::after {
+.wpcf7 label::after,
+.wpcf7 .wpcf7-form-control-wrap::after {
   content: "";
   display: table;
   clear: both;
 }
-.wpcf7 label, .wpcf7 .wpcf7-form-control-wrap {
+.wpcf7 label,
+.wpcf7 .wpcf7-form-control-wrap {
   margin-bottom: 1.315434rem;
+}
+.wpcf7 .wpcf7-text,
+.wpcf7 .wpcf7-textarea {
+  font-size: 0.813rem;
+  font-family: "Open Sans", Arial, sans-serif;
 }
 .wpcf7 label {
   width: 25%;
@@ -1891,12 +1898,32 @@ button:focus {
   text-align: right;
   padding-right: 1.315434rem;
 }
-.wpcf7 .contact-field-wrapper::after {
+.wpcf7 .wpcf7-header {
+  width: 75%;
+  float: left;
+  float: right;
+}
+.wpcf7 .wpcf7-header:before, .wpcf7 .wpcf7-header:after {
+  display: inline-block;
+  color: #ff4444;
+  margin: 0 0.3125rem;
+}
+.wpcf7 .wpcf7-header:before {
+  content: "[";
+}
+.wpcf7 .wpcf7-header:after {
+  content: "]";
+}
+.wpcf7 .wpcf7-header {
+  text-align: center;
+  margin-bottom: 1.315434rem;
+}
+.wpcf7 .wpcf7-field-wrapper::after {
   content: "";
   display: table;
   clear: both;
 }
-.wpcf7 .contact-field-wrapper {
+.wpcf7 .wpcf7-field-wrapper {
   width: 100%;
   float: left;
 }
@@ -1913,6 +1940,7 @@ button:focus {
   width: 75%;
   float: left;
   float: right;
+  margin-top: 1.315434rem;
 }
 .wpcf7 .hidden-fields-container {
   display: none;
@@ -2187,7 +2215,7 @@ button:focus {
   z-index: 9999;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 .modal-wrapper.show, .modal-wrapper[style*="display: block"], .modal-wrapper[style*="display:block"] {
   display: block !important;
