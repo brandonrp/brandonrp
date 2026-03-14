@@ -545,14 +545,16 @@ article.attachment,
 
 .project-filters {
   @extend .main-nav;
+  @include span(10 of 12 last);
 
   background-color: $brand-red;
   display: block;
   font-size: $thumbnail-text-sm;
 
-  position: fixed;
-  left: 16.66667%;
-  right: 0;
+  // position: fixed;
+  // left: 16.66667%;
+  // right: 0;
+
   width: 100%;
   padding: ms(-1);
   z-index: 99;

@@ -109,7 +109,9 @@ $thumbnail-category:      block; // none: off , block: on
 $thumbnail-text-size:     ms(1);
 $thumbnail-text-sm:       ms(0);
 
-$home-block-width:        33.33%;
+$home-block-width:        100%;
+$home-block-color-a:      $brand-red;
+$home-block-color-b:      $brand-gray-dark;
 $home-text-size:          ms(2);
 $home-btn-size:           ms(1);
 $home-btn-height:         ms(1);

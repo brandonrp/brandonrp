@@ -11,23 +11,20 @@
   @include container(12 fluid);
 
   display: flex;
-  flex-direction: row;      // or column
-  justify-content: space-between; // or start/center/end
-  align-items: center;      // tweak as needed
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   flex-wrap: nowrap;
-  
-  @include flex-direction(row);
-  @include flex-wrap(nowrap);
-  @include flex-align(center);
-  @include clearfix();
+  gap: ms(2);
 
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 
   @media(max-width: $screen-sm) {
-    @include flex-direction(column);
+    flex-direction: column;
+    text-align: center;
 
     > div {
-      display: block;
       width: 100%;
       margin-left: auto;
       margin-right: auto;
@@ -36,18 +33,32 @@
 }
 
 .contact-info-wrapper {
-  @include inline-flex();
-  @include flex-direction(column);
-  @include flex-wrap(nowrap);
-  @include flex-align(center);
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: left;
+  text-align: left;
 
-  @include span(8 of 12 last);
+  @media(max-width: $screen-sm) {
+    text-align: center;
+  }
 }
 
 .contact-photo {
-  @include span(4 of 12 first);
-
+  flex: 0 0 auto;
+  width: rem(220);
   max-width: rem(220);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 7px solid $brand-gray-lighter;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
   @media (max-width: $screen-sm) {
     margin-bottom: ms(2);
@@ -71,7 +82,7 @@
   margin-bottom: 0;
 
   &.name {
-    @extend h2;
+    @extend h3;
   }
 
   @media (max-width: $screen-sm) {
@@ -87,6 +98,14 @@
   display: inline-block;
 }
 
-.resume .brackets {
-  white-space: nowrap;
+.resume { 
+  .brackets {
+    white-space: nowrap;
+  }
+
+  .page-header, .entry-title {
+    font-size: ms(3);
+    padding: 0;
+    margin: ms(2) auto;
+  }
 }

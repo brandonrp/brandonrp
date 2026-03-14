@@ -11,7 +11,7 @@
         </div>
     <?php endif; ?>
 
-    <div class="contact-info-wrapper" style="text-align:left; align-items: left;">
+    <div class="contact-info-wrapper">
     <?php // Name
     if(get_field('name')): ?>
         <div class="contact-info-group">

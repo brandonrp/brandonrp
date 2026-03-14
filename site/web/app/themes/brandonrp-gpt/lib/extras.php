@@ -34,7 +34,11 @@ add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
 // Get base template wrappers if they exist for post type
 function sage_wrap_base_cpts($templates) {
-  $cpt = get_post_type(); // Get the current post type
+  $cpt = get_post_type(); // Get the current post type (empty on archive before loop)
+  // Use base-portfolio on CPT archive OR when viewing the Portfolio page (slug "portfolio")
+  if ( ! $cpt && ( is_post_type_archive( 'portfolio' ) || is_page( 'portfolio' ) ) ) {
+    $cpt = 'portfolio';
+  }
   if ($cpt) {
     array_unshift($templates, 'base-' . $cpt . '.php'); // Shift the template to the front of the array
   }
