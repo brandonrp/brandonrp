@@ -236,7 +236,7 @@
   font-family: $font-family-header;
   text-align: center;
   text-transform: uppercase;
-  font-size: ms(1);
+  font-size: ms(2);
 
   margin: auto;
   width: 100%;
@@ -252,13 +252,13 @@
 
   .nav-previous {
     a:after {
-      content: 'i';
+      content: 'h';
     }
   }
 
   .nav-next {
     a:before {
-      content: 'h';
+      content: 'i';
     }
   }
 
@@ -279,6 +279,7 @@
   a {
     display: block;
     padding: ms(1);
+    font-size: ms(1);
 
     &:before,
     &:after {
@@ -288,7 +289,10 @@
       font-variant: normal;
       text-transform: none;
       line-height: 1;
-      font-size: ms(1.5);
+      font-size: ms(1);
+
+      position: relative;
+      top: 1px;
 
       display: inline-block;
       vertical-align: middle;
@@ -314,6 +318,7 @@
     .nav-previous,
     .nav-next {
       width: ms(4);
+      font-size: 10px;
 
       &:hover {
         background-color: transparent;

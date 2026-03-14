@@ -1753,7 +1753,7 @@ button:focus {
   font-family: "Bebas Neue Regular", Arial, sans-serif;
   text-align: center;
   text-transform: uppercase;
-  font-size: 1.315434rem;
+  font-size: 2.128372212rem;
   margin: auto;
   width: 100%;
 }
@@ -1769,10 +1769,10 @@ button:focus {
   float: right;
 }
 .posts-navigation .nav-previous a:after {
-  content: "i";
+  content: "h";
 }
 .posts-navigation .nav-next a:before {
-  content: "h";
+  content: "i";
 }
 .posts-navigation .nav-previous,
 .posts-navigation .nav-next {
@@ -1790,6 +1790,7 @@ button:focus {
 .posts-navigation a {
   display: block;
   padding: 1.315434rem;
+  font-size: 1.315434rem;
 }
 .posts-navigation a:before, .posts-navigation a:after {
   font-family: "brandonrp" !important;
@@ -1798,7 +1799,9 @@ button:focus {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  font-size: 1.6732403211rem;
+  font-size: 1.315434rem;
+  position: relative;
+  top: 1px;
   display: inline-block;
   vertical-align: middle;
 }
@@ -1821,6 +1824,7 @@ button:focus {
 .post-header .post-nav .nav-previous,
 .post-header .post-nav .nav-next {
   width: 5.5719166947rem;
+  font-size: 10px;
 }
 .post-header .post-nav .nav-previous:hover,
 .post-header .post-nav .nav-next:hover {
