@@ -14,14 +14,17 @@ use Roots\Sage\Wrapper;
         <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage'); ?>
       </div>
     <![endif]-->
-    <?php
-      do_action('get_header');
-      get_template_part('templates/header');
-    ?>
-    <div class="main-wrapper" role="document">
-        <main class="main" role="main">
-          <?php include Wrapper\template_path(); ?>
-        </main>
+    <div class="content-wrapper">
+      <?php
+        do_action('get_header');
+        get_template_part('templates/header');
+      ?>
+      
+      <div class="main-wrapper" role="document">
+          <main class="main" role="main">
+            <?php include Wrapper\template_path(); ?>
+          </main>
+      </div>
     </div>
     <?php
       do_action('get_footer');

@@ -1,15 +1,12 @@
 .home .main {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: stretch;
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-
-  @media (max-width: $screen-lg) {
-    flex-direction: column;
-  }
 }
 
 .block-description {
@@ -31,6 +28,8 @@
 
 .home-block {
   display: flex;
+  flex-wrap: wrap;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -39,10 +38,23 @@
   padding: 0;
 
   position: relative;
-  flex: 0 0 $home-block-width;
-  width: $home-block-width;
-  height: 100%;
-  min-height: 100vh;
+  height: 50%;
+  min-height: 50vh;
+  width: 50%;
+  flex: 0 0 50%;
+  
+  &:first-child {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+  
+  &:nth-child(2) {
+    background-color: $home-block-color-a;
+  }
+
+  &:nth-child(3) {
+    background-color: $home-block-color-b;
+  }
 
   &, * {
     @include transition(all $transition-speed ease-in-out);
@@ -119,6 +131,8 @@
   }
 
   @media (min-width: $screen-lg) {
+    height: 50%;
+
     &:hover {
       .block-title,
       .block-description {
@@ -145,19 +159,29 @@
         padding: 0;
       }
     }
+
+    &:nth-child(2) {
+      &:hover {
+        .overlay {
+          border-color: #fff;
+        }
+      }
+    }
   }
 
   @media (max-width: $screen-lg) {
-    width: 100%;
-    height: 33.33%;
-    flex: 0 0 100%;
+    // width: 100%;
+    // height: 33.33%;
+    // flex: 0 0 100%;
 
-    .featured-image {
-      display: none;
-    }
+    &:not(:first-child) {
+      .featured-image {
+        display: none;
+      }
 
-    .featured-image-mobile {
-      display: block;
+      .featured-image-mobile {
+        display: block;
+      }
     }
 
     .button {
@@ -166,11 +190,11 @@
   }
 
   @media (max-width: $screen-xs) {
-    display: flex;
-    flex-direction: row;      // or column
-    justify-content: space-between; // or start/center/end
-    align-items: center;      // tweak as needed
-    flex-wrap: nowrap;        // or wrap
+    // display: flex;
+    // flex-direction: row;      // or column
+    // justify-content: space-between; // or start/center/end
+    // align-items: center;      // tweak as needed
+    // flex-wrap: nowrap;        // or wrap
 
     h2 {
       font-size: ms(2);

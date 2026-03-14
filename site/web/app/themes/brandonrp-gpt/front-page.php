@@ -5,13 +5,17 @@
     // check if the repeater field has rows of data
     if( have_rows('home_block') ):
         $count_home = 0;
-        $image_url = '';
-        $image_url_mobile = '';
 
         // loop through the rows of data
         while ( have_rows('home_block') ) : the_row(); ?>
 
           <?php
+          // Reset per-block image variables so they don't leak between iterations
+          $image = null;
+          $image_mobile = null;
+          $image_url = '';
+          $image_url_mobile = '';
+
           // Get Required Fields
           $title = get_sub_field('block_title');
           $link = get_sub_field('block_link');
@@ -35,12 +39,19 @@
                 <span class="button red">View</span>
               </div>
 
-              <?php if( !empty($image)): ?>
               <div class="image-wrapper">
-                <div class="featured-image" style="background-image: url('<?php echo $image_url[0]; ?>');"></div>
-                <div class="featured-image-mobile" style="background-image: url('<?php echo $image_url_mobile[0]; ?>');"></div>
+                <?php if ( ! empty( $image_url ) ) : ?>
+                  <div class="featured-image" style="background-image: url('<?php echo esc_url( $image_url[0] ); ?>');"></div>
+                <?php else : ?>
+                  <div class="featured-image"></div>
+                <?php endif; ?>
+
+                <?php if ( ! empty( $image_url_mobile ) ) : ?>
+                  <div class="featured-image-mobile" style="background-image: url('<?php echo esc_url( $image_url_mobile[0] ); ?>');"></div>
+                <?php else : ?>
+                  <div class="featured-image-mobile"></div>
+                <?php endif; ?>
               </div>
-              <?php endif; ?>
             </a>
 
         <?php endwhile;

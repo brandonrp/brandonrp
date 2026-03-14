@@ -14,46 +14,52 @@ use Roots\Sage\Wrapper;
         <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage'); ?>
       </div>
     <![endif]-->
-    <?php
-      do_action('get_header');
-      get_template_part('templates/header');
-    ?>
-    <div class="main-wrapper" role="document">
-
-      <?php if(
-        have_posts() &&
-        get_post_type() == 'portfolio' &&
-        !is_single()):
-
-        $filter_args = array(
-          'type'                     => 'portfolio',
-          'orderby'                  => 'name',
-          'order'                    => 'ASC',
-          'hide_empty'               => 1,
-          'taxonomy'                 => 'project',
-        );
+    <div class="content-wrapper">
+      <?php
+        do_action('get_header');
+        get_template_part('templates/header');
       ?>
+      <div class="main-wrapper" role="document">
 
-        <div class="project-filters">
-          <h4 class="label">Filter</h4>
-          <?php if (has_nav_menu('project_filters')) :
-              wp_nav_menu(['theme_location' => 'project_filters', 'items_wrap' => '']);
-            endif; ?>
-        </div>
-      <?php endif; ?>
+        <?php if(
+          ! is_single() &&
+          ( is_post_type_archive( 'portfolio' ) || is_page( 'portfolio' ) || ( have_posts() && get_post_type() == 'portfolio' ) ) ):
 
-        <main class="main" role="main">
+          $filter_args = array(
+            'type'                     => 'portfolio',
+            'orderby'                  => 'name',
+            'order'                    => 'ASC',
+            'hide_empty'               => 1,
+            'taxonomy'                 => 'project',
+          );
+        ?>
 
-          <?php if (!have_posts()) : ?>
-            <div class="alert alert-warning">
-              <?php _e('Sorry, no results were found...', 'sage'); ?>
-            </div>
-          <?php endif; ?>
+          <div class="project-filters">
+            <h4 class="label">Filter</h4>
+            <?php
+              wp_nav_menu([
+                'theme_location' => 'project_filters',
+                'menu_class'     => 'nav project-filters-menu',
+                'container'     => false,
+                'fallback_cb'   => false,
+              ]);
+            ?>
+          </div>
+        <?php endif; ?>
 
-          <?php include Wrapper\template_path(); ?>
+          <main class="main" role="main">
 
-        </main><!-- /.main -->
-    </div><!-- /.wrap -->
+            <?php if (!have_posts()) : ?>
+              <div class="alert alert-warning">
+                <?php _e('Sorry, no results were found...', 'sage'); ?>
+              </div>
+            <?php endif; ?>
+
+            <?php include Wrapper\template_path(); ?>
+
+          </main><!-- /.main -->
+      </div><!-- /.wrap -->
+    </div><!-- /.content-wrapper -->
     <?php
       do_action('get_footer');
       get_template_part('templates/modal', 'contact');
