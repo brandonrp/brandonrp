@@ -16,8 +16,8 @@
 
 <?php the_posts_navigation(array(
   'mid_size' => 3,
-  'prev_text' => __( 'Older', 'sage' ),
-  'next_text' => __( 'Newer', 'sage' ),
+  'prev_text' => __( 'Next', 'sage' ),
+  'next_text' => __( 'Previous', 'sage' ),
 ) ); ?>
 
 <?php if(have_posts()) : ?>
