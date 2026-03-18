@@ -23,7 +23,18 @@
 
 - import_tasks: "{{ playbook_dir }}/roles/common/tasks/disable_challenge_sites.yml"
 
+- name: Ensure nginx sites-available directory exists and is writable
+  file:
+    path: "{{ nginx_path }}/sites-available"
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+    recurse: no
+
 - name: Create Nginx available sites
+  become: yes
+  become_user: root
   template:
     src: "{{ item.src }}"
     dest: "{{ nginx_path }}/sites-available/{{ item.src | basename | regex_replace('.j2$', '') }}"
@@ -43,6 +54,8 @@
   tags: nginx-sites
 
 - name: Enable Nginx sites
+  become: yes
+  become_user: root
   file:
     path: "{{ nginx_path }}/sites-enabled/{{ item.src | basename | regex_replace('.j2$', '') }}"
     src: "{{ nginx_path }}/sites-available/{{ item.src | basename | regex_replace('.j2$', '') }}"
@@ -54,20 +67,13 @@
   tags: nginx-sites
 
 - name: Create Nginx conf for challenges location
+  become: yes
+  become_user: root
   template:
     src: "{{ playbook_dir }}/roles/letsencrypt/templates/acme-challenge-location.conf.j2"
     dest: "{{ nginx_path }}/acme-challenge-location.conf"
     mode: '0644'
   notify: reload nginx
-
-- name: Ensure nginx sites-available directory exists and is writable
-  file:
-    path: "{{ nginx_path }}/sites-available"
-    state: directory
-    mode: '0755'
-    owner: root
-    group: root
-    recurse: no
 
 - name: Remove existing WordPress config files if they exist
   shell: |
@@ -107,6 +113,8 @@
   changed_when: true
 
 - name: Enable WordPress site
+  become: yes
+  become_user: root
   file:
     src: "{{ nginx_path }}/sites-available/{{ item.key }}.conf"
     dest: "{{ nginx_path }}/sites-enabled/{{ item.key }}.conf"
