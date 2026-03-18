@@ -35,7 +35,7 @@ article.attachment,
   .entry-title {
     @include user-select(text);
 
-    font-size: $thumbnail-text-size;
+    font-size: ms(2);
     text-align: center;
     text-indent: rem(-9);
     padding: 0 ms($content-padding) 0;
@@ -157,8 +157,9 @@ article.attachment,
   h2 {
     background-color: $brand-gray-lighter;
     padding: ms(2);
-    margin-bottom: ms(2);
+    margin: ms(0) auto;
     text-align: center;
+    font-size: ms(1.5);
 
     @include text-decoration(underline, $brand-red, solid);
 
@@ -381,10 +382,6 @@ article.attachment,
       padding: ms(1);
     }
 
-    .entry-title {
-      margin-top: 0;
-    }
-
     &:hover {
       background-color: $brand-red;
     }
@@ -427,6 +424,9 @@ article.attachment,
 
   .entry-title {
     @extend h3;
+    font-size: ms(0.5);
+    margin-top: 0;
+    padding: 0
   }
 
   .date {

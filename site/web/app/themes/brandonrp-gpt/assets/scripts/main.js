@@ -26,7 +26,15 @@ window.nav = window.nav || {};   // prevent ReferenceError
         // JavaScript to be fired on all pages
         if (typeof nav.setup === 'function') nav.setup();
         modal.open('a[href*="#contact"]');
-        jQuery('.entry-content a').attr('data-fancybox', 'group');
+        // Fancybox: gallery images (each .gallery gets its own group)
+        jQuery('.entry-content .gallery').each(function(i) {
+          jQuery(this).find('a').attr('data-fancybox', 'gallery-' + i);
+        });
+        // Fancybox: standalone content images (links to image files or wrapping img)
+        jQuery('.entry-content a').not('.gallery a').filter(function() {
+          var href = (this.getAttribute('href') || '').toLowerCase();
+          return /\.(jpe?g|png|gif|webp|bmp)(\?|$)/i.test(href) || jQuery(this).find('img').length;
+        }).attr('data-fancybox', 'content-images');
       }
     },
     'home': {

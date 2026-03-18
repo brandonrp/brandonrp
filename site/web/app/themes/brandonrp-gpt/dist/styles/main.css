@@ -2372,10 +2372,10 @@ button:focus {
   height: 100%;
 }
 .home-block .featured-image {
-  filter: grayscale(40%) brightness(30%) blur(1px);
+  filter: grayscale(40%) brightness(30%) blur(2px);
 }
 .home-block .featured-image-mobile {
-  filter: grayscale(40%) brightness(30%) blur(1px);
+  filter: grayscale(40%) brightness(30%) blur(2px);
   display: none;
 }
 .home-block .block-icon {
@@ -2491,7 +2491,7 @@ article.attachment,
   -webkit-user-select: text;
      -moz-user-select: text;
           user-select: text;
-  font-size: 1.315434rem;
+  font-size: 2.128372212rem;
   text-align: center;
   text-indent: -0.5625rem;
   padding: 0 3.443706239rem 0;
@@ -2630,8 +2630,9 @@ article.attachment,
 .entry-content h2 {
   background-color: #4a4c4b;
   padding: 2.128372212rem;
-  margin-bottom: 2.128372212rem;
+  margin: 0.813rem auto;
   text-align: center;
+  font-size: 1.6732403211rem;
   -webkit-text-decoration: underline solid #ff4444;
           text-decoration: underline solid #ff4444;
 }
@@ -2746,7 +2747,7 @@ article.attachment,
 .post-teaser.large .post-thumbnail,
 .post-teaser.large .post-thumbnail-double {
   transition: filter 0.1s ease-in-out;
-  filter: grayscale(40%) brightness(30%) blur(1px);
+  filter: grayscale(40%) brightness(30%) blur(2px);
   position: absolute;
   top: 0;
   left: 0;
@@ -2762,7 +2763,7 @@ article.attachment,
 @media (max-width: 64.0625rem) {
   .post-teaser.large .post-thumbnail,
   .post-teaser.large .post-thumbnail-double {
-    filter: grayscale(40%) brightness(30%) blur(1px);
+    filter: grayscale(40%) brightness(30%) blur(2px);
   }
 }
 .post-teaser.large .post-thumbnail-double {
@@ -2816,9 +2817,6 @@ article.attachment,
 .post-teaser.small header {
   padding: 1.315434rem;
 }
-.post-teaser.small .entry-title {
-  margin-top: 0;
-}
 .post-teaser.small:hover {
   background-color: #ff4444;
 }
@@ -2850,6 +2848,11 @@ article.attachment,
   vertical-align: middle;
   width: 100%;
   cursor: pointer;
+}
+.post-teaser .entry-title {
+  font-size: 1.0341411132rem;
+  margin-top: 0;
+  padding: 0;
 }
 .post-teaser .date {
   font-size: 0.6391477832rem;

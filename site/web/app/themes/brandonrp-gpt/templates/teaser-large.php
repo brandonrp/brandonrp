@@ -13,7 +13,7 @@ $teaser_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->I
       </ul>
     <?php endif; ?>
 
-    <span class="button red">View</span>
+    <!-- <span class="button red">View</span> -->
   </header>
 
   <div class="post-thumbnail" <?php if($teaser_image_url): ?> style="background-image: url('<?php echo $teaser_image_url[0]; ?>');" <?php endif; ?>></div>

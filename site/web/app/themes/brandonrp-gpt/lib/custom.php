@@ -68,8 +68,14 @@ function insert_image_src_rel_in_head() {
     echo '<meta property="og:image" content="' . $default_image . '"/>';
   }
   else{
-    $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'blog-teaser-large' );
-    echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+    $attachment_id = get_post_thumbnail_id( $post->ID );
+    $thumbnail_src = wp_get_attachment_image_src( $attachment_id, 'blog-teaser-large' );
+    if ( ! $thumbnail_src || empty( $thumbnail_src[0] ) ) {
+      $thumbnail_src = wp_get_attachment_image_src( $attachment_id, 'full' );
+    }
+    if ( $thumbnail_src && ! empty( $thumbnail_src[0] ) ) {
+      echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+    }
   }
   echo "
 ";

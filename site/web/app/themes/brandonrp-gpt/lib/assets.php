@@ -162,6 +162,11 @@ function assets() {
   // Always load WP jQuery (and its migrate) before your script
   wp_enqueue_script('jquery');
 
+  // Fancybox for gallery lightbox (before main bundle)
+  $fancybox_uri = get_stylesheet_directory_uri() . '/bower_components/fancybox/dist/jquery.fancybox.js';
+  $fancybox_ver = @filemtime(get_stylesheet_directory() . '/bower_components/fancybox/dist/jquery.fancybox.js') ?: null;
+  wp_enqueue_script('fancybox', $fancybox_uri, ['jquery'], $fancybox_ver, true);
+
   $prefer_plain = $is_local;
 
   // Use the robust asset resolution helper which handles environment differences
@@ -190,12 +195,11 @@ function assets() {
     wp_enqueue_style('brandonrp_style', asset_path('styles/main.css'), [], null);
   }
 
-  // JS - Use resolved URI or fallback to asset_path helper
+  // JS - Use resolved URI or fallback to asset_path helper (after Fancybox)
   if ($js_uri) {
-    wp_enqueue_script('sage_js', $js_uri, ['jquery'], $js_version ?: filemtime(get_stylesheet_directory() . '/dist/scripts/main.js') ?: '1.0', true);
+    wp_enqueue_script('sage_js', $js_uri, ['jquery', 'fancybox'], $js_version ?: filemtime(get_stylesheet_directory() . '/dist/scripts/main.js') ?: '1.0', true);
   } else {
-    // Fallback to asset_path helper
-    wp_enqueue_script('sage_js', asset_path('scripts/main.js'), ['jquery'], null, true);
+    wp_enqueue_script('sage_js', asset_path('scripts/main.js'), ['jquery', 'fancybox'], null, true);
   }
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
@@ -208,7 +212,7 @@ add_filter('script_loader_tag', function($tag, $handle, $src) {
   if (is_admin()) return $tag;
 
   // Never defer these (prevents "nav is not defined" / jQuery race)
-  if (in_array($handle, ['jquery', 'jquery-core', 'jquery-migrate', 'sage_js'], true)) {
+  if (in_array($handle, ['jquery', 'jquery-core', 'jquery-migrate', 'fancybox', 'sage_js'], true)) {
     return $tag;
   }
 

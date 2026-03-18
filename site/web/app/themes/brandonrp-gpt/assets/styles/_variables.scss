@@ -102,7 +102,7 @@ $headings-line-height:    1;
 
 $transition-speed:        0.1s;
 
-$thumbnail-fx:            grayscale(40%) brightness(30%) blur(1px);
+$thumbnail-fx:            grayscale(40%) brightness(30%) blur(2px);
 $thumbnail-fx-mobile:     $thumbnail-fx;
 $thumbnail-hover-border:  ms(-2) solid $brand-red;
 $thumbnail-category:      block; // none: off , block: on
