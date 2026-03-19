@@ -85,7 +85,7 @@ $font-size-h6:            ms(-2);
 $font-size-h5:            ms(-1);
 $font-size-h4:            ms(0);
 $font-size-h3:            ms(1);
-$font-size-h2:            ms(2);
+$font-size-h2:            ms(1.5);
 $font-size-h1:            ms(3);
 
 $font-size-base:          $ms-base;
@@ -106,7 +106,7 @@ $thumbnail-fx:            grayscale(40%) brightness(30%) blur(1px);
 $thumbnail-fx-mobile:     $thumbnail-fx;
 $thumbnail-hover-border:  ms(-2) solid $brand-red;
 $thumbnail-category:      block; // none: off , block: on
-$thumbnail-text-size:     ms(1);
+$thumbnail-text-size:     ms(0.5);
 $thumbnail-text-sm:       ms(0);
 
 $home-block-width:        100%;

@@ -26,7 +26,21 @@ window.nav = window.nav || {};   // prevent ReferenceError
         // JavaScript to be fired on all pages
         if (typeof nav.setup === 'function') nav.setup();
         modal.open('a[href*="#contact"]');
-        jQuery('.entry-content a').attr('data-fancybox', 'group');
+        // Tag image links inside entry content for Fancybox.
+        // Fancybox binds to `[data-fancybox]` click events.
+        jQuery('.entry-content a').each(function() {
+          var $a = jQuery(this);
+          var href = $a.attr('href') || '';
+
+          // Typical case: gallery/attachment links that contain an <img>.
+          // Fallback: anchors that link directly to an image file.
+          var hasImg = $a.find('img').length > 0;
+          var isImageHref = /\.(jpe?g|png|gif|webp)(\\?.*)?$/i.test(href);
+
+          if (hasImg || isImageHref) {
+            $a.attr('data-fancybox', 'projects');
+          }
+        });
       }
     },
     'home': {

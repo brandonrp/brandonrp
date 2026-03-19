@@ -956,7 +956,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: 2.128372212rem;
+  font-size: 1.6732403211rem;
 }
 
 h3, .contact-info.name, .post-teaser .entry-title, .label, .h3, .wpcf7 .wpcf7-response-output,
@@ -2491,7 +2491,7 @@ article.attachment,
   -webkit-user-select: text;
      -moz-user-select: text;
           user-select: text;
-  font-size: 1.315434rem;
+  font-size: 1.0341411132rem;
   text-align: center;
   text-indent: -0.5625rem;
   padding: 0 3.443706239rem 0;
@@ -2725,7 +2725,7 @@ article.attachment,
   min-height: 14.5868544411rem;
 }
 .post-teaser.large .entry-title {
-  font-size: 1.315434rem;
+  font-size: 1.0341411132rem;
   display: block;
   width: 100%;
   margin: 0 auto;
@@ -2818,6 +2818,7 @@ article.attachment,
 }
 .post-teaser.small .entry-title {
   margin-top: 0;
+  font-size: 1.0341411132rem;
 }
 .post-teaser.small:hover {
   background-color: #ff4444;
@@ -2836,7 +2837,7 @@ article.attachment,
     display: none;
   }
   .post-teaser.small .entry-title {
-    font-size: 1.315434rem;
+    font-size: 1.0341411132rem;
     margin-bottom: 0;
   }
 }
@@ -2892,7 +2893,7 @@ article.attachment,
   margin: 0 auto 2.128372212rem;
   background-color: #303231;
 }
-@media (max-width: 25.875rem) {
+@media (max-width: 48rem) {
   .related-posts {
     flex-direction: column;
   }

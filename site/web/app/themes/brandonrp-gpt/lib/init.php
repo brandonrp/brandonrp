@@ -30,7 +30,7 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
 
-  add_image_size('portfolio-block', 800, 1920, true);
+  add_image_size('portfolio-block', 1920, 1080, true);
   add_image_size('portfolio-block-single', 2048, 2048, true);
 
 

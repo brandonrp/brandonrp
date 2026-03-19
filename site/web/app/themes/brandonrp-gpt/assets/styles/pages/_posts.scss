@@ -383,6 +383,7 @@ article.attachment,
 
     .entry-title {
       margin-top: 0;
+      font-size: $thumbnail-text-size;
     }
 
     &:hover {
@@ -405,7 +406,7 @@ article.attachment,
       }
 
       .entry-title {
-        font-size: ms(1);
+        font-size: $thumbnail-text-size;
         margin-bottom: 0;
       }
     }
@@ -481,7 +482,7 @@ article.attachment,
   margin: 0 auto ms(2);
   background-color: $brand-gray-mid;
 
-  @media (max-width: $screen-xs) {
+  @media (max-width: $screen-sm) {
     @include flex-direction(column);
   }
 }

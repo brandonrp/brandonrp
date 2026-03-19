@@ -162,6 +162,22 @@ function assets() {
   // Always load WP jQuery (and its migrate) before your script
   wp_enqueue_script('jquery');
 
+  // Fancybox (lightbox) - used for project/gallery images.
+  // Note: fancyBox binds to `[data-fancybox]` click events, so our main.js
+  // tags image links with `data-fancybox="projects"`.
+  $fancybox_js_rel  = 'bower_components/fancybox/dist/jquery.fancybox.js';
+  $fancybox_css_rel = 'bower_components/fancybox/dist/jquery.fancybox.css';
+  $fancybox_js_path = get_stylesheet_directory() . '/' . $fancybox_js_rel;
+  $fancybox_css_path = get_stylesheet_directory() . '/' . $fancybox_css_rel;
+  $fancybox_js_uri  = get_stylesheet_directory_uri() . '/' . $fancybox_js_rel;
+  $fancybox_css_uri = get_stylesheet_directory_uri() . '/' . $fancybox_css_rel;
+
+  $fancybox_js_ver  = is_file($fancybox_js_path) ? filemtime($fancybox_js_path) : null;
+  $fancybox_css_ver = is_file($fancybox_css_path) ? filemtime($fancybox_css_path) : null;
+
+  wp_enqueue_style('jquery_fancybox_css', $fancybox_css_uri, [], $fancybox_css_ver ?: null);
+  wp_enqueue_script('jquery_fancybox', $fancybox_js_uri, ['jquery'], $fancybox_js_ver ?: null, true);
+
   $prefer_plain = $is_local;
 
   // Use the robust asset resolution helper which handles environment differences
@@ -192,10 +208,10 @@ function assets() {
 
   // JS - Use resolved URI or fallback to asset_path helper
   if ($js_uri) {
-    wp_enqueue_script('sage_js', $js_uri, ['jquery'], $js_version ?: filemtime(get_stylesheet_directory() . '/dist/scripts/main.js') ?: '1.0', true);
+    wp_enqueue_script('sage_js', $js_uri, ['jquery', 'jquery_fancybox'], $js_version ?: filemtime(get_stylesheet_directory() . '/dist/scripts/main.js') ?: '1.0', true);
   } else {
     // Fallback to asset_path helper
-    wp_enqueue_script('sage_js', asset_path('scripts/main.js'), ['jquery'], null, true);
+    wp_enqueue_script('sage_js', asset_path('scripts/main.js'), ['jquery', 'jquery_fancybox'], null, true);
   }
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
