@@ -7,6 +7,21 @@ vault_users:
   password: ey5yxIQ790ShCSA4ojn3pY8Ai397miW5aSZE5rq2iVBC1fedmoWRvEsTRQkI8zXz
   salt: P3LRMY4olH2aNVX66tYYhC2d5hm8zd8Ft60b5uL1hs3W6jzEkaD6G9kV0hmBiae4
 vault_wordpress_sites:
+  # Production site (must match wordpress_sites key in group_vars/production/wordpress_sites.yml)
+  # Change these via: ansible-vault edit group_vars/production/vault.yml
+  brandonrp.com:
+    admin_password: xK9mN2pQ7vL4wR8sT1yU6zA3bC5dE0fG2hJ
+    env:
+      db_password: pL8qR4sT6vX2zB9dF1gH3jK5mN7pQ0rUwY
+      auth_key: aB3cD5eF7gH9iJ1kL2mN4oP6qR8sT0uVwX
+      secure_auth_key: yZ2aB4cD6eF8gH0iJ2kL4mN6oP8qR0sT
+      logged_in_key: uV2wX4yZ6aB8cD0eF2gH4iJ6kL8mN0oP
+      nonce_key: qR2sT4uV6wX8yZ0aB2cD4eF6gH8iJ0kL
+      auth_salt: mN2oP4qR6sT8uV0wX2yZ4aB6cD8eF0gH
+      secure_auth_salt: iJ2kL4mN6oP8qR0sT2uV4wX6yZ8aB0cD
+      logged_in_salt: eF2gH4iJ6kL8mN0oP2qR4sT6uV8wX0yZ
+      nonce_salt: aB2cD4eF6gH8iJ0kL2mN4oP6qR8sT0uV
+  # Development site (not used in production)
   brandonrp.test:
     admin_password: le3HFFQtaprbcjCwjNeR9hKd388iASFUY0eronUWQmK9smZgqL3BT5DfXW3cU95p
     env:
