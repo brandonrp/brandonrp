@@ -4,3 +4,8 @@
 
 # Node
 node_modules/
+
+# Local backups (run ./backup-full.sh)
+backups/
+
+site/web/app/dbsync-jobs/

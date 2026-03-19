@@ -30,7 +30,7 @@ DB_FILE="$DEST_ABS/database.sql"
 DB_ERR="$DEST_ABS/database-export-errors.txt"
 if (cd trellis && vagrant status --machine-readable 2>/dev/null | grep -q 'state,running'); then
   echo "Dumping database from VM..."
-  if (cd trellis && vagrant ssh -c 'bash -l -c "cd /srv/www/brandonrp.test/current && wp db export -"' 2>"$DB_ERR") > "$DB_FILE"; then
+  if (cd trellis && vagrant ssh -c 'cd /srv/www/brandonrp.test/current && wp db export /tmp/db-backup.sql && cat /tmp/db-backup.sql && rm -f /tmp/db-backup.sql' 2>"$DB_ERR") > "$DB_FILE"; then
     if [[ -s "$DB_FILE" ]]; then
       echo "Database saved to $DB_FILE"
       rm -f "$DB_ERR"
