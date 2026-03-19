@@ -1,0 +1,6 @@
+# Vagrant
+.vagrant/
+.vagrant_home/
+
+# Node
+node_modules/
