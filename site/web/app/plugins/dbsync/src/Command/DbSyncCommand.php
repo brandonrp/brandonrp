@@ -38,5 +38,11 @@ class DbSyncCommand
         $runner = new Status();
         $runner->run($args, $assoc_args);
     }
+
+    public function compare($args, $assoc_args): void
+    {
+        $runner = new Compare();
+        $runner->run($args, $assoc_args);
+    }
 }
 

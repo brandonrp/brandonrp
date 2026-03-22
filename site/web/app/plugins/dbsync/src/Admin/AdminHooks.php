@@ -149,28 +149,14 @@ final class AdminHooks
             $runMode === 'run'
         );
 
-        if ($runMode === 'preview') {
-            $exitCode = 0;
-            $outputLines = [];
-            // Ensure PATH includes common WP-CLI locations (web server often has minimal PATH; exit 127 = command not found).
-            $pathPrefix = 'PATH="/usr/local/bin:/usr/bin:/bin:${PATH}" ';
-            $full = \sprintf(
-                'cd %s && %s%s 2>&1',
-                \escapeshellarg($siteRoot),
-                $pathPrefix,
-                $command
-            );
-            \exec($full, $outputLines, $exitCode);
-            $logLines = array_merge($logLines, $outputLines);
-            \file_put_contents($logPath, implode("\n", $logLines));
-            \file_put_contents($metaPath, \wp_json_encode(['exit_code' => $exitCode]));
-            return $jobId;
+        // Preview and run both execute in the background so the job page can poll the log and show a live progress bar.
+        if ($logLines !== []) {
+            \file_put_contents($logPath, implode("\n", $logLines) . "\n");
         }
 
-        // Run in background to avoid web request timeouts.
         $pathPrefix = 'PATH="/usr/local/bin:/usr/bin:/bin:${PATH}" ';
         $bgCmd = \sprintf(
-            'cd %s && %snohup %s > %s 2>&1 & echo $!',
+            'cd %s && %snohup %s >> %s 2>&1 & echo $!',
             \escapeshellarg($siteRoot),
             $pathPrefix,
             self::shell_escape_command_without_cd($command),
@@ -190,6 +176,7 @@ final class AdminHooks
             'pid' => $pid,
             'command' => $command,
             'action_type' => $actionType,
+            'run_mode' => $runMode,
         ]));
 
         return $jobId;

@@ -21,6 +21,7 @@ if (defined('WP_CLI') && WP_CLI) {
     require_once __DIR__ . '/src/Command/Sync.php';
     require_once __DIR__ . '/src/Command/MediaSync.php';
     require_once __DIR__ . '/src/Command/Status.php';
+    require_once __DIR__ . '/src/Command/Compare.php';
 
     require_once __DIR__ . '/src/Support/RemoteTransfer.php';
     require_once __DIR__ . '/src/Support/UrlReplace.php';

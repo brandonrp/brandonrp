@@ -19,13 +19,63 @@ final class AdminPage
 
         self::render_job_panel($jobId);
 
-        echo '<h2 style="margin-top:24px;">Database Sync</h2>';
-        self::render_db_form();
+        self::render_forms_layout_styles();
 
-        echo '<h2 style="margin-top:24px;">Media Sync</h2>';
+        echo '<div class="dbsync-forms-grid">';
+        echo '<div class="dbsync-form-panel">';
+        echo '<h2>Database Sync</h2>';
+        self::render_db_form();
+        echo '</div>';
+        echo '<div class="dbsync-form-panel">';
+        echo '<h2>Media Sync</h2>';
         self::render_media_form();
+        echo '</div>';
+        echo '</div>';
 
         echo '</div>';
+    }
+
+    private static function render_forms_layout_styles(): void
+    {
+        ?>
+<style>
+.dbsync-forms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+    align-items: start;
+    max-width: 100%;
+}
+.dbsync-form-panel {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 16px 20px 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    min-width: 0;
+}
+.dbsync-form-panel h2 {
+    margin: 0 0 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dcdcde;
+    font-size: 1.15em;
+}
+.dbsync-form-panel .form-table th {
+    width: 120px;
+    padding-left: 0;
+}
+.dbsync-form-panel .form-table td .regular-text {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 1100px) {
+    .dbsync-forms-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+        <?php
     }
 
     private static function render_diagnostics_panel(): void
@@ -77,6 +127,7 @@ final class AdminPage
         $defaultRemoteSsh = 'root@64.23.203.166~/srv/www/brandonrp.com/current';
         echo '<tr><th scope="row"><label for="remote_ssh">Remote SSH (required if prod)</label></th><td>';
         echo '<input type="text" name="remote_ssh" id="remote_ssh" class="regular-text" value="' . \esc_attr($defaultRemoteSsh) . '" placeholder="' . \esc_attr($defaultRemoteSsh) . '" />';
+        echo self::remote_ssh_help_text();
         echo '</td></tr>';
 
         echo '<tr><th scope="row"><label for="compress">Compress dump</label></th><td>';
@@ -125,6 +176,7 @@ final class AdminPage
         $defaultRemoteSsh = 'root@64.23.203.166~/srv/www/brandonrp.com/current';
         echo '<tr><th scope="row"><label for="remote_ssh_media">Remote SSH (required if prod)</label></th><td>';
         echo '<input type="text" name="remote_ssh" id="remote_ssh_media" class="regular-text" value="' . \esc_attr($defaultRemoteSsh) . '" placeholder="' . \esc_attr($defaultRemoteSsh) . '" />';
+        echo self::remote_ssh_help_text();
         echo '</td></tr>';
 
         echo '<tr><th scope="row"><label for="media_run_mode">Run mode</label></th><td>';
@@ -137,6 +189,28 @@ final class AdminPage
 
         echo '<p><button type="submit" class="button button-primary">Submit</button></p>';
         echo '</form>';
+    }
+
+    /**
+     * Progress bar title: dry-run vs execute, DB vs media.
+     */
+    private static function progress_label(string $actionType, string $runMode): string
+    {
+        $preview = ($runMode === 'preview');
+        if ($actionType === 'media-sync') {
+            return $preview ? 'Planning media sync…' : 'Syncing media…';
+        }
+        return $preview ? 'Planning dry run…' : 'Syncing database…';
+    }
+
+    /**
+     * Help text for WP-CLI style `user@host~/path` (Bedrock root = directory containing wp-cli.yml).
+     */
+    private static function remote_ssh_help_text(): string
+    {
+        return '<p class="description">Format: <code>user@host~/absolute/path/to/bedrock-root</code> (Trellis: often <code>/srv/www/your-site/current</code>). '
+            . 'The path after <code>~</code> must exist on the server. If you see <code>cd: … No such file or directory</code>, SSH in and run '
+            . '<code>find /srv/www -name wp-cli.yml 2>/dev/null</code> (or <code>ls -la /srv/www/</code>) and paste the directory that contains <code>wp-cli.yml</code> here.</p>';
     }
 
     private static function option(string $value, string $label, bool $selected): void
@@ -182,7 +256,8 @@ final class AdminPage
         $statusLabel = $isRunning ? 'Running' : 'Finished';
         $nonce = \wp_create_nonce('dbsync_job_status');
         $actionType = isset($meta['action_type']) ? (string) $meta['action_type'] : 'dbsync';
-        $progressLabel = ($actionType === 'media-sync') ? 'Syncing media…' : 'Syncing database…';
+        $runModeMeta = isset($meta['run_mode']) ? (string) $meta['run_mode'] : 'run';
+        $progressLabel = self::progress_label($actionType, $runModeMeta);
 
         echo '<div id="dbsync-job-panel" class="dbsync-job-panel" data-job-id="' . \esc_attr($jobId) . '" data-running="' . ($isRunning ? '1' : '0') . '" data-nonce="' . \esc_attr($nonce) . '">';
 
@@ -252,14 +327,17 @@ final class AdminPage
                 if (data.exit_code !== null && data.exit_code !== undefined) {
                     if (exitWrap) { exitWrap.style.display = ''; if (exitCodeEl) exitCodeEl.textContent = String(data.exit_code); }
                 }
-                if (logEl && typeof data.log === 'string') logEl.textContent = data.log;
+                if (logEl && typeof data.log === 'string') {
+                    logEl.textContent = data.log;
+                    logEl.scrollTop = logEl.scrollHeight;
+                }
                 if (!data.running) clearInterval(interval);
             } catch (e) {}
         };
         xhr.send();
     };
 
-    var interval = setInterval(poll, 2000);
+    var interval = setInterval(poll, 1000);
     poll();
 })();
 </script>
