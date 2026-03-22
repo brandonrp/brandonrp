@@ -2718,7 +2718,7 @@ article.attachment,
   color: #fff;
 }
 .post-teaser.large {
-  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   text-align: center;
   width: 33.33%;
   height: 33vh;
