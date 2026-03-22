@@ -259,11 +259,23 @@ final class AdminPage
         $runModeMeta = isset($meta['run_mode']) ? (string) $meta['run_mode'] : 'run';
         $progressLabel = self::progress_label($actionType, $runModeMeta);
 
-        echo '<div id="dbsync-job-panel" class="dbsync-job-panel" data-job-id="' . \esc_attr($jobId) . '" data-running="' . ($isRunning ? '1' : '0') . '" data-nonce="' . \esc_attr($nonce) . '">';
+        $initialPct = '';
+        if ($actionType === 'media-sync' && \file_exists($logPath)) {
+            $p = self::parse_media_rsync_percent(self::tail_file($logPath, 200000));
+            if ($p !== null) {
+                $initialPct = (string) $p;
+            }
+        }
+
+        echo '<div id="dbsync-job-panel" class="dbsync-job-panel" data-job-id="' . \esc_attr($jobId) . '" data-running="' . ($isRunning ? '1' : '0') . '" data-nonce="' . \esc_attr($nonce) . '" data-action-type="' . \esc_attr($actionType) . '">';
 
         echo '<div id="dbsync-progress-wrap" class="dbsync-progress-wrap" style="' . ($isRunning ? '' : 'display:none;') . '">';
-        echo '<p class="dbsync-progress-text" id="dbsync-progress-text">' . \esc_html($progressLabel) . '</p>';
-        echo '<div class="dbsync-progress-bar"><div class="dbsync-progress-inner"></div></div>';
+        echo '<p class="dbsync-progress-text" id="dbsync-progress-text">' . \esc_html($progressLabel);
+        echo ' <span id="dbsync-media-percent-label" class="dbsync-media-percent"' . ($initialPct !== '' ? '' : ' style="display:none;"') . '>' . ($initialPct !== '' ? \esc_html($initialPct) . '%' : '') . '</span>';
+        echo '</p>';
+        $innerClass = 'dbsync-progress-inner' . ($initialPct !== '' ? ' dbsync-progress-determinate' : '');
+        $innerStyle = $initialPct !== '' ? ' style="width:' . (int) $initialPct . '%;animation:none;margin-left:0;"' : '';
+        echo '<div class="dbsync-progress-bar"><div class="' . \esc_attr($innerClass) . '" id="dbsync-progress-inner"' . $innerStyle . '></div></div>';
         echo '</div>';
 
         echo '<div id="dbsync-job-status" class="notice notice-info"><p><strong>Job:</strong> ' . \esc_html($jobId) . ' &nbsp; <strong>Status:</strong> <span id="dbsync-status-label">' . \esc_html($statusLabel) . '</span></p></div>';
@@ -296,6 +308,7 @@ final class AdminPage
 .dbsync-progress-text { margin: 0 0 8px; font-weight: 600; color: #1d2327; }
 .dbsync-progress-bar { height: 8px; background: #c3c4c7; border-radius: 4px; overflow: hidden; }
 .dbsync-progress-inner { height: 100%; width: 30%; background: #2271b1; border-radius: 4px; animation: dbsync-progress 1.4s ease-in-out infinite; }
+.dbsync-progress-inner.dbsync-progress-determinate { animation: none; margin-left: 0; min-width: 0; }
 @keyframes dbsync-progress { 0% { margin-left: 0; } 50% { margin-left: 70%; } 100% { margin-left: 0; } }
 </style>
 <script>
@@ -310,8 +323,30 @@ final class AdminPage
     var exitWrap = document.getElementById('dbsync-exit-wrap');
     var exitCodeEl = document.getElementById('dbsync-exit-code');
     var logEl = document.getElementById('dbsync-job-log');
+    var innerBar = document.getElementById('dbsync-progress-inner');
+    var pctLabel = document.getElementById('dbsync-media-percent-label');
+    var actionType = panel.getAttribute('data-action-type') || 'dbsync';
 
     if (!running) return;
+
+    function applyMediaPercent(pct) {
+        if (actionType !== 'media-sync' || pct === null || pct === undefined) {
+            if (innerBar) {
+                innerBar.classList.remove('dbsync-progress-determinate');
+                innerBar.style.width = '';
+            }
+            if (pctLabel) pctLabel.style.display = 'none';
+            return;
+        }
+        if (pctLabel) {
+            pctLabel.style.display = '';
+            pctLabel.textContent = pct + '%';
+        }
+        if (innerBar) {
+            innerBar.classList.add('dbsync-progress-determinate');
+            innerBar.style.width = Math.min(100, Math.max(0, parseInt(pct, 10))) + '%';
+        }
+    }
 
     var poll = function() {
         var xhr = new XMLHttpRequest();
@@ -327,11 +362,20 @@ final class AdminPage
                 if (data.exit_code !== null && data.exit_code !== undefined) {
                     if (exitWrap) { exitWrap.style.display = ''; if (exitCodeEl) exitCodeEl.textContent = String(data.exit_code); }
                 }
+                if (actionType === 'media-sync' && data.media_percent !== null && data.media_percent !== undefined) {
+                    var pctNum = parseInt(String(data.media_percent), 10);
+                    if (!isNaN(pctNum)) {
+                        applyMediaPercent(pctNum);
+                    }
+                }
                 if (logEl && typeof data.log === 'string') {
                     logEl.textContent = data.log;
                     logEl.scrollTop = logEl.scrollHeight;
                 }
-                if (!data.running) clearInterval(interval);
+                if (!data.running) {
+                    clearInterval(interval);
+                    applyMediaPercent(null);
+                }
             } catch (e) {}
         };
         xhr.send();
@@ -356,11 +400,15 @@ final class AdminPage
         $running = false;
         $exitCode = null;
         $log = '';
+        $decoded = [];
 
         if (\file_exists($metaPath)) {
             $raw = \file_get_contents($metaPath);
             $decoded = \json_decode((string) $raw, true);
-            if (\is_array($decoded)) {
+            if (!\is_array($decoded)) {
+                $decoded = [];
+            }
+            if ($decoded !== []) {
                 $exitCode = isset($decoded['exit_code']) ? $decoded['exit_code'] : null;
                 $pid = isset($decoded['pid']) ? (string) $decoded['pid'] : '';
                 if ($pid !== '' && ctype_digit($pid) && \function_exists('posix_kill')) {
@@ -373,7 +421,34 @@ final class AdminPage
             $log = self::tail_file($logPath, 200000);
         }
 
-        return ['running' => $running, 'exit_code' => $exitCode, 'log' => $log];
+        $mediaPercent = null;
+        if (isset($decoded['action_type']) && (string) $decoded['action_type'] === 'media-sync' && $log !== '') {
+            $mediaPercent = self::parse_media_rsync_percent($log);
+        }
+
+        return [
+            'running' => $running,
+            'exit_code' => $exitCode,
+            'log' => $log,
+            'media_percent' => $mediaPercent,
+        ];
+    }
+
+    /**
+     * Last known rsync transfer percentage from log (0–100), for media sync UI.
+     */
+    private static function parse_media_rsync_percent(string $log): ?int
+    {
+        if (\preg_match_all('/\[dbsync\] rsync_percent:\s*(\d+)/', $log, $m)) {
+            $p = (int) \end($m[1]);
+            return $p >= 0 && $p <= 100 ? $p : null;
+        }
+        if (\preg_match_all('/\b(\d{1,3})%\s/', $log, $m2)) {
+            $p = (int) \end($m2[1]);
+            return $p >= 0 && $p <= 100 ? $p : null;
+        }
+
+        return null;
     }
 
     private static function get_jobs_dir(): string
