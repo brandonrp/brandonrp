@@ -1,1 +1,4 @@
+# Ubuntu 22.04+ uses system Python 3; leave interpreter unset for auto-discovery.
+# composer_platform_requirements_check defaults to true in deploy role (PHP 8.3 on fresh Trellis).
+
 mysql_root_password: "{{ vault_mysql_root_password }}" # Define this variable in group_vars/production/vault.yml

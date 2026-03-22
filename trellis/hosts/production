@@ -1,8 +1,9 @@
 # Add each host to the [production] group and to a "type" group such as [web] or [db].
 # List each machine only once per [group], even if it will host multiple sites.
 
+# Use ansible_host so we connect via IP (avoids DNS/firewall timeouts). Name can stay for display.
 [production]
-brandonrp.com
+brandonrp.com ansible_host=64.23.203.166
 
 [web]
-brandonrp.com
+brandonrp.com ansible_host=64.23.203.166

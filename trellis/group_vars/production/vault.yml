@@ -11,6 +11,11 @@ vault_wordpress_sites:
   # Change these via: ansible-vault edit group_vars/production/vault.yml
   brandonrp.com:
     admin_password: xK9mN2pQ7vL4wR8sT1yU6zA3bC5dE0fG2hJ
+    composer_authentications:
+    - type: http-basic
+      hostname: connect.advancedcustomfields.com
+      username: b3JkZXJfaWQ9NTYxODl8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTUtMDUtMTUgMjE6NDg6MTE=
+      password: https://brandonrp.com
     env:
       db_password: pL8qR4sT6vX2zB9dF1gH3jK5mN7pQ0rUwY
       auth_key: aB3cD5eF7gH9iJ1kL2mN4oP6qR8sT0uVwX

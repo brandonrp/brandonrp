@@ -42,3 +42,5 @@ php_fpm_set_emergency_restart_interval: false
 php_fpm_emergency_restart_interval: 0
 php_fpm_set_process_control_timeout: true
 php_fpm_process_control_timeout: 10
+php_fpm_set_rlimit_files: false
+php_fpm_rlimit_files: 8192
