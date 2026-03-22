@@ -3,6 +3,7 @@
 namespace BrandonRP\DBSync\Command;
 
 use BrandonRP\DBSync\Support\RemoteTransfer;
+use BrandonRP\DBSync\Support\RemoteWp;
 use BrandonRP\DBSync\Support\UrlReplace;
 use BrandonRP\DBSync\Util\WpCli;
 use WP_CLI;
@@ -104,17 +105,10 @@ final class Sync extends BaseCommand
                 . ' db import ' . escapeshellarg($dumpInput);
         }
 
-        $urlReplaceCmds = [];
-        if ($to === 'prod') {
-            $urlReplaceCmds[] = '--ssh=' . $ssh . $remoteAllowRoot . ' ' . UrlReplace::build_search_replace_cmd($fromHome, $toHome, false);
-            if ($fromSiteUrl !== $fromHome || $toSiteUrl !== $toHome) {
-                $urlReplaceCmds[] = '--ssh=' . $ssh . $remoteAllowRoot . ' ' . UrlReplace::build_search_replace_cmd($fromSiteUrl, $toSiteUrl, false);
-            }
-        } else {
-            $urlReplaceCmds[] = UrlReplace::build_search_replace_cmd($fromHome, $toHome, false);
-            if ($fromSiteUrl !== $fromHome || $toSiteUrl !== $toHome) {
-                $urlReplaceCmds[] = UrlReplace::build_search_replace_cmd($fromSiteUrl, $toSiteUrl, false);
-            }
+        $searchReplaceParts = [];
+        $searchReplaceParts[] = UrlReplace::build_search_replace_cmd($fromHome, $toHome, false);
+        if ($fromSiteUrl !== $fromHome || $toSiteUrl !== $toHome) {
+            $searchReplaceParts[] = UrlReplace::build_search_replace_cmd($fromSiteUrl, $toSiteUrl, false);
         }
 
         WP_CLI::line('DB sync planning: ' . strtoupper($from) . ' -> ' . strtoupper($to));
@@ -131,11 +125,20 @@ final class Sync extends BaseCommand
             }
             WP_CLI::line('- Import (on ' . $to . '): ' . $importCmd);
             WP_CLI::line('- URL replacement commands (on ' . $to . '):');
-            foreach ($urlReplaceCmds as $c) {
-                WP_CLI::line('  - ' . $c);
+            foreach ($searchReplaceParts as $sr) {
+                WP_CLI::line('  - ' . ($to === 'prod' ? '(remote via SSH) wp ' : 'wp ') . $sr);
             }
             WP_CLI::warning('Add `--run` to execute export/import/transfer/replace for real.');
             return;
+        }
+
+        $localRowsBeforeExport = '';
+        if ($from === 'local' && $to === 'prod') {
+            $localRowsBeforeExport = trim(WpCli::run(
+                'eval ' . escapeshellarg('global $wpdb; echo (int) $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts}");'),
+                []
+            ));
+            WP_CLI::log('Local wp_posts row count before export: ' . $localRowsBeforeExport);
         }
 
         // 1) Export
@@ -145,31 +148,56 @@ final class Sync extends BaseCommand
         // Ensure local file paths.
         if ($from === 'prod' && $to === 'local') {
             WP_CLI::log('Transferring prod dump to local...');
-            RemoteTransfer::rsync_pull($ssh, $sourceDump, $localDumpInput, false);
+            $rsyncExit = RemoteTransfer::rsync_pull($ssh, $sourceDump, $localDumpInput, false);
+            if ($rsyncExit !== 0) {
+                WP_CLI::error('rsync pull failed with exit code ' . $rsyncExit);
+            }
         } elseif ($from === 'local' && $to === 'prod') {
             WP_CLI::log('Transferring local dump to prod...');
-            RemoteTransfer::rsync_push($ssh, $localDumpInput, $dumpInput, false);
+            $rsyncExit = RemoteTransfer::rsync_push($ssh, $localDumpInput, $dumpInput, false);
+            if ($rsyncExit !== 0) {
+                WP_CLI::error('rsync push failed with exit code ' . $rsyncExit);
+            }
         }
 
-        // 2) Import on destination
+        // 2) Import on destination (remote: use SSH shell so stderr/exit codes are reliable)
         if ($to === 'local') {
             WP_CLI::log('Importing into local...');
             WpCli::run($importCmd, []);
         } else {
-            WP_CLI::log('Importing into prod (remote)...');
-            WpCli::run($importCmd, []);
+            WP_CLI::log('Importing into prod (remote via SSH)...');
+            RemoteWp::run($ssh, 'db import ' . escapeshellarg($dumpInput));
+        }
+
+        if ($from === 'local' && $to === 'prod' && $localRowsBeforeExport !== '') {
+            $remoteRows = trim(RemoteWp::run(
+                $ssh,
+                'eval ' . escapeshellarg('global $wpdb; echo (int) $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts}");')
+            ));
+            WP_CLI::log('Remote wp_posts row count after import: ' . $remoteRows . ' (expected ~' . $localRowsBeforeExport . ' from local)');
+            if ($remoteRows !== $localRowsBeforeExport) {
+                WP_CLI::warning(
+                    'Post count mismatch after import. Check production MySQL error log, max_allowed_packet, disk space, '
+                    . 'and that this SSH path matches the live site database.'
+                );
+            }
         }
 
         // 3) URL replacement on destination
         WP_CLI::log('Updating URLs (serialized-safe)...');
-        foreach ($urlReplaceCmds as $c) {
-            // Commands already include `--ssh` and `--allow-root` when needed.
-            WpCli::run($c, []);
+        if ($to === 'prod') {
+            foreach ($searchReplaceParts as $sr) {
+                RemoteWp::run($ssh, $sr);
+            }
+        } else {
+            foreach ($searchReplaceParts as $sr) {
+                WpCli::run($sr, []);
+            }
         }
 
         // Clear any object cache so the updated values are used.
         if ($to === 'prod') {
-            WpCli::run('--ssh=' . $ssh . $remoteAllowRoot . ' cache flush', []);
+            RemoteWp::run($ssh, 'cache flush');
         } else {
             WpCli::run('cache flush', []);
         }

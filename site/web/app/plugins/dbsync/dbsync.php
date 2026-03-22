@@ -24,6 +24,7 @@ if (defined('WP_CLI') && WP_CLI) {
     require_once __DIR__ . '/src/Command/Compare.php';
 
     require_once __DIR__ . '/src/Support/RemoteTransfer.php';
+    require_once __DIR__ . '/src/Support/RemoteWp.php';
     require_once __DIR__ . '/src/Support/UrlReplace.php';
 
     require_once __DIR__ . '/src/Command/DbSyncCommand.php';
