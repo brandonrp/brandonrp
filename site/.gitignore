@@ -1,6 +1,9 @@
 # Application
 web/app/plugins/*
 !web/app/plugins/.gitkeep
+# Track custom DB Sync plugin (Bedrock ignores plugins by default)
+!web/app/plugins/dbsync/
+!web/app/plugins/dbsync/**
 web/app/mu-plugins/*/
 web/app/themes/twentytwentyfive/
 web/app/upgrade
