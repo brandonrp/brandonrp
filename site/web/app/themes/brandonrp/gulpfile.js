@@ -1,4 +1,4 @@
-// Gulp 4 drop-in for Sage 8 (brandonrp-gpt)
+// Gulp 4 drop-in for Sage 8 (brandonrp)
 // Emits: dist/styles, dist/scripts, dist/images, dist/fonts
 
 const { src, dest, series, parallel, watch } = require('gulp');

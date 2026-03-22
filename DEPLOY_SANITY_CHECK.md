@@ -66,7 +66,7 @@ If the server is **already** provisioned (e.g. you’ve run `server.yml` before)
 | **Repo** | Production `wordpress_sites` uses `repo: git@github.com:brandonrp/brandonrp.git` and `repo_subtree_path: site` — deploy will pull `site/` from `master`. |
 | **SSH access** | From your Mac, `ssh your_server_hostname` (or `ssh web_user@host`) works with your SSH key. |
 | **GitHub deploy key** | Server (or the `web_user` on the server) can clone the repo (e.g. deploy key added to GitHub, or SSH key that has access). |
-| **Theme assets** | `site/web/app/themes/brandonrp-gpt/dist/` (main.css, main.js, fonts) is committed — production will serve these. No extra build step on the server. |
+| **Theme assets** | `site/web/app/themes/brandonrp/dist/` (main.css, main.js, fonts) is committed — production will serve these. No extra build step on the server. |
 
 ---
 

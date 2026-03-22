@@ -1,7 +1,7 @@
 <?php
 /**
  * Quick asset URL debug script
- * Access this via: https://brandonrp.test/app/themes/brandonrp-gpt/debug-assets.php
+ * Access this via: https://brandonrp.test/app/themes/brandonrp/debug-assets.php
  */
 
 // Load WordPress
