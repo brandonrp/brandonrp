@@ -12,8 +12,8 @@
   margin: ms(1) auto;
 
   @media (max-width: $screen-sm) {
-    font-size: ms(4);
-    line-height: ms(4);
+    font-size: ms(3);
+    line-height: ms(3);
 
     &:hover {
       color: #fff;
@@ -21,8 +21,8 @@
   }
 
   @media (max-width: $screen-xs) {
-    font-size: ms(3);
-    line-height: ms(3);
+    font-size: ms(2);
+    line-height: ms(2);
   }
 }
 
