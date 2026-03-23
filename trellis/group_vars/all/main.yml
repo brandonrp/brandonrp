@@ -16,7 +16,6 @@ max_journal_size: 512M
 # Will not function for var names or topmost dict keys that contain a period ('.').
 raw_vars:
   - vault_mail_password
-  - vault_smtp_user
   - vault_mysql_root_password
   - vault_users.*.password
   - vault_users.*.salt
