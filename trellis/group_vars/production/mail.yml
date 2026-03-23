@@ -1,19 +1,15 @@
 # Production outbound mail (ssmtp → PHP sendmail → wp_mail / Contact Form 7).
-# Provider: Mailgun — https://documentation.mailgun.com/en/latest/user_manual.html#sending-via-smtp
+# Provider: SendGrid SMTP — https://docs.sendgrid.com/for-developers/sending-email/getting-started-smtp
 #
-# 1. Mailgun dashboard → Sending → Domain settings → SMTP credentials
-#    Copy the default login (e.g. postmaster@mg.brandonrp.com) and the SMTP password.
-# 2. Verify your domain (DNS: SPF, DKIM) in Mailgun.
-# 3. Set vault_smtp_user + vault_mail_password in group_vars/production/vault.yml
-# 4. Deploy config:
-#    ansible-playbook server.yml -e env=production -u web --tags ssmtp
+# 1. SendGrid → Settings → API Keys → Create API Key (at least “Mail Send”).
+# 2. Set vault_mail_password in group_vars/production/vault.yml to that key (ansible-vault edit).
+# 3. Sender Authentication: verify a Single Sender or Domain so mail_admin is allowed.
+# 4. Apply: ansible-playbook server.yml -e env=production -u root --tags ssmtp
 #
-# Regions:
-#   US (default): smtp.mailgun.org:587
-#   EU: use mail_smtp_server: smtp.eu.mailgun.org:587
+# SMTP username must be literally "apikey"; password is your API key.
 
-mail_smtp_server: smtp.mailgun.org:587
-mail_admin: noreply@brandonrp.com
+mail_smtp_server: smtp.sendgrid.net:587
+mail_admin: me@brandonrp.com
 mail_hostname: brandonrp.com
-mail_user: "{{ vault_smtp_user }}"
+mail_user: apikey
 mail_password: "{{ vault_mail_password }}"
