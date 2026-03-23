@@ -1,0 +1,19 @@
+# Production outbound mail (ssmtp → PHP sendmail → wp_mail / Contact Form 7).
+# Provider: Mailgun — https://documentation.mailgun.com/en/latest/user_manual.html#sending-via-smtp
+#
+# 1. Mailgun dashboard → Sending → Domain settings → SMTP credentials
+#    Copy the default login (e.g. postmaster@mg.brandonrp.com) and the SMTP password.
+# 2. Verify your domain (DNS: SPF, DKIM) in Mailgun.
+# 3. Set vault_smtp_user + vault_mail_password in group_vars/production/vault.yml
+# 4. Deploy config:
+#    ansible-playbook server.yml -e env=production -u web --tags ssmtp
+#
+# Regions:
+#   US (default): smtp.mailgun.org:587
+#   EU: use mail_smtp_server: smtp.eu.mailgun.org:587
+
+mail_smtp_server: smtp.mailgun.org:587
+mail_admin: noreply@brandonrp.com
+mail_hostname: brandonrp.com
+mail_user: "{{ vault_smtp_user }}"
+mail_password: "{{ vault_mail_password }}"
