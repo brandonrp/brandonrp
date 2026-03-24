@@ -4,6 +4,9 @@ web/app/plugins/*
 # Track custom DB Sync plugin (Bedrock ignores plugins by default)
 !web/app/plugins/dbsync/
 !web/app/plugins/dbsync/**
+# Custom CF7 honeypot
+!web/app/plugins/brandonrp-cf7-honeypot/
+!web/app/plugins/brandonrp-cf7-honeypot/**
 web/app/mu-plugins/*/
 web/app/themes/twentytwentyfive/
 web/app/upgrade
