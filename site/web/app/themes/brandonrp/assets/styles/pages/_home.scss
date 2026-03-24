@@ -56,6 +56,13 @@
     background-color: $home-block-color-b;
   }
 
+  &:nth-child(2),
+  &:nth-child(3) {
+    .overlay {
+      background: none;
+    }
+  }
+
   &, * {
     @include transition(all $transition-speed ease-in-out);
   }
@@ -155,7 +162,7 @@
 
       .overlay {
         border: $thumbnail-hover-border;
-        background-color: rgba(44, 44, 44, 0);
+        // background-color: rgba(44, 44, 44, 0);
         padding: 0;
       }
     }

@@ -2346,6 +2346,9 @@ button:focus {
 .home-block:nth-child(3) {
   background-color: #2c2c2c;
 }
+.home-block:nth-child(2) .overlay, .home-block:nth-child(3) .overlay {
+  background: none;
+}
 .home-block, .home-block * {
   transition: all 0.1s ease-in-out;
 }
@@ -2423,7 +2426,6 @@ button:focus {
   }
   .home-block:hover .overlay {
     border: 0.310551414rem solid #ff4444;
-    background-color: rgba(44, 44, 44, 0);
     padding: 0;
   }
   .home-block:nth-child(2):hover .overlay {
