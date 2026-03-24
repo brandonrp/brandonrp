@@ -1725,6 +1725,16 @@ button:focus {
 .main-header.menu-active .main-nav .nav-toggle:before, .main-header.menu-active .project-filters .nav-toggle:before {
   content: "q";
 }
+@media (max-width: 48rem) {
+  .main-header.menu-active .main-nav .nav-toggle, .main-header.menu-active .project-filters .nav-toggle {
+    top: -7rem;
+  }
+}
+@media (max-width: 25.875rem) {
+  .main-header.menu-active .main-nav .nav-toggle, .main-header.menu-active .project-filters .nav-toggle {
+    top: -5rem;
+  }
+}
 .main-header.menu-active .dropdown:hover .sub-menu {
   display: none;
 }
