@@ -2031,6 +2031,9 @@ button:focus {
     margin-right: 0;
     text-align: left;
   }
+  .wpcf7 .wpcf7-submit {
+    margin-left: 1.25rem;
+  }
 }
 
 .social-links {
