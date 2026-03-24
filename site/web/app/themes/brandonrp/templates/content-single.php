@@ -13,7 +13,11 @@
     </div>
 
     <footer>
-      <?php get_template_part('templates/post', 'nav'); ?>
+      <?php
+      set_query_var('brp_show_post_nav_category_back', true);
+      get_template_part('templates/post', 'nav');
+      set_query_var('brp_show_post_nav_category_back', false);
+      ?>
 
       <aside class="related-posts">
         <?php get_template_part('templates/related', 'posts'); ?>

@@ -1767,6 +1767,11 @@ button:focus {
   margin: auto;
   width: 100%;
 }
+@media (max-width: 48rem) {
+  .posts-navigation {
+    flex-direction: column;
+  }
+}
 .posts-navigation .nav-links::after {
   content: "";
   display: table;
@@ -1795,6 +1800,32 @@ button:focus {
 }
 .posts-navigation .nav-previous:hover a,
 .posts-navigation .nav-next:hover a {
+  color: #fff;
+}
+.posts-navigation .nav-category-back {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  transition: all 0.1s ease-in-out;
+}
+.posts-navigation .nav-category-back a {
+  display: block;
+  padding: 1.315434rem;
+  font-size: 1.315434rem;
+  text-transform: uppercase;
+}
+.posts-navigation .nav-category-back a:before {
+  content: "i";
+  display: inline;
+}
+.posts-navigation .nav-category-back a:after {
+  content: none;
+  display: none;
+}
+.posts-navigation .nav-category-back:hover {
+  background-color: #ff4444;
+}
+.posts-navigation .nav-category-back:hover a {
   color: #fff;
 }
 .posts-navigation a {

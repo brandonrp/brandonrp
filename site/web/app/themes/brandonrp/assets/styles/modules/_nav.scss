@@ -249,6 +249,10 @@
   margin: auto;
   width: 100%;
 
+  @media (max-width: $screen-sm) {
+    @include flex-direction(column);
+  }
+
   .nav-links {
     @include clearfix();
     width: 100%;
@@ -274,6 +278,38 @@
   .nav-next {
     @include transition(all $transition-speed ease-in-out);
     width: ms(6);
+
+    &:hover {
+      background-color: $brand-red;
+
+      a {
+        color: #fff;
+      }
+    }
+  }
+
+  .nav-category-back {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    @include transition(all $transition-speed ease-in-out);
+
+    a {
+      display: block;
+      padding: ms(1);
+      font-size: ms(1);
+      text-transform: uppercase;
+
+      &:before {
+        content: 'i';
+        display: inline;
+      }
+
+      &:after {
+        content: none;
+        display: none;
+      }
+    }
 
     &:hover {
       background-color: $brand-red;
