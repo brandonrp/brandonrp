@@ -1767,11 +1767,6 @@ button:focus {
   margin: auto;
   width: 100%;
 }
-@media (max-width: 48rem) {
-  .posts-navigation {
-    flex-direction: column;
-  }
-}
 .posts-navigation .nav-links::after {
   content: "";
   display: table;
@@ -1845,6 +1840,12 @@ button:focus {
   top: 1px;
   display: inline-block;
   vertical-align: middle;
+}
+
+@media (max-width: 48rem) {
+  footer .posts-navigation {
+    flex-direction: column;
+  }
 }
 
 .post-nav {

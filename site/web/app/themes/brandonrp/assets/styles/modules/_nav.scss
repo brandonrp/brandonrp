@@ -249,10 +249,6 @@
   margin: auto;
   width: 100%;
 
-  @media (max-width: $screen-sm) {
-    @include flex-direction(column);
-  }
-
   .nav-links {
     @include clearfix();
     width: 100%;
@@ -341,6 +337,12 @@
       display: inline-block;
       vertical-align: middle;
     }
+  }
+}
+
+footer .posts-navigation {
+  @media (max-width: $screen-sm) {
+    @include flex-direction(column);
   }
 }
 
