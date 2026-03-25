@@ -381,13 +381,17 @@ final class AdminPage
         $runModeMeta = isset($meta['run_mode']) ? (string) $meta['run_mode'] : 'run';
         $progressLabel = self::progress_label($actionType, $runModeMeta);
 
+        $logContent = \file_exists($logPath) ? self::tail_file($logPath, 200000) : '';
+
         $initialPct = '';
-        if ($actionType === 'media-sync' && \file_exists($logPath)) {
-            $p = self::parse_media_rsync_percent(self::tail_file($logPath, 200000));
+        if ($actionType === 'media-sync' && $logContent !== '') {
+            $p = self::parse_media_rsync_percent($logContent);
             if ($p !== null) {
                 $initialPct = (string) $p;
             }
         }
+
+        $outcomeData = self::compute_job_outcome($exitCode, $isRunning, $logContent);
 
         echo '<div id="dbsync-job-panel" class="dbsync-job-panel" data-job-id="' . \esc_attr($jobId) . '" data-running="' . ($isRunning ? '1' : '0') . '" data-nonce="' . \esc_attr($nonce) . '" data-action-type="' . \esc_attr($actionType) . '">';
 
@@ -402,6 +406,8 @@ final class AdminPage
 
         echo '<div id="dbsync-job-status" class="notice notice-info"><p><strong>Job:</strong> ' . \esc_html($jobId) . ' &nbsp; <strong>Status:</strong> <span id="dbsync-status-label">' . \esc_html($statusLabel) . '</span></p></div>';
 
+        self::render_job_result_banner($outcomeData['outcome'], $outcomeData['message'], $isRunning);
+
         if ($exitCode !== null) {
             echo '<p id="dbsync-exit-wrap"><strong>Exit code:</strong> <span id="dbsync-exit-code">' . \esc_html((string) $exitCode) . '</span></p>';
         } else {
@@ -413,10 +419,9 @@ final class AdminPage
         echo '<a id="dbsync-download-link" class="button button-primary" href="' . ($downloadUrlInit !== null ? \esc_url($downloadUrlInit) : '#') . '">Download SQL backup</a>';
         echo '</p>';
 
-        if (\file_exists($logPath)) {
-            $tail = self::tail_file($logPath, 200000);
+        if ($logContent !== '') {
             echo '<h3 style="margin-top:16px;">Log</h3>';
-            echo '<pre id="dbsync-job-log" style="background:#f6f7f7;padding:12px;max-height:420px;overflow:auto;">' . \esc_html($tail) . '</pre>';
+            echo '<pre id="dbsync-job-log" style="background:#f6f7f7;padding:12px;max-height:420px;overflow:auto;">' . \esc_html($logContent) . '</pre>';
         } else {
             echo '<h3 style="margin-top:16px;">Log</h3>';
             echo '<pre id="dbsync-job-log" style="background:#f6f7f7;padding:12px;max-height:420px;overflow:auto;">No log yet.</pre>';
@@ -437,6 +442,11 @@ final class AdminPage
 .dbsync-progress-inner { height: 100%; width: 30%; background: #2271b1; border-radius: 4px; animation: dbsync-progress 1.4s ease-in-out infinite; }
 .dbsync-progress-inner.dbsync-progress-determinate { animation: none; margin-left: 0; min-width: 0; }
 @keyframes dbsync-progress { 0% { margin-left: 0; } 50% { margin-left: 70%; } 100% { margin-left: 0; } }
+.dbsync-job-result { box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04); }
+.dbsync-job-result.notice-success { border-left-color: #00a32a; }
+.dbsync-job-result.notice-error { border-left-color: #d63638; }
+.dbsync-job-result.notice-warning { border-left-color: #dba617; }
+.dbsync-job-result__text { margin: 0.65em 0; font-size: 14px; line-height: 1.5; }
 </style>
 <script>
 (function() {
@@ -453,6 +463,27 @@ final class AdminPage
     var innerBar = document.getElementById('dbsync-progress-inner');
     var pctLabel = document.getElementById('dbsync-media-percent-label');
     var actionType = panel.getAttribute('data-action-type') || 'dbsync';
+
+    function applyJobOutcome(data) {
+        var resultEl = document.getElementById('dbsync-job-result');
+        var resultText = document.getElementById('dbsync-job-result-text');
+        if (!resultEl || !resultText) return;
+        if (data.running) {
+            resultEl.style.display = 'none';
+            return;
+        }
+        resultEl.className = 'dbsync-job-result notice';
+        var o = data.job_outcome || 'unknown';
+        if (o === 'success') {
+            resultEl.classList.add('notice-success');
+        } else if (o === 'failure') {
+            resultEl.classList.add('notice-error');
+        } else {
+            resultEl.classList.add('notice-warning');
+        }
+        resultText.textContent = data.job_outcome_message || '';
+        resultEl.style.display = '';
+    }
 
     if (!running) return;
 
@@ -505,6 +536,7 @@ final class AdminPage
                     if (downloadWrap) downloadWrap.style.display = '';
                     if (downloadLink) downloadLink.href = data.download_url;
                 }
+                applyJobOutcome(data);
                 if (!data.running) {
                     clearInterval(interval);
                     applyMediaPercent(null);
@@ -519,6 +551,82 @@ final class AdminPage
 })();
 </script>
         <?php
+    }
+
+    /**
+     * Derive success / failure for UI when meta exit_code is missing (common for background WP-CLI jobs).
+     *
+     * @param mixed $exitCode
+     *
+     * @return array{outcome: string, message: string}
+     */
+    private static function compute_job_outcome($exitCode, bool $running, string $log): array
+    {
+        if ($running) {
+            return ['outcome' => 'running', 'message' => ''];
+        }
+        if ($exitCode !== null && $exitCode !== '') {
+            $code = (int) $exitCode;
+            if ($code === 0) {
+                return ['outcome' => 'success', 'message' => 'Job completed successfully.'];
+            }
+
+            return ['outcome' => 'failure', 'message' => 'Job failed (exit code ' . $code . ').'];
+        }
+        if ($log === '') {
+            return ['outcome' => 'unknown', 'message' => 'Job finished; no log output was recorded.'];
+        }
+        $tail = \strlen($log) > 20000 ? \substr($log, -20000) : $log;
+        if (\stripos($tail, 'PHP Fatal error') !== false
+            || \preg_match('/\bFatal error:\b/i', $tail) === 1) {
+            return ['outcome' => 'failure', 'message' => 'Job failed (fatal error in log).'];
+        }
+        $lines = \preg_split('/\R/', $log, -1, PREG_SPLIT_NO_EMPTY);
+        if (!\is_array($lines)) {
+            $lines = [];
+        }
+        for ($i = \count($lines) - 1; $i >= 0; $i--) {
+            $line = \trim($lines[$i]);
+            if ($line === '') {
+                continue;
+            }
+            if (\str_starts_with($line, 'Error:')) {
+                $rest = \trim(\substr($line, \strlen('Error:')));
+
+                return [
+                    'outcome' => 'failure',
+                    'message' => $rest !== '' ? 'Job failed: ' . $rest : 'Job failed.',
+                ];
+            }
+            if (\str_starts_with($line, 'Success:')) {
+                $rest = \trim(\substr($line, \strlen('Success:')));
+
+                return [
+                    'outcome' => 'success',
+                    'message' => $rest !== '' ? $rest : 'Job completed successfully.',
+                ];
+            }
+        }
+
+        return ['outcome' => 'unknown', 'message' => 'Job finished; check the log to confirm the result.'];
+    }
+
+    private static function render_job_result_banner(string $outcome, string $message, bool $isRunning): void
+    {
+        if ($isRunning) {
+            echo '<div id="dbsync-job-result" class="dbsync-job-result notice" style="display:none;margin-top:12px;" role="status" aria-live="polite"><p id="dbsync-job-result-text" class="dbsync-job-result__text"></p></div>';
+
+            return;
+        }
+        $classes = 'dbsync-job-result notice';
+        if ($outcome === 'success') {
+            $classes .= ' notice-success';
+        } elseif ($outcome === 'failure') {
+            $classes .= ' notice-error';
+        } else {
+            $classes .= ' notice-warning';
+        }
+        echo '<div id="dbsync-job-result" class="' . \esc_attr($classes) . '" style="margin-top:12px;" role="status" aria-live="polite"><p id="dbsync-job-result-text" class="dbsync-job-result__text">' . \esc_html($message) . '</p></div>';
     }
 
     /**
@@ -561,12 +669,16 @@ final class AdminPage
 
         $downloadUrl = self::export_download_url_if_ready($decoded, $running);
 
+        $outcome = self::compute_job_outcome($exitCode, $running, $log);
+
         return [
             'running' => $running,
             'exit_code' => $exitCode,
             'log' => $log,
             'media_percent' => $mediaPercent,
             'download_url' => $downloadUrl,
+            'job_outcome' => $outcome['outcome'],
+            'job_outcome_message' => $outcome['message'],
         ];
     }
 
