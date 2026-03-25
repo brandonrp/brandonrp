@@ -3015,7 +3015,7 @@ article.attachment,
 }
 .project-filters .active:not(.menu-all-projects) {
   font-weight: 700;
-  font-size: 0.813rem;
+  font-size: 1.0341411132rem;
 }
 .project-filters ul, .project-filters li {
   display: inline-block;

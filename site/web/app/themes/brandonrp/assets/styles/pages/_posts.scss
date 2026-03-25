@@ -554,17 +554,13 @@ article.attachment,
   display: block;
   font-size: $thumbnail-text-sm;
 
-  // position: fixed;
-  // left: 16.66667%;
-  // right: 0;
-
   width: 100%;
   padding: ms(-1);
   z-index: 99;
 
   .active:not(.menu-all-projects) {
     font-weight: 700;
-    font-size: $thumbnail-text-sm;
+    font-size: ms(0.5);
   }
 
   ul, li {
