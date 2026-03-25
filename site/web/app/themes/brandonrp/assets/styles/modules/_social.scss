@@ -31,7 +31,7 @@
 
       &:hover {
         &:before, &:after {
-          color: $brand-gray-dark;
+          color: $brand-red;
         }
       }
     }
@@ -55,5 +55,15 @@
   and (max-device-width : $screen-sm)
   and (orientation : landscape) {
     display: none;
+  }
+}
+
+.menu-active {
+  .social-links li a{
+    &:hover {
+      &:before, &:after {
+        color: $brand-gray-dark;
+      }
+    }
   }
 }
