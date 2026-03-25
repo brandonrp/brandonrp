@@ -1551,6 +1551,7 @@ button:focus {
 .icon-logo {
   font-size: 6.25rem;
   line-height: 6.25rem;
+  padding: 1.315434rem 0;
   max-width: 6.25rem;
   width: 100%;
   margin: 1.315434rem auto;
@@ -1559,9 +1560,6 @@ button:focus {
   .icon-logo {
     font-size: 3.443706239rem;
     line-height: 3.443706239rem;
-  }
-  .icon-logo:hover {
-    color: #fff;
   }
 }
 @media (max-width: 25.875rem) {
