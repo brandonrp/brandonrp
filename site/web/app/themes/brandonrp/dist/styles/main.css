@@ -2058,6 +2058,7 @@ button:focus {
   background-color: transparent;
   border: 0;
   text-align: center;
+  margin-top: 0.813rem;
 }
 .social-links li a:before, .social-links li a:after {
   font-size: 1.6732403211rem;

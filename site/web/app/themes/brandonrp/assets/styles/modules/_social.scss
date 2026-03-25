@@ -17,6 +17,7 @@
       @include hide-text();
 
       text-align: center;
+      margin-top: ms(0);
 
       &:before, &:after {
         font-size: ms(1.5);
