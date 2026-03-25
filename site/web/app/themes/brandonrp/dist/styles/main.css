@@ -1551,7 +1551,7 @@ button:focus {
 .icon-logo {
   font-size: 6.25rem;
   line-height: 6.25rem;
-  padding: 1.315434rem 0;
+  padding: 1.315434rem 0 0;
   max-width: 6.25rem;
   width: 100%;
   margin: 1.315434rem auto;
