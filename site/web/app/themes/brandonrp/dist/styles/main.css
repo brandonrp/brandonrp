@@ -1375,7 +1375,7 @@ a[rel=gallery] {
 
 .gallery {
   display: block;
-  margin-bottom: 2.128372212rem;
+  margin-bottom: 0.813rem;
 }
 
 .container {
@@ -2677,7 +2677,8 @@ article.attachment,
 .entry-content h2 {
   background-color: #4a4c4b;
   padding: 2.128372212rem;
-  margin-bottom: 2.128372212rem;
+  margin-bottom: 0.813rem;
+  margin-top: 0.813rem;
   text-align: center;
   -webkit-text-decoration: underline solid #ff4444;
           text-decoration: underline solid #ff4444;
