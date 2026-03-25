@@ -2,6 +2,7 @@
 
 namespace BrandonRP\DBSync\Command;
 
+use BrandonRP\DBSync\Support\UrlReplace;
 use BrandonRP\DBSync\Util\WpCli;
 use WP_CLI;
 
@@ -38,7 +39,8 @@ final class Import extends BaseCommand
             if ($before_backup) {
                 WP_CLI::line('- command: wp db export backup before import');
             }
-            WP_CLI::line('- command: wp db import ' . $isGz ? $tmpSql : $input);
+            WP_CLI::line('- command: wp db import ' . ($isGz ? $tmpSql : $input));
+            $this->log_planned_url_replace($assoc_args);
             return;
         }
 
@@ -69,7 +71,64 @@ final class Import extends BaseCommand
             @unlink($tmpSql);
         }
 
+        $this->run_url_replace_after_import($assoc_args);
+
         WP_CLI::success('Import complete.');
+    }
+
+    /**
+     * @return array<int, array{0: string, 1: string}>
+     */
+    private function url_replace_pairs(array $assoc_args): array
+    {
+        $homeFrom = self::assoc_string($assoc_args, 'replace-url-home-from');
+        $homeTo = self::assoc_string($assoc_args, 'replace-url-home-to');
+        $siteFrom = self::assoc_string($assoc_args, 'replace-url-siteurl-from');
+        $siteTo = self::assoc_string($assoc_args, 'replace-url-siteurl-to');
+
+        $pairs = [];
+        if ($homeFrom !== '' && $homeTo !== '' && $homeFrom !== $homeTo) {
+            $pairs[] = [$homeFrom, $homeTo];
+        }
+        if ($siteFrom !== '' && $siteTo !== '' && $siteFrom !== $siteTo) {
+            $pairs[] = [$siteFrom, $siteTo];
+        }
+
+        return $pairs;
+    }
+
+    private static function assoc_string(array $assoc_args, string $hyphenKey): string
+    {
+        $underKey = str_replace('-', '_', $hyphenKey);
+
+        return trim((string) ($assoc_args[$hyphenKey] ?? $assoc_args[$underKey] ?? ''));
+    }
+
+    private function log_planned_url_replace(array $assoc_args): void
+    {
+        $pairs = $this->url_replace_pairs($assoc_args);
+        if ($pairs === []) {
+            return;
+        }
+        WP_CLI::line('- URL replacement (after import, same as DB sync):');
+        foreach ($pairs as [$from, $to]) {
+            WP_CLI::line('  - wp ' . UrlReplace::build_search_replace_cmd($from, $to, false));
+        }
+        WP_CLI::line('  - wp cache flush');
+    }
+
+    private function run_url_replace_after_import(array $assoc_args): void
+    {
+        $pairs = $this->url_replace_pairs($assoc_args);
+        if ($pairs === []) {
+            return;
+        }
+
+        WP_CLI::log('Replacing URLs (serialized-safe)...');
+        foreach ($pairs as [$from, $to]) {
+            WpCli::run(UrlReplace::build_search_replace_cmd($from, $to, false), []);
+        }
+        WpCli::run('cache flush', []);
     }
 
     /**

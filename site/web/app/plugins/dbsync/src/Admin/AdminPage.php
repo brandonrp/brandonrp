@@ -10,6 +10,8 @@ final class AdminPage
             \wp_die('Insufficient permissions.');
         }
 
+        AdminHooks::prune_stored_jobs();
+
         $jobId = isset($_GET['job_id']) ? (string) $_GET['job_id'] : '';
 
         echo '<div class="wrap">';
@@ -32,6 +34,11 @@ final class AdminPage
         echo '</div>';
         echo '</div>';
 
+        echo '<div class="dbsync-form-panel dbsync-export-panel">';
+        echo '<h2>Local database export / import</h2>';
+        self::render_export_import_forms();
+        echo '</div>';
+
         echo '</div>';
     }
 
@@ -46,6 +53,20 @@ final class AdminPage
     margin-top: 24px;
     align-items: start;
     max-width: 100%;
+}
+.dbsync-export-panel {
+    margin-top: 24px;
+    max-width: 100%;
+}
+.dbsync-subsection-title {
+    margin: 0 0 10px;
+    font-size: 1.05em;
+    font-weight: 600;
+}
+.dbsync-export-import-divider {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #dcdcde;
 }
 .dbsync-form-panel {
     background: #fff;
@@ -140,7 +161,7 @@ final class AdminPage
 
         echo '<tr><th scope="row"><label for="dbsync_run_mode">Run mode</label></th><td>';
         echo '<select name="dbsync_run_mode" id="dbsync_run_mode">';
-        echo '<option value="preview" selected>Preview (dry-run planning)</option>';
+        echo '<option value="preview" selected>Preview (dry-run)</option>';
         echo '<option value="run">Run (execute + import)</option>';
         echo '</select>';
         echo '</td></tr>';
@@ -191,6 +212,101 @@ final class AdminPage
         echo '</form>';
     }
 
+    private static function render_export_import_forms(): void
+    {
+        self::render_local_export_form();
+        echo '<hr class="dbsync-export-import-divider" />';
+        self::render_local_import_form();
+    }
+
+    private static function render_local_export_form(): void
+    {
+        $pageUrl = \admin_url('admin-post.php');
+        echo '<h3 class="dbsync-subsection-title">Export</h3>';
+        echo '<form method="post" action="' . \esc_url($pageUrl) . '">';
+        echo '<input type="hidden" name="action" value="dbsync_action" />';
+        echo '<input type="hidden" name="dbsync_action_type" value="db-export" />';
+        \wp_nonce_field('dbsync_action', '_wpnonce');
+
+        echo '<p class="description" style="margin-top:0;">'
+            . 'Dump the <strong>current</strong> site database to <code>wp-content/dbsync-exports/</code> using the same scope as <code>wp dbsync export</code> (all tables with the site prefix plus other custom tables). '
+            . 'After a successful <strong>Run</strong>, download the file below.</p>';
+
+        echo '<table class="form-table" role="presentation">';
+        echo '<tr><th scope="row"><label for="compress_export">Compress</label></th><td>';
+        echo '<label><input type="checkbox" name="compress" id="compress_export" value="1" /> Gzip (<code>.sql.gz</code>)</label>';
+        echo '</td></tr>';
+
+        echo '<tr><th scope="row"><label for="exclude_tables_export">Exclude tables (comma-separated)</label></th><td>';
+        echo '<input type="text" name="exclude_tables" id="exclude_tables_export" class="regular-text" placeholder="wp_actionscheduler_actions" />';
+        echo '</td></tr>';
+
+        echo '<tr><th scope="row"><label for="export_run_mode">Run mode</label></th><td>';
+        echo '<select name="dbsync_run_mode" id="export_run_mode">';
+        echo '<option value="preview" selected>Preview (dry-run)</option>';
+        echo '<option value="run">Run (write SQL file)</option>';
+        echo '</select>';
+        echo '</td></tr>';
+        echo '</table>';
+
+        echo '<p><button type="submit" class="button button-primary">Export</button></p>';
+        echo '</form>';
+    }
+
+    private static function render_local_import_form(): void
+    {
+        $pageUrl = \admin_url('admin-post.php');
+        echo '<h3 class="dbsync-subsection-title">Import</h3>';
+        echo '<form method="post" enctype="multipart/form-data" action="' . \esc_url($pageUrl) . '">';
+        echo '<input type="hidden" name="action" value="dbsync_action" />';
+        echo '<input type="hidden" name="dbsync_action_type" value="db-import" />';
+        \wp_nonce_field('dbsync_action', '_wpnonce');
+
+        echo '<p class="description" style="margin-top:0;">'
+            . 'Upload a <code>.sql</code> or <code>.sql.gz</code> dump. This uses <code>wp dbsync import</code> (same as <code>wp db import</code> after optional gzip handling). '
+            . '<strong>Run</strong> replaces the current database—use Preview (dry-run) first. Large files require sufficient PHP <code>upload_max_filesize</code> / <code>post_max_size</code>.</p>';
+
+        echo '<table class="form-table" role="presentation">';
+        echo '<tr><th scope="row"><label for="dbsync_import_file">SQL file</label></th><td>';
+        echo '<input type="file" name="dbsync_import_file" id="dbsync_import_file" accept=".sql,.gz,application/gzip,application/x-gzip" required />';
+        echo '</td></tr>';
+
+        echo '<tr><th scope="row"><label for="import_before_backup">Backup first</label></th><td>';
+        echo '<label><input type="checkbox" name="import_before_backup" id="import_before_backup" value="1" /> Export current DB to <code>/tmp</code> before import (via <code>--before-backup</code>)</label>';
+        echo '</td></tr>';
+
+        $homeNow = (string) \get_option('home', '');
+        $siteurlNow = (string) \get_option('siteurl', '');
+        echo '<tr><th scope="row"><label for="import_replace_urls">Replace URLs</label></th><td>';
+        echo '<label><input type="checkbox" name="import_replace_urls" id="import_replace_urls" value="1" /> After import, run <code>wp search-replace</code> (same as full DB sync: <code>--all-tables --precise</code>), then <code>wp cache flush</code></label>';
+        echo '<p class="description" style="margin:8px 0 0;">Use the values from the <strong>source</strong> dump as &ldquo;old&rdquo; and this environment as &ldquo;new.&rdquo; If <code>home</code> and <code>siteurl</code> differ in the dump, fill both rows.</p>';
+        echo '</td></tr>';
+
+        echo '<tr class="dbsync-import-url-row"><th scope="row"><label for="import_url_home_from">Old Site Address (home)</label></th><td>';
+        echo '<input type="url" name="import_url_home_from" id="import_url_home_from" class="regular-text" placeholder="https://production.example" value="" />';
+        echo '</td></tr>';
+        echo '<tr class="dbsync-import-url-row"><th scope="row"><label for="import_url_home_to">New Site Address (home)</label></th><td>';
+        echo '<input type="url" name="import_url_home_to" id="import_url_home_to" class="regular-text" value="' . \esc_attr($homeNow) . '" />';
+        echo '</td></tr>';
+        echo '<tr class="dbsync-import-url-row"><th scope="row"><label for="import_url_siteurl_from">Old WordPress Address (siteurl)</label></th><td>';
+        echo '<input type="url" name="import_url_siteurl_from" id="import_url_siteurl_from" class="regular-text" placeholder="Optional if same as home" value="" />';
+        echo '</td></tr>';
+        echo '<tr class="dbsync-import-url-row"><th scope="row"><label for="import_url_siteurl_to">New WordPress Address (siteurl)</label></th><td>';
+        echo '<input type="url" name="import_url_siteurl_to" id="import_url_siteurl_to" class="regular-text" value="' . \esc_attr($siteurlNow) . '" />';
+        echo '</td></tr>';
+
+        echo '<tr><th scope="row"><label for="import_run_mode">Run mode</label></th><td>';
+        echo '<select name="dbsync_run_mode" id="import_run_mode">';
+        echo '<option value="preview" selected>Preview (dry-run)</option>';
+        echo '<option value="run">Run (execute import)</option>';
+        echo '</select>';
+        echo '</td></tr>';
+        echo '</table>';
+
+        echo '<p><button type="submit" class="button button-primary">Import</button></p>';
+        echo '</form>';
+    }
+
     /**
      * Progress bar title: dry-run vs execute, DB vs media.
      */
@@ -198,9 +314,15 @@ final class AdminPage
     {
         $preview = ($runMode === 'preview');
         if ($actionType === 'media-sync') {
-            return $preview ? 'Planning media sync…' : 'Syncing media…';
+            return $preview ? 'Media sync (dry-run)…' : 'Syncing media…';
         }
-        return $preview ? 'Planning dry run…' : 'Syncing database…';
+        if ($actionType === 'db-export') {
+            return $preview ? 'Database export (dry-run)…' : 'Exporting database…';
+        }
+        if ($actionType === 'db-import') {
+            return $preview ? 'Database import (dry-run)…' : 'Importing database…';
+        }
+        return $preview ? 'Database sync (dry-run)…' : 'Syncing database…';
     }
 
     /**
@@ -221,7 +343,7 @@ final class AdminPage
     private static function render_job_panel(string $jobId): void
     {
         if ($jobId === '') {
-            echo '<p style="margin-top:8px;color:#666;">No job selected. Preview a sync first, then run.</p>';
+            echo '<p style="margin-top:8px;color:#666;">No job selected. Use Preview (dry-run), then Run when ready.</p>';
             return;
         }
 
@@ -285,6 +407,11 @@ final class AdminPage
         } else {
             echo '<p id="dbsync-exit-wrap" style="display:none;"><strong>Exit code:</strong> <span id="dbsync-exit-code"></span></p>';
         }
+
+        $downloadUrlInit = self::export_download_url_if_ready($meta, $isRunning);
+        echo '<p id="dbsync-download-wrap" class="dbsync-download-wrap" style="margin:12px 0;' . ($downloadUrlInit === null ? ' display:none;' : '') . '">';
+        echo '<a id="dbsync-download-link" class="button button-primary" href="' . ($downloadUrlInit !== null ? \esc_url($downloadUrlInit) : '#') . '">Download SQL backup</a>';
+        echo '</p>';
 
         if (\file_exists($logPath)) {
             $tail = self::tail_file($logPath, 200000);
@@ -372,6 +499,12 @@ final class AdminPage
                     logEl.textContent = data.log;
                     logEl.scrollTop = logEl.scrollHeight;
                 }
+                var downloadWrap = document.getElementById('dbsync-download-wrap');
+                var downloadLink = document.getElementById('dbsync-download-link');
+                if (data.download_url) {
+                    if (downloadWrap) downloadWrap.style.display = '';
+                    if (downloadLink) downloadLink.href = data.download_url;
+                }
                 if (!data.running) {
                     clearInterval(interval);
                     applyMediaPercent(null);
@@ -426,12 +559,62 @@ final class AdminPage
             $mediaPercent = self::parse_media_rsync_percent($log);
         }
 
+        $downloadUrl = self::export_download_url_if_ready($decoded, $running);
+
         return [
             'running' => $running,
             'exit_code' => $exitCode,
             'log' => $log,
             'media_percent' => $mediaPercent,
+            'download_url' => $downloadUrl,
         ];
+    }
+
+    /**
+     * Signed admin URL to download a finished local export, or null if not available.
+     *
+     * @param array<string, mixed> $meta
+     */
+    private static function export_download_url_if_ready(array $meta, bool $running): ?string
+    {
+        if ($running) {
+            return null;
+        }
+        if (!isset($meta['action_type']) || (string) $meta['action_type'] !== 'db-export') {
+            return null;
+        }
+        if (($meta['run_mode'] ?? '') !== 'run') {
+            return null;
+        }
+        $basename = isset($meta['export_final_basename']) ? (string) $meta['export_final_basename'] : '';
+        if ($basename === '' || !self::is_safe_export_basename($basename)) {
+            return null;
+        }
+        $path = self::get_exports_dir() . DIRECTORY_SEPARATOR . $basename;
+        if (!\is_readable($path)) {
+            return null;
+        }
+        $size = \filesize($path);
+        if ($size === false || $size < 1) {
+            return null;
+        }
+
+        return \admin_url(
+            'admin-post.php?action=dbsync_download_export&file=' . \rawurlencode($basename)
+            . '&_wpnonce=' . \wp_create_nonce('dbsync_download_export')
+        );
+    }
+
+    private static function get_exports_dir(): string
+    {
+        $base = defined('WP_CONTENT_DIR') ? WP_CONTENT_DIR : \ABSPATH . 'wp-content';
+
+        return $base . DIRECTORY_SEPARATOR . 'dbsync-exports';
+    }
+
+    private static function is_safe_export_basename(string $name): bool
+    {
+        return \preg_match('/^dbsync-local-\d{8}-\d{6}\.sql(\.gz)?$/', $name) === 1;
     }
 
     /**
