@@ -1,3 +1,9 @@
+// Shortcode galleries get id="gallery-1" etc.; ID selectors in core/editor CSS can override .gallery-item img
+[id^="gallery-"] img {
+  border: none !important;
+  box-shadow: none;
+}
+
 .gallery-item {
   display: inline-block;
   vertical-align: top;
