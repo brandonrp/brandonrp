@@ -9,7 +9,7 @@ if ($show_category_back) {
     // Blog posts: "Back to …" goes to the Posts page (Settings → Reading), e.g. Sketchbook index.
     // Portfolio and other types still use their primary taxonomy term archive.
     if ($post_type === 'post') {
-        $posts_page_id = (int) get_option('page_for_posts');
+        $posts_page_id = brp_get_posts_index_page_id();
         if ($posts_page_id > 0) {
             $url = get_permalink($posts_page_id);
             if ($url) {

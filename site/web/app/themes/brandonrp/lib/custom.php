@@ -1,5 +1,23 @@
 <?php // Custom PHP functions for the theme
 
+/**
+ * Page ID for the blog index (Settings → Reading → Posts page).
+ * Falls back to a page whose slug is filterable (default sketchbook) if Reading is unset.
+ */
+function brp_get_posts_index_page_id() {
+  $id = (int) get_option('page_for_posts');
+  if ($id <= 0) {
+    $slug = apply_filters('brp_posts_index_page_slug', 'sketchbook');
+    if (is_string($slug) && $slug !== '') {
+      $page = get_page_by_path($slug);
+      if ($page instanceof WP_Post && $page->post_status === 'publish') {
+        $id = (int) $page->ID;
+      }
+    }
+  }
+  return (int) apply_filters('brp_posts_index_page_id', $id);
+}
+
 // Get post categories or terms
 function get_custom_tax($post_id, $is_anchor) {
   $isCategory = false;
