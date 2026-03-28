@@ -30,11 +30,6 @@ var nav = {
     window.navFlag = false;
 
     if (isMobile) {
-      // Prevent the logo from firing anything
-      jQuery('.icon-logo').on('click touchstart', function (event) {
-        event.preventDefault();
-      });
-
       // iOS double tap bug fix
       jQuery('nav a').on('click touchend', function() {
         var el = jQuery(this);
