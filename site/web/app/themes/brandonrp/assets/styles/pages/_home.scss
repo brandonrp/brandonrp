@@ -24,6 +24,10 @@
   font-size: $home-text-size;
   line-height: .5;
   margin: 0 auto;
+
+  @media (max-width: $screen-sm) {
+    font-size: ms(1);
+  }
 }
 
 .home-block {

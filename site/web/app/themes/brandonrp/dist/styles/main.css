@@ -2384,6 +2384,11 @@ button:focus {
   line-height: 0.5;
   margin: 0 auto;
 }
+@media (max-width: 48rem) {
+  .block-title {
+    font-size: 1.315434rem;
+  }
+}
 
 .home-block {
   display: flex;
