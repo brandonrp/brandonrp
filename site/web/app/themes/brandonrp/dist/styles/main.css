@@ -2265,6 +2265,27 @@ button:focus {
   }
 }
 
+.entry-content .wp-block-gallery img {
+  width: 100%;
+  border: none !important;
+  box-shadow: none;
+}
+.entry-content .wp-block-gallery .wp-block-image,
+.entry-content .wp-block-gallery .blocks-gallery-item {
+  border: none !important;
+  box-shadow: none;
+}
+.entry-content .wp-block-gallery .wp-block-image img,
+.entry-content .wp-block-gallery .blocks-gallery-item img {
+  border: none !important;
+  box-shadow: none;
+}
+.entry-content .wp-block-gallery .blocks-gallery-item figure,
+.entry-content .wp-block-gallery figure.wp-block-image {
+  border: none !important;
+  box-shadow: none;
+}
+
 .modal-wrapper {
   display: none;
   position: fixed;
