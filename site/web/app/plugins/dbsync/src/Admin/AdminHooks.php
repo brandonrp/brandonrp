@@ -56,7 +56,7 @@ final class AdminHooks
         }
 
         $actionType = (string) ($_POST['dbsync_action_type'] ?? 'dbsync');
-        $runMode = (string) ($_POST['dbsync_run_mode'] ?? 'preview'); // preview|run
+        $runMode = (string) ($_POST['dbsync_run_mode'] ?? 'run'); // preview|run
 
         $from = strtolower((string) ($_POST['from'] ?? 'prod'));
         $to = strtolower((string) ($_POST['to'] ?? 'local'));

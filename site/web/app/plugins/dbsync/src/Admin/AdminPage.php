@@ -161,8 +161,8 @@ final class AdminPage
 
         echo '<tr><th scope="row"><label for="dbsync_run_mode">Run mode</label></th><td>';
         echo '<select name="dbsync_run_mode" id="dbsync_run_mode">';
-        echo '<option value="preview" selected>Preview (dry-run)</option>';
-        echo '<option value="run">Run (execute + import)</option>';
+        echo '<option value="run" selected>Run (execute + import)</option>';
+        echo '<option value="preview">Preview (dry-run)</option>';
         echo '</select>';
         echo '</td></tr>';
         echo '</table>';
@@ -202,8 +202,8 @@ final class AdminPage
 
         echo '<tr><th scope="row"><label for="media_run_mode">Run mode</label></th><td>';
         echo '<select name="dbsync_run_mode" id="media_run_mode">';
-        echo '<option value="preview" selected>Preview (dry-run)</option>';
-        echo '<option value="run">Run (rsync uploads)</option>';
+        echo '<option value="run" selected>Run (rsync uploads)</option>';
+        echo '<option value="preview">Preview (dry-run)</option>';
         echo '</select>';
         echo '</td></tr>';
         echo '</table>';
@@ -243,8 +243,8 @@ final class AdminPage
 
         echo '<tr><th scope="row"><label for="export_run_mode">Run mode</label></th><td>';
         echo '<select name="dbsync_run_mode" id="export_run_mode">';
-        echo '<option value="preview" selected>Preview (dry-run)</option>';
-        echo '<option value="run">Run (write SQL file)</option>';
+        echo '<option value="run" selected>Run (write SQL file)</option>';
+        echo '<option value="preview">Preview (dry-run)</option>';
         echo '</select>';
         echo '</td></tr>';
         echo '</table>';
@@ -297,8 +297,8 @@ final class AdminPage
 
         echo '<tr><th scope="row"><label for="import_run_mode">Run mode</label></th><td>';
         echo '<select name="dbsync_run_mode" id="import_run_mode">';
-        echo '<option value="preview" selected>Preview (dry-run)</option>';
-        echo '<option value="run">Run (execute import)</option>';
+        echo '<option value="run" selected>Run (execute import)</option>';
+        echo '<option value="preview">Preview (dry-run)</option>';
         echo '</select>';
         echo '</td></tr>';
         echo '</table>';
