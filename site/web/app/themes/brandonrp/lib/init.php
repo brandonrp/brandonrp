@@ -31,6 +31,8 @@ function setup() {
   add_theme_support('post-thumbnails');
 
   add_image_size('portfolio-block', 1920, 1080, true);
+  // Home hero gallery: same max dimensions as portfolio-block but no hard crop (shows full frame; CSS still uses cover)
+  add_image_size('home-gallery-hero', 1920, 1080, false);
   add_image_size('portfolio-block-single', 2048, 2048, true);
 
 
