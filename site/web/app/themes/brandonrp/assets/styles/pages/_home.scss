@@ -101,8 +101,7 @@
     left: 0;
   }
 
-  .featured-image,
-  .featured-image-mobile {
+  .featured-image {
     background-size: cover;
     @include transition(
                     filter $transition-speed ease-in-out,
@@ -111,15 +110,7 @@
 
     background-position: center center;
     height: 100%;
-  }
-
-  .featured-image {
     @include filter($thumbnail-fx);
-  }
-
-  .featured-image-mobile {
-    @include filter($thumbnail-fx-mobile);
-    display: none;
   }
 
   .block-icon {
@@ -185,16 +176,6 @@
     // height: 33.33%;
     // flex: 0 0 100%;
 
-    &:not(:first-child) {
-      .featured-image {
-        display: none;
-      }
-
-      .featured-image-mobile {
-        display: block;
-      }
-    }
-
     .button {
       margin-top: $home-btn-size;
     }
@@ -215,8 +196,7 @@
 }
 
 /* Ensure background images behave correctly */
-.home-block .featured-image,
-.home-block .featured-image-mobile {
+.home-block .featured-image {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
