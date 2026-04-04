@@ -1338,7 +1338,7 @@ a[rel=gallery] {
 }
 .content-wrapper {
   position: relative;
-  max-width: 90rem;
+  max-width: 120rem;
   margin: 0;
   padding: 0;
 }

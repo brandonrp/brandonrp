@@ -259,7 +259,7 @@ a[rel=gallery] {
   @include layout($grid-large);
 
   position: relative;
-  max-width: $screen-xxl;
+  max-width: $content-width;
   margin: 0;
   padding: 0;
 }
