@@ -1353,7 +1353,6 @@ a[rel=gallery] {
   width: 16.6666666667%;
   float: left;
   clear: left;
-  max-width: 240px;
 }
 
 .main-wrapper {
@@ -1552,7 +1551,6 @@ button:focus {
   font-size: 6.25rem;
   line-height: 6.25rem;
   padding: 1.315434rem 0 0;
-  max-width: 6.25rem;
   width: 100%;
   margin: 1.315434rem auto;
 }
