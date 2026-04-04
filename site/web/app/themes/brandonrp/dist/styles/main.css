@@ -1353,6 +1353,7 @@ a[rel=gallery] {
   width: 16.6666666667%;
   float: left;
   clear: left;
+  max-width: 320px;
 }
 
 .main-wrapper {
