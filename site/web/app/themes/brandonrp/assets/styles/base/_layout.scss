@@ -160,8 +160,12 @@ iframe {
 }
 
 .video-wrapper {
+  width: 81%;
+  margin: 0 auto ms(0);
+  
   position: relative;
-  padding-bottom: 56.25%;
+  // padding-bottom: 56.25%;
+  padding-bottom: 43%;
   padding-top: 25px;
   height: 0;
 
