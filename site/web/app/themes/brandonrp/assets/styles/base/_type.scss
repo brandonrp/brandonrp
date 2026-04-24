@@ -221,7 +221,7 @@ address {
 
     &:hover {
       .button {
-        @include opacity(1.0);
+        @include opacity(0.75);
         font-size: $home-btn-size;
         color: #fff;
         background-color: $brand-red;
