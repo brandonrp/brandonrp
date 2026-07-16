@@ -2698,8 +2698,8 @@ article.attachment,
 .entry-content h2 {
   background-color: #4a4c4b;
   padding: 2.128372212rem;
-  margin-bottom: 0.813rem;
-  margin-top: 0.813rem;
+  margin-bottom: 2.128372212rem;
+  margin-top: 2.128372212rem;
   text-align: center;
   -webkit-text-decoration: underline solid #ff4444;
           text-decoration: underline solid #ff4444;
@@ -2713,8 +2713,7 @@ article.attachment,
   font-weight: 200;
   font-size: 1.0341411132rem;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1.315434rem auto;
 }
 @media (max-width: 48rem) {
   .entry-content p, .entry-content ul {

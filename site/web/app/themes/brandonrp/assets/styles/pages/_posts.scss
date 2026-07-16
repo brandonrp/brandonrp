@@ -157,8 +157,8 @@ article.attachment,
   h2 {
     background-color: $brand-gray-lighter;
     padding: ms(2);
-    margin-bottom: ms(0);
-    margin-top: ms(0);
+    margin-bottom: ms(2);
+    margin-top: ms(2);
     text-align: center;
 
     @include text-decoration(underline, $brand-red, solid);
@@ -173,8 +173,7 @@ article.attachment,
     font-size: ms(.5);
 
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: ms(1) auto;
 
     @media(max-width: $screen-sm) {
       font-size: $font-size-mobile;
