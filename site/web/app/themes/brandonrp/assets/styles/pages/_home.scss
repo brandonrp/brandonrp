@@ -42,14 +42,17 @@
   padding: 0;
 
   position: relative;
-  height: 50%;
-  min-height: 50vh;
+  height: 33.33%;
+  height: 33.33vh;
+  min-height: 33vh;
   width: 50%;
   flex: 0 0 50%;
-  
+
   &:first-child {
     width: 100%;
     flex: 0 0 100%;
+    height: 66.6%;
+    height: 66.6vh;
   }
   
   &:nth-child(2) {
@@ -113,6 +116,23 @@
     @include filter($thumbnail-fx);
   }
 
+  .home-gallery-carousel {
+    .featured-image {
+      @include opacity(0);
+      @include transition(
+        opacity 0.8s ease-in-out,
+        filter $transition-speed ease-in-out,
+        -webkit-filter $transition-speed ease-in-out
+      );
+      z-index: 0;
+
+      &.is-active {
+        @include opacity(1.0);
+        z-index: 1;
+      }
+    }
+  }
+
   .block-icon {
     @include opacity(0.5);
     display: block;
@@ -133,8 +153,6 @@
   }
 
   @media (min-width: $screen-lg) {
-    height: 50%;
-
     &:hover {
       .block-title,
       .block-description {
@@ -142,8 +160,12 @@
       }
 
       .block-icon,
-      .featured-image,
-      .image-wrapper {
+      .image-wrapper:not(.home-gallery-carousel),
+      .image-wrapper:not(.home-gallery-carousel) .featured-image {
+        @include opacity(1.0);
+      }
+
+      .home-gallery-carousel .featured-image.is-active {
         @include opacity(1.0);
       }
 
@@ -172,22 +194,28 @@
   }
 
   @media (max-width: $screen-lg) {
-    // width: 100%;
-    // height: 33.33%;
-    // flex: 0 0 100%;
-
     .button {
       margin-top: $home-btn-size;
     }
   }
 
-  @media (max-width: $screen-xs) {
-    // display: flex;
-    // flex-direction: row;      // or column
-    // justify-content: space-between; // or start/center/end
-    // align-items: center;      // tweak as needed
-    // flex-wrap: nowrap;        // or wrap
+  @media (max-width: $screen-sm) {
+    &:first-child {
+      height: 50%;
+      height: 50vh;
+    }
 
+    &:nth-child(2),
+    &:nth-child(3) {
+      height: 25%;
+      height: 25vh;
+      min-height: 16.33vh;
+      width: 100%;
+      flex: 0 0 100%;
+    }
+  }
+  
+  @media (max-width: $screen-xs) {
     h2 {
       font-size: ms(2);
     }

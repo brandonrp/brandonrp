@@ -39,33 +39,46 @@
       while (have_rows('home_block')) : the_row(); ?>
 
         <?php
-        $image_url = '';
-
-        $title = get_sub_field('block_title');
-        $link = get_sub_field('block_link');
-
-        $attachment_id  = null;
+        $carousel_urls  = [];
+        $title          = get_sub_field('block_title');
+        $link           = get_sub_field('block_link');
         $is_first_block = ( (int) get_row_index() === 1 );
 
         if ($is_first_block) {
             if (! empty($brp_home_gallery_ids)) {
-                $attachment_id = $brp_home_gallery_ids[ array_rand($brp_home_gallery_ids) ];
+                $gallery_ids = $brp_home_gallery_ids;
+                shuffle($gallery_ids);
+
+                foreach ($gallery_ids as $attachment_id) {
+                    $image_src = wp_get_attachment_image_src($attachment_id, 'home-gallery-hero');
+                    if (empty($image_src)) {
+                        $image_src = wp_get_attachment_image_src($attachment_id, 'full');
+                    }
+                    if (! empty($image_src[0])) {
+                        $carousel_urls[] = $image_src[0];
+                    }
+                }
             } elseif (get_sub_field('block_image')) {
                 $image = get_sub_field('block_image');
+                $attachment_id = null;
                 if (! empty($image['id'])) {
                     $attachment_id = (int) $image['id'];
                 } elseif (! empty($image['ID'])) {
                     $attachment_id = (int) $image['ID'];
                 }
+                if ($attachment_id) {
+                    $image_src = wp_get_attachment_image_src($attachment_id, 'home-gallery-hero');
+                    if (empty($image_src)) {
+                        $image_src = wp_get_attachment_image_src($attachment_id, 'full');
+                    }
+                    if (! empty($image_src[0])) {
+                        $carousel_urls[] = $image_src[0];
+                    }
+                }
             }
         }
 
-        if ($attachment_id) {
-            $image_url = wp_get_attachment_image_src($attachment_id, 'home-gallery-hero');
-            if (empty($image_url)) {
-                $image_url = wp_get_attachment_image_src($attachment_id, 'full');
-            }
-        }
+        $is_carousel = count($carousel_urls) > 1;
         ?>
 
           <a class="home-block" href="<?php echo esc_url($link); ?>">
@@ -74,9 +87,11 @@
               <span class="button red">View</span>
             </div>
 
-            <div class="image-wrapper">
-              <?php if (! empty($image_url)) : ?>
-                <div class="featured-image" style="background-image: url('<?php echo esc_url($image_url[0]); ?>');"></div>
+            <div class="image-wrapper<?php echo $is_carousel ? ' home-gallery-carousel' : ''; ?>">
+              <?php if (! empty($carousel_urls)) : ?>
+                <?php foreach ($carousel_urls as $index => $url) : ?>
+                  <div class="featured-image<?php echo $index === 0 ? ' is-active' : ''; ?>" style="background-image: url('<?php echo esc_url($url); ?>');"></div>
+                <?php endforeach; ?>
               <?php else : ?>
                 <div class="featured-image"></div>
               <?php endif; ?>

@@ -57,6 +57,8 @@ window.nav = window.nav || {};   // prevent ReferenceError
           // called to initially set the height.
           resetHeight();
         }
+
+        homeGalleryCarousel();
       }
     },
     'single': {
