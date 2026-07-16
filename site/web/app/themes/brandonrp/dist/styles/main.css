@@ -3166,9 +3166,10 @@ article.attachment,
 .resume .brackets, .resume label, .resume .sidebar h3, .sidebar .resume h3, .resume .sidebar .label, .sidebar .resume .label, .resume .home-block h2, .home-block .resume h2, .resume .date, .resume .category-list:before, .resume .category-list:after, .resume .sidebar .post-teaser .entry-title, .sidebar .post-teaser .resume .entry-title, .resume .post-teaser .sidebar .entry-title, .post-teaser .sidebar .resume .entry-title, .resume .project-filters h4, .project-filters .resume h4, .resume .contact-label, .resume .sidebar .contact-info.name, .sidebar .resume .contact-info.name {
   white-space: nowrap;
 }
-.resume .page-header, .resume .entry-title {
+.resume .page-header,
+.resume .entry-title {
   font-size: 3.443706239rem;
   padding: 0;
-  margin: 2.128372212rem 0;
+  margin: 2.128372212rem auto;
 }
 /*# sourceMappingURL=main.css.map */
