@@ -1,9 +1,8 @@
 .contact-card {
   text-align: center;
-
-  max-width: $screen-xl;
+  
+  max-width: $post-width;
   width: 100%;
-
   margin: ms(2) 0;
 }
 
@@ -106,6 +105,6 @@
   .page-header, .entry-title {
     font-size: ms(3);
     padding: 0;
-    margin: ms(2) auto;
+    margin: ms(2) 0;
   }
 }

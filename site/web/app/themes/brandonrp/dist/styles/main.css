@@ -3073,7 +3073,7 @@ article.attachment,
 
 .contact-card {
   text-align: center;
-  max-width: 80rem;
+  max-width: 90rem;
   width: 100%;
   margin: 2.128372212rem 0;
 }
@@ -3170,6 +3170,6 @@ article.attachment,
 .resume .page-header, .resume .entry-title {
   font-size: 3.443706239rem;
   padding: 0;
-  margin: 2.128372212rem auto;
+  margin: 2.128372212rem 0;
 }
 /*# sourceMappingURL=main.css.map */
