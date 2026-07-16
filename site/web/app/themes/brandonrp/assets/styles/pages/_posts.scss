@@ -35,7 +35,7 @@ article.attachment,
   .entry-title {
     @include user-select(text);
 
-    font-size: $thumbnail-text-size;
+    font-size: ms(2);
     text-align: center;
     text-indent: rem(-9);
     padding: 0 ms($content-padding) 0;
@@ -45,7 +45,7 @@ article.attachment,
     .entry-title {
       text-align: center;
       margin: ms(-1) auto;
-      font-size: ms(1.5);
+      font-size: ms(1);
     }
 
     .post-info span,
@@ -170,7 +170,7 @@ article.attachment,
 
   p, ul {
     font-weight: 200;
-    font-size: ms(.5);
+    font-size: ms(.75);
 
     display: block;
     margin: ms(1) auto;
@@ -538,7 +538,7 @@ article.attachment,
     margin-bottom: 0;
 
     .label {
-      font-size: ms(1);
+      font-size: ms(0);
       display: block;
       margin-bottom: ms(-2);
     }

@@ -2559,7 +2559,7 @@ article.attachment,
   -webkit-user-select: text;
      -moz-user-select: text;
           user-select: text;
-  font-size: 1.0341411132rem;
+  font-size: 2.128372212rem;
   text-align: center;
   text-indent: -0.5625rem;
   padding: 0 3.443706239rem 0;
@@ -2569,7 +2569,7 @@ article.attachment,
   .page-header .entry-title {
     text-align: center;
     margin: 0.5024721879rem auto;
-    font-size: 1.6732403211rem;
+    font-size: 1.315434rem;
   }
 }
 @media (max-width: 48rem) and (max-width: 48rem) {
@@ -2711,7 +2711,7 @@ article.attachment,
 }
 .entry-content p, .entry-content ul {
   font-weight: 200;
-  font-size: 1.0341411132rem;
+  font-size: 1.1663380218rem;
   display: block;
   margin: 1.315434rem auto;
 }
@@ -3013,7 +3013,7 @@ article.attachment,
     margin-bottom: 0;
   }
   .clients-wrapper .label {
-    font-size: 1.315434rem;
+    font-size: 0.813rem;
     display: block;
     margin-bottom: 0.310551414rem;
   }
