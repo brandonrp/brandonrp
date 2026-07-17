@@ -2484,7 +2484,6 @@ button:focus {
   .home-block:hover .block-title,
   .home-block:hover .block-description {
     text-shadow: 0 0 0.813rem #2c2c2c;
-    color: #ff4444;
   }
   .home-block:hover .block-icon,
   .home-block:hover .image-wrapper:not(.home-gallery-carousel),
