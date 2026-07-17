@@ -2484,6 +2484,7 @@ button:focus {
   .home-block:hover .block-title,
   .home-block:hover .block-description {
     text-shadow: 0 0 0.813rem #2c2c2c;
+    color: #ff4444;
   }
   .home-block:hover .block-icon,
   .home-block:hover .image-wrapper:not(.home-gallery-carousel),
@@ -2757,6 +2758,14 @@ article.attachment,
   .entry-content {
     padding: 1.315434rem;
   }
+}
+.entry-content img {
+  outline: 0.310551414rem solid transparent;
+  outline-offset: -0.310551414rem;
+  transition: outline-color 0.1s ease-in-out;
+}
+.entry-content img:hover {
+  outline-color: #ff4444;
 }
 
 .overlay {

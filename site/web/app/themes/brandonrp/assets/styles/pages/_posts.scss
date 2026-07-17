@@ -193,6 +193,18 @@ article.attachment,
   @media (max-width: $screen-sm) {
     padding: ms(1);
   }
+
+  // Red inner border on image hover, matching the home block hover border.
+  // Outline + negative offset draws inside the image without shifting layout.
+  img {
+    outline: ms(-2) solid transparent;
+    outline-offset: -#{ms(-2)};
+    @include transition(outline-color $transition-speed ease-in-out);
+
+    &:hover {
+      outline-color: $brand-red;
+    }
+  }
 }
 
 .overlay {
