@@ -3203,6 +3203,11 @@ article.attachment,
 .resume .entry-title {
   font-size: 3.443706239rem;
   padding: 0;
+}
+.resume .page-header {
+  margin: 2.128372212rem 0;
+}
+.resume .entry-title {
   margin: 2.128372212rem auto;
 }
 /*# sourceMappingURL=main.css.map */
