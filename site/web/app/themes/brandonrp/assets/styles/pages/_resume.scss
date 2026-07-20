@@ -82,13 +82,7 @@
 
   &.name {
     @extend h3;
-  }
-
-  @media (max-width: $screen-sm) {
-    &.name {
-      font-size: ms(2);
-      margin: 0;
-    }
+    font-size: ms(2);
   }
 }
 

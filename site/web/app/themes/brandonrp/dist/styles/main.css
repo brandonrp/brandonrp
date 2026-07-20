@@ -3184,11 +3184,8 @@ article.attachment,
   text-transform: none;
   margin-bottom: 0;
 }
-@media (max-width: 48rem) {
-  .contact-info.name {
-    font-size: 2.128372212rem;
-    margin: 0;
-  }
+.contact-info.name {
+  font-size: 2.128372212rem;
 }
 
 .contact-info,
